@@ -1,3 +1,7 @@
-## Lukijalle
+# Ohjelmistotekniikka, harjoitustyö
 
-Muistathan lukea tämän ohjeen *ennen* kuin teet mitään muuta! Tämä sisältää **tärkeää tietoa**.
+## Tehtävät
+
+[gitlog.txt](laskarit/viikko1/gitlog.txt)
+
+[komentorivi.txt](laskarit/viikko1/komentorivi.txt)
