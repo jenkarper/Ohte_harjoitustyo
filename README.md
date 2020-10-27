@@ -1,6 +1,6 @@
 # Ohjelmistotekniikka, harjoitustyö
 
-Tämä työ on tehty harjoitustyönä Helsingin yliopiston kurssille Ohjelmistotekniikka.
+Tämä työ on tehty harjoitustyönä Helsingin yliopiston kurssille Ohjelmistotekniikka. Työ on tehty Javalla.
 
 ## Tehtävät
 
