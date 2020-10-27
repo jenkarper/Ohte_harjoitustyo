@@ -1,0 +1,113 @@
+commit d9941470c7bdeaa5b0f8a986f518e865ec61eebc
+Author: jenkarper <55617257+jenkarper@users.noreply.github.com>
+Date:   Tue Oct 27 17:47:42 2020 +0200
+
+    tiedoston poisto ja uudelleennimentä
+
+ tiedostoja/file2             | 0
+ tiedostoja/{file1 => file22} | 0
+ 2 files changed, 0 insertions(+), 0 deletions(-)
+
+commit 64e7bc1d16574c08493c6511178d7b41b5ac420d
+Author: jenkarper <55617257+jenkarper@users.noreply.github.com>
+Date:   Tue Oct 27 17:37:21 2020 +0200
+
+    tiedostoja lisätty
+
+ tiedostoja/file1 | 0
+ tiedostoja/file2 | 0
+ tiedostoja/file3 | 0
+ 3 files changed, 0 insertions(+), 0 deletions(-)
+
+commit a8f9524d0f20be136c90d54aac6a5132771444a9
+Author: jenkarper <55617257+jenkarper@users.noreply.github.com>
+Date:   Tue Oct 27 16:44:08 2020 +0200
+
+    muutokset ekaan ja kolmanteen
+
+ eka.txt    | 28 +++-------------------------
+ kolmas.txt |  2 +-
+ 2 files changed, 4 insertions(+), 26 deletions(-)
+
+commit 869758ea80acb9fe5c9e9a038dc881aa47bb8040
+Author: jenkarper <55617257+jenkarper@users.noreply.github.com>
+Date:   Tue Oct 27 16:39:12 2020 +0200
+
+    nimen muutos
+
+ tiedosto.txt => eka.txt | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+
+commit a43b17ac7489ad386f95a1f2279091c309a48d7d
+Author: jenkarper <55617257+jenkarper@users.noreply.github.com>
+Date:   Tue Oct 27 16:37:38 2020 +0200
+
+    poistettu toinen.txt
+
+ toinen.txt | 1 -
+ 1 file changed, 1 deletion(-)
+
+commit 09c594905ab4b73469f814905fb269cf0be6e633
+Author: jenkarper <55617257+jenkarper@users.noreply.github.com>
+Date:   Tue Oct 27 16:35:09 2020 +0200
+
+    poisto ja lisäys
+
+ tiedosto.txt | 5 +----
+ 1 file changed, 1 insertion(+), 4 deletions(-)
+
+commit ea15ff5d6847112169ff6dd934e199005732ffe0
+Author: jenkarper <55617257+jenkarper@users.noreply.github.com>
+Date:   Tue Oct 27 16:34:00 2020 +0200
+
+    lisäys
+
+ tiedosto.txt | 30 ++++++++++++++++++++++++++++++
+ 1 file changed, 30 insertions(+)
+
+commit c63d62c45a2c0973bf7655897e757e1bfd0dfbaa
+Author: jenkarper <55617257+jenkarper@users.noreply.github.com>
+Date:   Tue Oct 27 16:25:28 2020 +0200
+
+    hakemisto lisätty
+
+ stuff/bricabrac | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+
+commit 5a59613d8abbe774fc9c90438c41d787aef273d3
+Author: jenkarper <55617257+jenkarper@users.noreply.github.com>
+Date:   Tue Oct 27 16:24:24 2020 +0200
+
+    kaksi muutosta
+
+ kolmas.txt | 1 +
+ toinen.txt | 1 +
+ 2 files changed, 2 insertions(+)
+
+commit f078b858fe7f2dd53abc5c1eda51e41a3f479a11
+Author: jenkarper <55617257+jenkarper@users.noreply.github.com>
+Date:   Tue Oct 27 16:22:52 2020 +0200
+
+    kolmas.txt lisätty
+
+ kolmas.txt | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+
+commit dad6019d71aab5395c875b17967f062076db26ef
+Author: jenkarper <55617257+jenkarper@users.noreply.github.com>
+Date:   Tue Oct 27 16:19:13 2020 +0200
+
+    muutos ja lisäys
+
+ tiedosto.txt | 1 +
+ toinen.txt   | 0
+ 2 files changed, 1 insertion(+)
+
+commit cffe3e90938334946bdc9017ba5cd4bf9d8de5af
+Author: jenkarper <55617257+jenkarper@users.noreply.github.com>
+Date:   Tue Oct 27 16:17:23 2020 +0200
+
+    tiedosto.txt luotu
+
+ tiedosto.txt | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
