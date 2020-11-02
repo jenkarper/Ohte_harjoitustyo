@@ -12,6 +12,8 @@ Sovelluksella on vain yksi käyttäjärooli, *peruskäyttäjä*.
 
 Alkuvaiheessa sovelluksella on vain tekstikäyttöliittymä. Mahdollinen graafinen käyttöliittymä koostuu kolmesta päänäkymästä: Avausnäkymässä käyttäjä pääsee aloittamaan uuden pelin, jonka jälkeen siirrytään pelaajanimen syöttöön. Tämän jälkeen aukeaa varsinainen pelinäkymä, jossa pysytään koko pelin ajan. Jos pelitulosten tallennus otetaan käyttöön, neljäntenä näkymänä voisi olla Parhaat tulokset -listaus, jossa näkyvät parhaat kokonaispisteet ja niihin liittyvät pelaajanimet.
 
+<img src="https://github.com/jenkarper/YahtzeeDesktop/blob/master/dokumentaatio/kuvat/gui_luonnos.png" width="800">
+
 ## Perusversion tarjoama toiminnallisuus
 
 Käyttäjä voi pelata yhden tai useamman erän jatsia. Yhdessä erässä on 15 kierrosta, yhdellä kierroksella heitetään 1-3 heittoa.
