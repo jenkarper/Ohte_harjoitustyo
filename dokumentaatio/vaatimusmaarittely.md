@@ -16,13 +16,17 @@ Alkuvaiheessa sovelluksella on vain tekstikäyttöliittymä. Mahdollinen graafin
 
 ## Perusversion tarjoama toiminnallisuus
 
-Käyttäjä voi pelata yhden tai useamman erän jatsia. Yhdessä erässä on 15 kierrosta, yhdellä kierroksella heitetään 1-3 heittoa.
+Sovellus simuloi viiden nopan heittämistä. Sovellus tarjoaa myös pöytäkirjan, johon heittojen tulokset merkitään, sekä pistelaskutoiminnallisuuden. Käyttäjä voi
 
-Toiminnallisuuden tarkempi erittely:
-* Kierroksen ensimmäisen ja toisen heiton jälkeen käyttäjä voi valita vain osan nopista uudelleen heitettäviksi.
-* Kierroksen päätyttyä ohjelma kertoo, millaiset pisteet heitolla on mahdollista saada, ja käyttäjä voi valita haluamansa vaihtoehdon.
-* Pelin päätyttyä käyttäjä voi aloittaa uuden pelin tai lopettaa ohjelman.
+* heittää viittä d6-noppaa
+* merkitä nopan lukituksi, jolloin sen silmäluku säilyy heitosta toiseen
+* vapauttaa lukitun nopan
+* laskea heiton pisteet jatsin pistesääntöjen mukaan
+* merkitä heiton pisteet haluamaansa kohtaan pöytäkirjassa
+* laskea yhteispisteet
+
+Tekstikäyttöliittymässä pelaaja voi heiton jälkeen aina tulostaa senhetkisen pöytäkirjan näkyviin ruudulle. Graafisessa käyttöliittymässä ajantasainen pöytäkirja on koko ajan näkyvissä.
 
 ## Mahdollinen laajennettu toiminnallisuus
 
-Käyttäjä voi halutessaan tallentaa pelaajanimensä ja pistemääränsä tietokantaan. Peliin voi ottaa mukaan useampia pelaajia.
+Perusversiossa sovellus ei kontrolloi heittojen määrää. Laajemmassa toteutuksessa voitaisiin jatsin sääntöjen mukaisesti rajoittaa uusintaheittojen määrää kahteen ja kierrosten määrää viiteentoista. Sovellukseen voisi myös liittää pistetietokannan, johon pelaaja voi halutessaan tallentaa yhteispisteensä. Tietokannasta voisi hakea Top 10 -listan sovelluksen lopetusnäkymään. Sovellus voisi myös tarjota mahdollisuuden moninpeliin.
