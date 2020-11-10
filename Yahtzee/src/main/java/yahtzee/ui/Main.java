@@ -1,9 +1,6 @@
 package yahtzee.ui;
 
 import java.util.Scanner;
-import yahtzee.domain.Die;
-import yahtzee.domain.Roll;
-import yahtzee.ui.YahtzeeTUI;
 
 public class Main {
     
