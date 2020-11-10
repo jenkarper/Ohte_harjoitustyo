@@ -1,4 +1,4 @@
-package yahtzee.main;
+package yahtzee.ui;
 
 import java.util.Scanner;
 import yahtzee.domain.Die;
