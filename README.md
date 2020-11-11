@@ -12,7 +12,7 @@ YahtzeeDesktop on paikallisella koneella pelattava jatsi-noppapeli.
 
 [Tuntikirjanpito](dokumentaatio/tuntikirjanpito.md)
 
-## Tehtävät
+## Harjoitustehtävät
 
 ### Viikko 1
 
@@ -23,3 +23,7 @@ YahtzeeDesktop on paikallisella koneella pelattava jatsi-noppapeli.
 ### Viikko 2
 
 [testikattavuus.png](laskarit/viikko2/testikattavuus.png)
+
+[Maksukortti](laskarit/viikko2/Maksukortti)
+
+[Unicafe](laskarit/viikko2/Unicafe)
