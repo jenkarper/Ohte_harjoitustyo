@@ -38,7 +38,7 @@ public class DieTest {
     }
     
     @Test
-    public void heldDiceAreNotRolled() {
+    public void heldDieIsNotRolled() {
         int value = die.roll();
         die.setHold(true);
         boolean changed = false;
