@@ -6,6 +6,8 @@ Tämä repositorio on luotu Helsingin yliopiston Ohjelmistotekniikan kurssille h
 
 YahtzeeDesktop on paikallisella koneella pelattava jatsi-noppapeli.
 
+(Viikottaista tarkistusta varten: pääohjelman sisältävän luokan täydellinen nimi on yahtzee.ui.Main.)
+
 ### Dokumentaatio
 
 [Vaatimusmäärittely](dokumentaatio/vaatimusmaarittely.md)
