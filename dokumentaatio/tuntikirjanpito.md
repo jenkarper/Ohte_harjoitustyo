@@ -9,5 +9,7 @@
 | 3.11. | 0.5 | Vaatimusmäärittelyn täydennys |
 | 4.11. | 3.5 | Maven-projektin luonti, ensimmäiset luokat ja yksikkötestit |
 | 10.11 |  1  | Ohjelman testaaminen virtuaalityöpöydällä |
+| 13.11.| 2.5 | Heittojen tarkastuksen eriyttäminen omaan luokkaansa, yksikkötestit tarkastusluokalle |
+| 17.11.| 0.5 | Koodin siistiminen muutosten jälkeen, README-tiedoston päivitys |
 |       |     | |
 | YHT   | 18  | |
