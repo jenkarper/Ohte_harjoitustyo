@@ -13,4 +13,4 @@
 | 17.11.| 0.5 | Koodin siistiminen muutosten jälkeen, README-tiedoston päivitys |
 | 20.11.|  2  | Luokka- ja pakkauskaavion lisääminen, Checkstylen käyttöönotto |
 |       |     | |
-| YHT   | 18  | |
+| YHT   | 23  | |
