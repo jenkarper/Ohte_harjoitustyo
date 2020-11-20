@@ -33,7 +33,6 @@ public class Checker {
 
     public int twoPairs(int[] dice) {
         Arrays.sort(dice);
-
         if ((dice[0] == dice[1]) && (dice[2] == dice[3])) {
             return dice[0] + dice[1] + dice[2] + dice[3];
 
@@ -50,16 +49,12 @@ public class Checker {
 
     public int threeKind(int[] dice) {
         Arrays.sort(dice);
-
         if (dice[0] == dice[2]) {
             return 3 * dice[0];
-
         } else if (dice[1] == dice[3]) {
             return 3 * dice[1];
-
         } else if (dice[2] == dice[4]) {
             return 3 * dice[2];
-
         } else {
             return 0;
         }
@@ -67,7 +62,6 @@ public class Checker {
 
     public int fourKind(int[] dice) {
         Arrays.sort(dice);
-
         if ((dice[0] == dice[3])
                 || (dice[1] == dice[4])) {
             return 4 * dice[1];
@@ -77,7 +71,6 @@ public class Checker {
 
     public int smallStraight(int[] dice) {
         Arrays.sort(dice);
-
         if (straight(dice)) {
             if (dice[0] == 1) {
                 return 15;
@@ -88,7 +81,6 @@ public class Checker {
 
     public int largeStraight(int[] dice) {
         Arrays.sort(dice);
-
         if (straight(dice)) {
             if (dice[0] == 2) {
                 return 20;
@@ -99,7 +91,6 @@ public class Checker {
 
     public int fullHouse(int[] dice) {
         Arrays.sort(dice);
-
         if ((dice[0] == dice[2]) && (dice[3] == dice[4])
                 || (dice[0] == dice[1]) && (dice[2] == dice[4])) {
             return sum(dice);
@@ -109,7 +100,6 @@ public class Checker {
     
     public int yahtzee(int[] dice) {
         Arrays.sort(dice);
-        
         if (dice[0] == dice[4]) {
             return sum(dice) + 50;
         }
