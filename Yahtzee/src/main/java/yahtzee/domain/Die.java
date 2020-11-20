@@ -1,5 +1,9 @@
 package yahtzee.domain;
 
+/**
+ *
+ * @author pertjenn
+ */
 public class Die {
 
     private int value;

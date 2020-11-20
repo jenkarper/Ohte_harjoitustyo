@@ -3,6 +3,10 @@ import static org.junit.Assert.*;
 import yahtzee.domain.Die;
 import yahtzee.domain.Roll;
 
+/**
+ *
+ * @author pertjenn
+ */
 public class RollTest {
     private Roll roll;
     

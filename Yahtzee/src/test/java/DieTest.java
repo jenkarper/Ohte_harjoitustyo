@@ -2,6 +2,10 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 import yahtzee.domain.Die;
 
+/**
+ *
+ * @author pertjenn
+ */
 public class DieTest {
     
     private Die die;

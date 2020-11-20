@@ -5,6 +5,10 @@ import java.util.Scanner;
 import yahtzee.domain.Die;
 import yahtzee.domain.Roll;
 
+/**
+ *
+ * @author pertjenn
+ */
 public class YahtzeeTUI {
 
     private Scanner scanner;
