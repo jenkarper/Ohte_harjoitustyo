@@ -32,9 +32,7 @@ public class Die {
     public int getValue() {
         return this.value;
     }
-    
     // TEST METHODS
-    
     public void setTestValue(int value) {
         this.value = value;
     }

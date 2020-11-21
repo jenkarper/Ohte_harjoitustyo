@@ -7,8 +7,44 @@ import java.util.Arrays;
  * @author pertjenn
  */
 public class Checker {
+    
+    public int check(int type, int[] dice) {
+        switch (type) {
+            case 1:
+                return duplicates(dice, 1);
+            case 2:
+                return duplicates(dice, 2);
+            case 3:
+                return duplicates(dice, 3);
+            case 4:
+                return duplicates(dice, 4);
+            case 5:
+                return duplicates(dice, 5);
+            case 6:
+                return duplicates(dice, 6);
+            case 7:
+                return pair(dice);
+            case 8:
+                return twoPairs(dice);
+            case 9:
+                return threeKind(dice);
+            case 10:
+                return fourKind(dice);
+            case 11:
+                return smallStraight(dice);
+            case 12:
+                return largeStraight(dice);
+            case 13:
+                return fullHouse(dice);
+            case 14:
+                return sum(dice);
+            case 15:
+                return yahtzee(dice);
+        }
+        return 0;
+    }
 
-    public int duplicates(int[] dice, int i) {
+    private int duplicates(int[] dice, int i) {
         int sum = 0;
         for (Integer value : dice) {
             if (value == i) {
@@ -18,20 +54,20 @@ public class Checker {
         return sum;
     }
 
-    public int pair(int[] dice) {
+    private int pair(int[] dice) {
         Arrays.sort(dice);
         int sum = 0;
         int max = 0;
         for (int i = 1; i < 5; i++) {
             if (dice[i] == dice[i - 1]) {
-                sum = 2 * dice[i];
+                sum = dice[i] + dice[i];
                 max = Math.max(sum, max);
             }
         }
         return max;
     }
 
-    public int twoPairs(int[] dice) {
+    private int twoPairs(int[] dice) {
         Arrays.sort(dice);
         if ((dice[0] == dice[1]) && (dice[2] == dice[3])) {
             return dice[0] + dice[1] + dice[2] + dice[3];
@@ -47,49 +83,53 @@ public class Checker {
         }
     }
 
-    public int threeKind(int[] dice) {
+    private int threeKind(int[] dice) {
         Arrays.sort(dice);
+        int multiplier = 3;
         if (dice[0] == dice[2]) {
-            return 3 * dice[0];
+            return multiplier * dice[0];
         } else if (dice[1] == dice[3]) {
-            return 3 * dice[1];
+            return multiplier * dice[1];
         } else if (dice[2] == dice[4]) {
-            return 3 * dice[2];
+            return multiplier * dice[2];
         } else {
             return 0;
         }
     }
 
-    public int fourKind(int[] dice) {
+    private int fourKind(int[] dice) {
         Arrays.sort(dice);
+        int multiplier = 4;
         if ((dice[0] == dice[3])
                 || (dice[1] == dice[4])) {
-            return 4 * dice[1];
+            return multiplier * dice[1];
         }
         return 0;
     }
 
-    public int smallStraight(int[] dice) {
+    private int smallStraight(int[] dice) {
         Arrays.sort(dice);
+        int points = 15;
         if (straight(dice)) {
             if (dice[0] == 1) {
-                return 15;
+                return points;
             }
         }
         return 0;
     }
 
-    public int largeStraight(int[] dice) {
+    private int largeStraight(int[] dice) {
         Arrays.sort(dice);
+        int points = 20;
         if (straight(dice)) {
             if (dice[0] == 2) {
-                return 20;
+                return points;
             }
         }
         return 0;
     }
 
-    public int fullHouse(int[] dice) {
+    private int fullHouse(int[] dice) {
         Arrays.sort(dice);
         if ((dice[0] == dice[2]) && (dice[3] == dice[4])
                 || (dice[0] == dice[1]) && (dice[2] == dice[4])) {
@@ -98,17 +138,18 @@ public class Checker {
         return 0;
     }
     
-    public int yahtzee(int[] dice) {
+    private int yahtzee(int[] dice) {
         Arrays.sort(dice);
+        int bonus = 50;
         if (dice[0] == dice[4]) {
-            return sum(dice) + 50;
+            return sum(dice) + bonus;
         }
         return 0;
     }
     
     // HELPER METHODS
 
-    public boolean straight(int[] dice) {
+    private boolean straight(int[] dice) {
         Arrays.sort(dice);
 
         Boolean straight = true;
@@ -120,7 +161,7 @@ public class Checker {
         return straight;
     }
 
-    public int sum(int[] dice) {
+    private int sum(int[] dice) {
         int sum = 0;
         for (int i = 0; i < 5; i++) {
             sum += dice[i];
