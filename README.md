@@ -12,7 +12,7 @@ YahtzeeDesktop on paikallisella koneella pelattava jatsi-noppapeli.
 
 [Vaatimusmäärittely](dokumentaatio/vaatimusmaarittely.md)
 
-[Arkkitehtuurikuvaus](dokumentaatio/arkkitehtuurikuvaus.md)
+[Arkkitehtuurikuvaus](dokumentaatio/arkkitehtuuri.md)
 
 [Tuntikirjanpito](dokumentaatio/tuntikirjanpito.md)
 
@@ -20,3 +20,6 @@ YahtzeeDesktop on paikallisella koneella pelattava jatsi-noppapeli.
 
 #### Testaus
 Testit suoritetaan komennolla `mvn test`, ja testikattavuusraportti luodaan komennolla `mvn jacoco:report`. Raportti muodostuu tiedostoon _target/site/jacoco/index.html_, ja sen voi avata selaimessa esimerkiksi komennolla `chromium-browser target/site/jacoco/index.html`.
+
+#### Checkstyle
+Projektissa on käytössä koodin laatua valvova työkalu Checkstyle. Checkstyle-tarkastus suoritetaan komentoriviltä komennolla `mvn jxr:jxr checkstyle:checkstyle`, ja sen generoimaa raporttia voi tarkastella selaimessa komennolla `chromium-browser tarket/site/checkstyle.html`. Käyttöliittymän rakentava koodi (pakkaus yahtzee.ui) on jätetty Checkstylen ulkopuolelle.
