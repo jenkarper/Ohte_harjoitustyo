@@ -12,7 +12,8 @@ public class Main {
         
         Scanner scanner = new Scanner(System.in);
         YahtzeeTUI tui = new YahtzeeTUI(scanner);
-        tui.start();
+        //tui.start();
+        YahtzeeGUI.main(args);
     }
     
 }
