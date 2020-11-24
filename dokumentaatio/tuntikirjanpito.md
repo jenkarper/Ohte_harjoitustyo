@@ -14,7 +14,8 @@
 | 20.11.|  2  | Luokka- ja pakkauskaavion lisääminen, Checkstylen käyttöönotto |
 | 21.11.|  1  | Checker-luokan rakenteelliset muutokset (Checkstyle-virheiden korjaus) |
 | 23.11.|  3  | Ensimmäinen versio graafisesta käyttöliittymästä |
-| 23.11.|  3  | Ensimmäinen versio graafisesta käyttöliittymästä jatkuu |
-| 23.11.|  1  | Projektin arkkitehtuurin uudelleenjärjestelyä, kaksi uutta luokkaa |
+| 24.11.|  3  | Ensimmäinen versio graafisesta käyttöliittymästä jatkuu |
+| 24.11.|  1  | Projektin arkkitehtuurin uudelleenjärjestelyä, kaksi uutta luokkaa |
+| 24.11.|  1  | Käyttöliittymäluonnoksen päivitys, käyttöliittymän toiminnallisuuden suunnittelu |
 |       |     | |
-| YHT   | 31  | |
+| YHT   | 32  | |
