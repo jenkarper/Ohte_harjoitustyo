@@ -10,7 +10,7 @@ Sovelluksella on vain yksi käyttäjärooli, *peruskäyttäjä*.
 
 ## Käyttöliittymäluonnos
 
-Alkuvaiheessa sovelluksella on vain tekstikäyttöliittymä. Mahdollinen graafinen käyttöliittymä koostuu kolmesta päänäkymästä: Avausnäkymässä käyttäjä pääsee aloittamaan uuden pelin, jonka jälkeen siirrytään pelaajanimen syöttöön. Tämän jälkeen aukeaa varsinainen pelinäkymä, jossa pysytään koko pelin ajan. Jos pelitulosten tallennus otetaan käyttöön, neljäntenä näkymänä voisi olla Parhaat tulokset -listaus, jossa näkyvät parhaat kokonaispisteet ja niihin liittyvät pelaajanimet.
+Graafinen käyttöliittymä koostuu neljästä näkymästä: Avausnäkymässä käyttäjä pääsee aloittamaan uuden pelin, jonka jälkeen siirrytään pelaajanimen syöttöön. Tämän jälkeen aukeaa varsinainen pelinäkymä, jossa pääasiallisesti pysytään. Heiton pisteyttäminen avaa uuden ikkunan, jossa pelaaja pääsee valitsemaan, mihin pöytäkirjan kategoriaan haluaa pisteyttää heiton. Jos pelitulosten tallennus otetaan käyttöön, viidentenä näkymänä voisi olla Parhaat tulokset -listaus, jossa näkyvät parhaat kokonaispisteet ja niihin liittyvät pelaajanimet.
 
 ## Perusversion tarjoama toiminnallisuus
 
