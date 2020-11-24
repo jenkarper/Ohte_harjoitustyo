@@ -1,7 +1,7 @@
 # Tuntikirjanpito
 
 | PVM | Tunnit | Tehtävät |
-| :-----|:---:| :-----|
+| -----:|:---:| :-----|
 | 28.10.|  5  | Demo-sovelluksen rakentaminen ja alustava testaus |
 | 1.11. |  5  | Demo-sovelluksen rakentaminen jatkuu |
 | 2.11. |  2  | Demo-sovelluksen rakentaminen jatkuu |
@@ -12,5 +12,9 @@
 | 13.11.| 2.5 | Heittojen tarkastuksen eriyttäminen omaan luokkaansa, yksikkötestit tarkastusluokalle |
 | 17.11.| 0.5 | Koodin siistiminen muutosten jälkeen, README-tiedoston päivitys |
 | 20.11.|  2  | Luokka- ja pakkauskaavion lisääminen, Checkstylen käyttöönotto |
+| 21.11.|  1  | Checker-luokan rakenteelliset muutokset (Checkstyle-virheiden korjaus) |
+| 23.11.|  3  | Ensimmäinen versio graafisesta käyttöliittymästä |
+| 23.11.|  3  | Ensimmäinen versio graafisesta käyttöliittymästä jatkuu |
+| 23.11.|  1  | Projektin arkkitehtuurin uudelleenjärjestelyä, kaksi uutta luokkaa |
 |       |     | |
-| YHT   | 23  | |
+| YHT   | 31  | |
