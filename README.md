@@ -12,7 +12,7 @@ YahtzeeDesktop on paikallisella koneella pelattava jatsi-noppapeli.
 
 [Vaatimusmäärittely](dokumentaatio/vaatimusmaarittely.md)
 
-[Arkkitehtuurikuvaus](dokumentaatio/arkkitehtuurikuvaus.md)
+[Arkkitehtuurikuvaus](dokumentaatio/arkkitehtuuri.md)
 
 [Tuntikirjanpito](dokumentaatio/tuntikirjanpito.md)
 
