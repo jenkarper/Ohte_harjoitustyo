@@ -50,4 +50,8 @@ public class Game {
     public void setHoldStatus(int die, boolean status) {
         this.roll.getDice()[die].setHold(status);
     }
+    
+    public int checkScore(int type, int[] dice) {
+        return this.checker.check(type, dice);
+    }
 }
