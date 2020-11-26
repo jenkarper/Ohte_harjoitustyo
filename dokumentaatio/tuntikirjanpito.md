@@ -17,5 +17,7 @@
 | 24.11.|  3  | Ensimmäinen versio graafisesta käyttöliittymästä jatkuu |
 | 24.11.|  1  | Projektin arkkitehtuurin uudelleenjärjestelyä, kaksi uutta luokkaa |
 | 24.11.|  1  | Käyttöliittymäluonnoksen päivitys, käyttöliittymän toiminnallisuuden suunnittelu |
+| 25.11.|  5  | Graafisen käyttöliittymän asettelu, JavaFX-dokumentaation tutkiminen |
+| 26.11.|  3  | Pisteytystoiminnallisuuden lisääminen graafiseen käyttöliittymään |
 |       |     | |
-| YHT   | 32  | |
+| YHT   | 40  | |
