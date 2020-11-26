@@ -6,4 +6,5 @@
 
 <suppressions>
     <suppress files="yahtzee.ui.YahtzeeTUI.java" checks="[a-zA-Z0-9]*"/>
+    <suppress files="yahtzee.ui.YahtzeeGUI.java" checks="[a-zA-Z0-9]*"/>
 </suppressions>
