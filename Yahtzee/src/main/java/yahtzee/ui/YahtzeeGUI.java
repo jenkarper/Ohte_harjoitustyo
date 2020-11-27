@@ -3,8 +3,6 @@ package yahtzee.ui;
 import javafx.application.Application;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
-import javafx.event.EventType;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
@@ -13,7 +11,6 @@ import javafx.scene.control.Label;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
@@ -144,7 +141,6 @@ public class YahtzeeGUI extends Application {
         Button scoreButton = new Button("Pisteytä");
         scoreButton.setStyle("-fx-background-color: #e9f7ef; -fx-font-size: 1em; -fx-border-color:  #48c9b0; -fx-border-width: 1px;");
 
-        // Scoring a roll opens a new window
         // 1.5 INSTRUCTION BUTTON
         Button instructionButton = new Button("Kuinka peli toimii?");
         instructionButton.setStyle("-fx-background-color: #e9f7ef; -fx-font-size: 1em; -fx-border-color:  #48c9b0; -fx-border-width: 1px;");
@@ -158,20 +154,20 @@ public class YahtzeeGUI extends Application {
             instruction.setWrapText(true);
             instruction.setMaxWidth(280);
             instruction.setTextAlignment(TextAlignment.JUSTIFY);
-            
+
             Button closeButton = new Button("Sulje");
             closeButton.setStyle("-fx-background-color: #e9f7ef; -fx-font-size: 1em; -fx-border-color:  #48c9b0; -fx-border-width: 1px;");
-            
+
             VBox instructionView = new VBox(instruction, closeButton);
             instructionView.setPadding(new Insets(10, 10, 10, 10));
             instructionView.setSpacing(10);
-            
+
             Scene instructionScene = new Scene(instructionView);
             Stage instructionWindow = new Stage();
             instructionWindow.setTitle("Ohjeet");
             instructionWindow.setScene(instructionScene);
             instructionWindow.show();
-            
+
             closeButton.setOnAction(value -> {
                 instructionWindow.close();
             });
@@ -208,7 +204,7 @@ public class YahtzeeGUI extends Application {
         scorecard.getChildren().addAll(scorecardTitle, ones, twos, threes, fours, fives, sixes,
                 pair, twoPairs, threeKind, fourKind, smallStraight, largeStraight,
                 fullHouse, chance, yahtzee);
-        
+
         // 2.3 BOTTOM NODE FOR INSTRUCTIONS
         HBox bottomNode = new HBox(instructionButton);
 
@@ -227,7 +223,7 @@ public class YahtzeeGUI extends Application {
         Label scoreInstruction = new Label();
         scoreInstruction.setText("Valitse kategoria, johon haluat pisteyttää heiton!");
 
-        // Create radio buttons for all categories
+        // Define scoring action
         scoreButton.setOnAction((ActionEvent event) -> {
 
             // Create elements in scoreview
@@ -241,48 +237,106 @@ public class YahtzeeGUI extends Application {
             HBox scoreViewButtons = new HBox(scoreOK, scoreCancel);
             scoreViewButtons.setSpacing(20);
 
-            // Add radiobuttons to catList
+            // Create radiobuttons and add to catList
             int[] dice = game.getRoll().getValues();
+            int[] currentPoints = game.getScorecard().getPoints();
 
             RadioButton catOnes = new RadioButton("Ykköset: " + game.checkScore(1, dice));
             catOnes.setToggleGroup(catGroup);
+            if (currentPoints[1] == -1) {
+                
+                scoreOptions.getChildren().add(catOnes);
+            }
             RadioButton catTwos = new RadioButton("Kakkoset: " + game.checkScore(2, dice));
             catTwos.setToggleGroup(catGroup);
+            if (currentPoints[2] == -1) {
+                
+                scoreOptions.getChildren().add(catTwos);
+            }
             RadioButton catThrees = new RadioButton("Kolmoset: " + game.checkScore(3, dice));
             catThrees.setToggleGroup(catGroup);
+            if (currentPoints[3] == -1) {
+                
+                scoreOptions.getChildren().add(catThrees);
+            }
             RadioButton catFours = new RadioButton("Neloset: " + game.checkScore(4, dice));
             catFours.setToggleGroup(catGroup);
+            if (currentPoints[4] == -1) {
+                
+                scoreOptions.getChildren().add(catFours);
+            }
             RadioButton catFives = new RadioButton("Viitoset: " + game.checkScore(5, dice));
             catFives.setToggleGroup(catGroup);
+            if (currentPoints[5] == -1) {
+                
+                scoreOptions.getChildren().add(catFives);
+            }
             RadioButton catSixes = new RadioButton("Kuutoset: " + game.checkScore(6, dice));
             catSixes.setToggleGroup(catGroup);
+            if (currentPoints[6] == -1) {
+                
+                scoreOptions.getChildren().add(catSixes);
+            }
             RadioButton catPair = new RadioButton("Pari: " + game.checkScore(7, dice));
             catPair.setToggleGroup(catGroup);
+            if (currentPoints[7] == -1) {
+                
+                scoreOptions.getChildren().add(catPair);
+            }
             RadioButton catTwoPairs = new RadioButton("Kaksi paria: " + game.checkScore(8, dice));
             catTwoPairs.setToggleGroup(catGroup);
+            if (currentPoints[8] == -1) {
+                
+                scoreOptions.getChildren().add(catTwoPairs);
+            }
             RadioButton catThreeKind = new RadioButton("Kolmiluku: " + game.checkScore(9, dice));
             catThreeKind.setToggleGroup(catGroup);
+            if (currentPoints[9] == -1) {
+                
+                scoreOptions.getChildren().add(catThreeKind);
+            }
             RadioButton catFourKind = new RadioButton("Neliluku: " + game.checkScore(10, dice));
             catFourKind.setToggleGroup(catGroup);
+            if (currentPoints[10] == -1) {
+                
+                scoreOptions.getChildren().add(catFourKind);
+            }
             RadioButton catSmallStraight = new RadioButton("Pieni suora: " + game.checkScore(11, dice));
             catSmallStraight.setToggleGroup(catGroup);
+            if (currentPoints[11] == -1) {
+                
+                scoreOptions.getChildren().add(catSmallStraight);
+            }
             RadioButton catLargeStraight = new RadioButton("Iso suora: " + game.checkScore(12, dice));
             catLargeStraight.setToggleGroup(catGroup);
+            if (currentPoints[12] == -1) {
+                
+                scoreOptions.getChildren().add(catLargeStraight);
+            }
             RadioButton catFullHouse = new RadioButton("Mökki: " + game.checkScore(13, dice));
             catFullHouse.setToggleGroup(catGroup);
+            if (currentPoints[13] == -1) {
+                
+                scoreOptions.getChildren().add(catFullHouse);
+            }
             RadioButton catChance = new RadioButton("Sattuma: " + game.checkScore(14, dice));
             catChance.setToggleGroup(catGroup);
+            if (currentPoints[14] == -1) {
+                
+                scoreOptions.getChildren().add(catChance);
+            }
             RadioButton catYahtzee = new RadioButton("Jatsi: " + game.checkScore(15, dice));
             catYahtzee.setToggleGroup(catGroup);
-
-            scoreOptions.getChildren().addAll(catOnes, catTwos, catThrees, catFours, catFives, catSixes,
-                    catPair, catTwoPairs, catThreeKind, catFourKind, catSmallStraight, catLargeStraight,
-                    catFullHouse, catChance, catYahtzee);
+            if (currentPoints[15] == -1) {
+                
+                scoreOptions.getChildren().add(catYahtzee);
+            }
 
             // Create scoreview layout
             BorderPane scoreView = new BorderPane();
             scoreView.setPadding(new Insets(40, 40, 40, 40));
             scoreView.setTop(scoreInstruction);
+            scoreView.setMargin(scoreInstruction, new Insets(20, 20, 20, 20));
             scoreView.setBottom(scoreViewButtons);
             scoreViewButtons.setAlignment(Pos.BOTTOM_RIGHT);
             scoreView.setCenter(scoreOptions);
@@ -294,7 +348,7 @@ public class YahtzeeGUI extends Application {
             scoreWindow.setScene(scoreScene);
             scoreWindow.show();
 
-            // 
+            // Define scoreview buttons action
             scoreOK.setOnAction(value -> {
                 RadioButton selected = (RadioButton) catGroup.getSelectedToggle();
                 int points = 0;
@@ -313,51 +367,51 @@ public class YahtzeeGUI extends Application {
                 } else if (selected.equals(catFours)) {
                     game.scoreRoll(4, dice);
                     points = game.checkScore(4, dice);
-                    threes.setText("Neloset: " + points);
+                    fours.setText("Neloset: " + points);
                 } else if (selected.equals(catFives)) {
                     game.scoreRoll(5, dice);
                     points = game.checkScore(5, dice);
-                    threes.setText("Viitoset: " + points);
+                    fives.setText("Viitoset: " + points);
                 } else if (selected.equals(catSixes)) {
                     game.scoreRoll(6, dice);
                     points = game.checkScore(6, dice);
-                    threes.setText("Kuutoset: " + points);
+                    sixes.setText("Kuutoset: " + points);
                 } else if (selected.equals(catPair)) {
                     game.scoreRoll(7, dice);
                     points = game.checkScore(7, dice);
-                    threes.setText("Pari: " + points);
+                    pair.setText("Pari: " + points);
                 } else if (selected.equals(catTwoPairs)) {
                     game.scoreRoll(8, dice);
                     points = game.checkScore(8, dice);
-                    threes.setText("Kaksi paria: " + points);
+                    twoPairs.setText("Kaksi paria: " + points);
                 } else if (selected.equals(catThreeKind)) {
                     game.scoreRoll(9, dice);
                     points = game.checkScore(9, dice);
-                    threes.setText("Kolmiluku: " + points);
+                    threeKind.setText("Kolmiluku: " + points);
                 } else if (selected.equals(catFourKind)) {
                     game.scoreRoll(10, dice);
                     points = game.checkScore(10, dice);
-                    threes.setText("Neliluku: " + points);
+                    fourKind.setText("Neliluku: " + points);
                 } else if (selected.equals(catSmallStraight)) {
                     game.scoreRoll(11, dice);
                     points = game.checkScore(11, dice);
-                    threes.setText("Pieni suora: " + points);
+                    smallStraight.setText("Pieni suora: " + points);
                 } else if (selected.equals(catLargeStraight)) {
                     game.scoreRoll(12, dice);
                     points = game.checkScore(12, dice);
-                    threes.setText("Iso suora: " + points);
+                    largeStraight.setText("Iso suora: " + points);
                 } else if (selected.equals(catFullHouse)) {
                     game.scoreRoll(13, dice);
                     points = game.checkScore(13, dice);
-                    threes.setText("Mökki: " + points);
+                    fullHouse.setText("Mökki: " + points);
                 } else if (selected.equals(catChance)) {
                     game.scoreRoll(14, dice);
                     points = game.checkScore(14, dice);
-                    threes.setText("Sattuma: " + points);
+                    chance.setText("Sattuma: " + points);
                 } else if (selected.equals(catYahtzee)) {
                     game.scoreRoll(15, dice);
                     points = game.checkScore(15, dice);
-                    threes.setText("Jatsi: " + points);
+                    yahtzee.setText("Jatsi: " + points);
                 }
                 scoreWindow.close();
             });
@@ -377,77 +431,4 @@ public class YahtzeeGUI extends Application {
     public static void main(String[] args) {
         launch(args);
     }
-
-    private VBox createScorecard() {
-        VBox sc = new VBox();
-
-        Label scorecardTitle = new Label("PÖYTÄKIRJA");
-        scorecardTitle.setFont(new Font("Arial", 18));
-
-        Label ones = new Label("Ykköset: ");
-        Label twos = new Label("Kakkoset: ");
-        Label threes = new Label("Kolmoset: ");
-        Label fours = new Label("Neloset: ");
-        Label fives = new Label("Viitoset: ");
-        Label sixes = new Label("Kuutoset: ");
-        Label pair = new Label("Pari: ");
-        Label twoPairs = new Label("Kaksi paria: ");
-        Label threeKind = new Label("Kolmiluku: ");
-        Label fourKind = new Label("Neliluku: ");
-        Label smallStraight = new Label("Pieni suora: ");
-        Label largeStraight = new Label("Iso suora: ");
-        Label fullHouse = new Label("Mökki: ");
-        Label chance = new Label("Sattuma: ");
-        Label yahtzee = new Label("Jatsi: ");
-
-        sc.getChildren().addAll(scorecardTitle, ones, twos, threes, fours, fives, sixes,
-                pair, twoPairs, threeKind, fourKind, smallStraight, largeStraight,
-                fullHouse, chance, yahtzee);
-
-        return sc;
-    }
-
-    private VBox createCatRadioButtons(ToggleGroup catGroup) {
-        VBox list = new VBox();
-        list.setSpacing(10);
-        int[] dice = game.getRoll().getValues();
-
-        RadioButton catOnes = new RadioButton("Ykköset: " + game.checkScore(1, dice));
-        catOnes.setToggleGroup(catGroup);
-        RadioButton catTwos = new RadioButton("Kakkoset: " + game.checkScore(2, dice));
-        catTwos.setToggleGroup(catGroup);
-        RadioButton catThrees = new RadioButton("Kolmoset: " + game.checkScore(3, dice));
-        catThrees.setToggleGroup(catGroup);
-        RadioButton catFours = new RadioButton("Neloset: " + game.checkScore(4, dice));
-        catFours.setToggleGroup(catGroup);
-        RadioButton catFives = new RadioButton("Viitoset: " + game.checkScore(5, dice));
-        catFives.setToggleGroup(catGroup);
-        RadioButton catSixes = new RadioButton("Kuutoset: " + game.checkScore(6, dice));
-        catSixes.setToggleGroup(catGroup);
-        RadioButton catPair = new RadioButton("Pari: " + game.checkScore(7, dice));
-        catPair.setToggleGroup(catGroup);
-        RadioButton catTwoPairs = new RadioButton("Kaksi paria: " + game.checkScore(8, dice));
-        catTwoPairs.setToggleGroup(catGroup);
-        RadioButton catThreeKind = new RadioButton("Kolmiluku: " + game.checkScore(9, dice));
-        catThreeKind.setToggleGroup(catGroup);
-        RadioButton catFourKind = new RadioButton("Neliluku: " + game.checkScore(10, dice));
-        catFourKind.setToggleGroup(catGroup);
-        RadioButton catSmallStraight = new RadioButton("Pieni suora: " + game.checkScore(11, dice));
-        catSmallStraight.setToggleGroup(catGroup);
-        RadioButton catLargeStraight = new RadioButton("Iso suora: " + game.checkScore(12, dice));
-        catLargeStraight.setToggleGroup(catGroup);
-        RadioButton catFullHouse = new RadioButton("Mökki: " + game.checkScore(13, dice));
-        catFullHouse.setToggleGroup(catGroup);
-        RadioButton catChance = new RadioButton("Sattuma: " + game.checkScore(14, dice));
-        catChance.setToggleGroup(catGroup);
-        RadioButton catYahtzee = new RadioButton("Jatsi: " + game.checkScore(15, dice));
-        catYahtzee.setToggleGroup(catGroup);
-
-        list.getChildren().addAll(catOnes, catTwos, catThrees, catFours, catFives, catSixes,
-                catPair, catTwoPairs, catThreeKind, catFourKind, catSmallStraight, catLargeStraight,
-                catFullHouse, catChance, catYahtzee);
-
-        return list;
-    }
-
 }
