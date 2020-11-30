@@ -19,7 +19,10 @@ YahtzeeDesktop on paikallisella koneella pelattava jatsi-noppapeli.
 ### Komentorivitoiminnot
 
 #### Testaus
-Testit suoritetaan komennolla `mvn test`, ja testikattavuusraportti luodaan komennolla `mvn jacoco:report`. Raportti muodostuu tiedostoon _target/site/jacoco/index.html_, ja sen voi avata selaimessa esimerkiksi komennolla `chromium-browser target/site/jacoco/index.html`.
+Testit suoritetaan komennolla `mvn test`. Testikattavuusraportti luodaan komennolla `mvn jacoco:report`, ja se muodostuu tiedostoon _target/site/jacoco/index.html_. Raportin voi avata selaimessa esimerkiksi komennolla `chromium-browser target/site/jacoco/index.html`.
 
 #### Checkstyle
-Projektissa on käytössä koodin laatua valvova työkalu Checkstyle. Checkstyle-tarkastus suoritetaan komentoriviltä komennolla `mvn jxr:jxr checkstyle:checkstyle`, ja sen generoimaa raporttia voi tarkastella selaimessa komennolla `chromium-browser target/site/checkstyle.html`. Käyttöliittymän rakentava koodi (pakkaus yahtzee.ui) on jätetty Checkstylen ulkopuolelle.
+Projektissa on käytössä koodin laatua valvova työkalu Checkstyle. Checkstyle-tarkastus suoritetaan komentoriviltä komennolla `mvn jxr:jxr checkstyle:checkstyle`, ja sen generoimaa raporttia voi tarkastella selaimessa komennolla `chromium-browser target/site/checkstyle.html`. Käyttöliittymän rakentava koodi (pakkaus _yahtzee.ui_) on jätetty Checkstylen ulkopuolelle.
+
+#### Suoritettavan jarin generointi
+Komennolla `mvn package` voi luoda suoritettavan jar-tiedoston. Se ilmestyy hakemistoon _target_ nimellä _Yahtzee-1.0-SNAPSHOT.jar_.
