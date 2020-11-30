@@ -33,8 +33,14 @@ public class DieTest {
     
     @Test
     public void rollChangesValueInValidRange() {
-        die.roll();
-        assertTrue((die.getValue()>=1)&&(die.getValue()<=6));
+        boolean valid = true;
+        for (int i = 0; i < 1000; i++) {
+            die.roll();
+            if ((die.getValue()<1)||(die.getValue()>6)) {
+                valid = false;
+            }
+        }
+        assertTrue(valid);
     }
     
     @Test
@@ -45,12 +51,11 @@ public class DieTest {
     
     @Test
     public void heldDieIsNotRolled() {
-        int value = die.roll();
         die.setHold(true);
         boolean changed = false;
         for (int i = 0; i < 1000; i++) {
             die.roll();
-            if (die.getValue()!=value) {
+            if (die.getValue()!=0) {
                 changed = true;
             }
         }

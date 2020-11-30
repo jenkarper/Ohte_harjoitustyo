@@ -55,6 +55,20 @@ public class RollTest {
     }
     
     @Test
+    public void rollDoesNotChangeHeldValues() {
+        roll.getDice()[0].setHold(true);
+        roll.getDice()[4].setHold(true);
+        boolean changed = false;
+        for (int i = 0; i < 1000; i++) {
+            roll.roll();
+            if ((roll.getDice()[0].getValue()!=0) || (roll.getDice()[4].getValue()!=0)) {
+                changed = true;
+            }
+        }
+        assertTrue(!changed);
+    }
+    
+    @Test
     public void releaseAllReleasesEveryDice() {
         for (Die d : roll.getDice()) {
             d.setHold(true);

@@ -48,4 +48,17 @@ public class GameTest {
         game.scoreRoll(5, newDice);
         assertTrue(game.getScorecard().getPoints()[5] == 10);
     }
+    
+    @Test
+    public void heldDieIsNotRolled() {
+        game.holdDie(0);
+        boolean held = true;
+        for (int i = 0; i < 1000; i++) {
+            game.roll();
+            if (game.getRoll().getDice()[0].getValue()!=0) {
+                held = false;
+            }
+        }
+        assertTrue(held);
+    }
 }
