@@ -20,5 +20,6 @@
 | 25.11.|  5  | Graafisen käyttöliittymän asettelu, JavaFX-dokumentaation tutkiminen |
 | 26.11.|  3  | Pisteytystoiminnallisuuden lisääminen graafiseen käyttöliittymään |
 | 27.11.|  5  | Käyttöliittymäkoodin refaktorointi |
+| 30.11.|  3  | Sekvenssikaavion luominen, testauksen kehittäminen, käyttöliittymäluonnoksen päivitys |
 |       |     | |
-| YHT   | 45  | |
+| YHT   | 48  | |
