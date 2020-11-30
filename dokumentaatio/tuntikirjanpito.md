@@ -21,5 +21,6 @@
 | 26.11.|  3  | Pisteytystoiminnallisuuden lisääminen graafiseen käyttöliittymään |
 | 27.11.|  5  | Käyttöliittymäkoodin refaktorointi |
 | 30.11.|  3  | Sekvenssikaavion luominen, testauksen kehittäminen, käyttöliittymäluonnoksen päivitys |
+| 30.11.| 0.5 | GitHub-releasen tekeminen |
 |       |     | |
-| YHT   | 48  | |
+| YHT   | 48.5| |
