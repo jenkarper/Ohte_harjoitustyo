@@ -28,7 +28,22 @@ public class Roll {
             }
         }
     }
+    
+    public Die[] getDice() {
+        return this.dice;
+    }
+    
+    public int[] getValues() {
+        return this.values;
+    }
+    
+    public void releaseAll() {
+        for (Die d : this.dice) {
+            d.setHold(false);
+        }
+    }
 
+    // Only used in text-based ui
     public boolean holdDice(ArrayList<Integer> values) {
         releaseAll();
         int index = 0;
@@ -54,20 +69,6 @@ public class Roll {
             }
         }
         return true;
-    }
-    
-    public Die[] getDice() {
-        return this.dice;
-    }
-    
-    public int[] getValues() {
-        return this.values;
-    }
-    
-    public void releaseAll() {
-        for (Die d : this.dice) {
-            d.setHold(false);
-        }
     }
 
     @Override

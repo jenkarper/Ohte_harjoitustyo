@@ -51,6 +51,10 @@ public class Game {
         this.roll.getDice()[die].setHold(status);
     }
     
+    public void releaseAll() {
+        this.roll.releaseAll();
+    }
+    
     public int checkScore(int type, int[] dice) {
         return this.checker.check(type, dice);
     }
