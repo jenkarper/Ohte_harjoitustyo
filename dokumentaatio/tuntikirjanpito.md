@@ -22,5 +22,6 @@
 | 27.11.|  5  | Käyttöliittymäkoodin refaktorointi |
 | 30.11.|  3  | Sekvenssikaavion luominen, testauksen kehittäminen, käyttöliittymäluonnoksen päivitys |
 | 30.11.| 0.5 | GitHub-releasen tekeminen |
+| 1.12. |  1  | Noppa-nappien toiminnallisuuden määrittelyn uudelleenkirjoitus toisteisuuden vähentämiseksi, jar-tiedoston päivitys releaseen |
 |       |     | |
-| YHT   | 48.5| |
+| YHT   | 49.5| |
