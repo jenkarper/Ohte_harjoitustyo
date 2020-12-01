@@ -131,5 +131,4 @@ public class ScoreView {
     private void styleButton(Button b) {
         b.setStyle("-fx-background-color: #e9f7ef; -fx-font-size: 1em; -fx-border-color:  #48c9b0; -fx-border-width: 1px;");
     }
-
 }

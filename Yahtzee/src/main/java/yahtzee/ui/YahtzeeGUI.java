@@ -111,56 +111,19 @@ public class YahtzeeGUI extends Application {
         // 4 DEFINE ACTION FOR PLAYVIEW BUTTONS
 
         // 4.1 Die buttons
-
-        dieRow[0].setOnAction(value -> {
-            if (game.checkHoldStatus(0)) {
-                game.setHoldStatus(0, false);
-                dieRow[0].setStyle("-fx-background-color: #48c9b0; -fx-font-size: 2em;");
-            } else {
-                game.setHoldStatus(0, true);
-                dieRow[0].setStyle("-fx-background-color: #48c9b0; -fx-font-size: 2em; -fx-border-color: #138d75; -fx-border-width: 5px;");
-            }
-        });
         
-        dieRow[1].setOnAction(value -> {
-            if (game.checkHoldStatus(1)) {
-                game.setHoldStatus(1, false);
-                dieRow[1].setStyle("-fx-background-color: #48c9b0; -fx-font-size: 2em;");
-            } else {
-                game.setHoldStatus(1, true);
-                dieRow[1].setStyle("-fx-background-color: #48c9b0; -fx-font-size: 2em; -fx-border-color: #138d75; -fx-border-width: 5px;");
-            }
-        });
-
-        dieRow[2].setOnAction(value -> {
-            if (game.checkHoldStatus(2)) {
-                game.setHoldStatus(2, false);
-                dieRow[2].setStyle("-fx-background-color: #48c9b0; -fx-font-size: 2em;");
-            } else {
-                game.setHoldStatus(2, true);
-                dieRow[2].setStyle("-fx-background-color: #48c9b0; -fx-font-size: 2em; -fx-border-color: #138d75; -fx-border-width: 5px;");
-            }
-        });
-
-        dieRow[3].setOnAction(value -> {
-            if (game.checkHoldStatus(3)) {
-                game.setHoldStatus(3, false);
-                dieRow[3].setStyle("-fx-background-color: #48c9b0; -fx-font-size: 2em;");
-            } else {
-                game.setHoldStatus(3, true);
-                dieRow[3].setStyle("-fx-background-color: #48c9b0; -fx-font-size: 2em; -fx-border-color: #138d75; -fx-border-width: 5px;");
-            }
-        });
-
-        dieRow[4].setOnAction(value -> {
-            if (game.checkHoldStatus(4)) {
-                game.setHoldStatus(4, false);
-                dieRow[4].setStyle("-fx-background-color: #48c9b0; -fx-font-size: 2em;");
-            } else {
-                game.setHoldStatus(4, true);
-                dieRow[4].setStyle("-fx-background-color: #48c9b0; -fx-font-size: 2em; -fx-border-color: #138d75; -fx-border-width: 5px;");
-            }
-        });
+        for (int i = 0; i < dieRow.length; i++) {
+            int die = i;
+            dieRow[die].setOnAction(value -> {
+                if (game.checkHoldStatus(die)) {
+                    game.setHoldStatus(die, false);
+                    dieRow[die].setStyle("-fx-background-color: #48c9b0; -fx-font-size: 2em;");
+                } else {
+                    game.setHoldStatus(die, true);
+                    dieRow[die].setStyle("-fx-background-color: #48c9b0; -fx-font-size: 2em; -fx-border-color: #138d75; -fx-border-width: 3px;");
+                }
+            });
+        }
 
         // 4.2 Roll button
         

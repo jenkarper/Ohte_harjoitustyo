@@ -1,7 +1,5 @@
 package yahtzee.domain;
 
-import java.util.ArrayList;
-
 /**
  *
  * @author pertjenn
