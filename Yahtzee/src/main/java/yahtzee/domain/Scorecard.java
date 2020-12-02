@@ -19,14 +19,6 @@ public class Scorecard {
         }
     }
 
-    public int[] getPoints() {
-        return this.points;
-    }
-    
-    public String[] getCategories() {
-        return this.categories;
-    }
-
     private boolean slotAvailable(int i) {
         return this.points[i] == -1;
     }
@@ -37,6 +29,56 @@ public class Scorecard {
         }
         this.points[i] = points;
         return true;
+    }
+    
+    public int[] getPoints() {
+        return this.points;
+    }
+    
+    public String[] getCategories() {
+        return this.categories;
+    }
+    
+    public int getScore(int i) {
+        return this.points[i];
+    }
+    
+    public int getUpperTotal() {
+        int total = 0;
+        for (int i = 1; i < 7; i++) {
+            total += points[i];
+        }
+        markScore(16, total);
+        return total;
+    }
+    
+    public int getBonus() {
+        int bonus = 0;
+        if (points[16] >= 63) {
+            bonus = 50;
+        } else {
+            bonus = 0;
+        }
+        points[17] = bonus;
+        return bonus;
+    }
+    
+    public int getGrandTotal() {
+        int total = getUpperTotal();
+        total += getBonus();
+        
+        for (int i = 7; i < 16; i++) {
+            total += points[i];
+        }
+        
+        points[18] = total;
+        return total;
+    }
+    
+    public void reset() {
+        for (int i = 1; i <= 18; i++) {
+            this.points[i] = -1;
+        }
     }
 
     private void initialiseSlotNames() {
@@ -58,6 +100,13 @@ public class Scorecard {
         this.categories[16] = "Välisumma";
         this.categories[17] = "Bonus";
         this.categories[18] = "Yhteensä";
+    }
+    
+    // TEST METHOD
+    public void setTestValues() {
+        for (int i = 1; i < this.points.length; i++) {
+            this.points[i] = i;
+        }
     }
 
 }
