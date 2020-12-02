@@ -82,28 +82,4 @@ public class RollTest {
         }
         assertTrue(!held);
     }
-    
-    @Test
-    public void stringRepresentationIsCorrectWhenDiceAreHeld() {
-        roll.getDice()[0].setTestValue(1);
-        roll.getDice()[0].setHold(true);
-        roll.getDice()[1].setTestValue(2);
-        roll.getDice()[2].setTestValue(3);
-        roll.getDice()[3].setTestValue(4);
-        roll.getDice()[4].setTestValue(5);
-        roll.getDice()[4].setHold(true);
-        
-        assertEquals("1 5 | 2 3 4 ", roll.toString());
-    }
-    
-    @Test
-    public void stringRepresentationIsCorrectWhenDiceAreNotHeld() {
-        roll.getDice()[0].setTestValue(1);
-        roll.getDice()[1].setTestValue(2);
-        roll.getDice()[2].setTestValue(3);
-        roll.getDice()[3].setTestValue(4);
-        roll.getDice()[4].setTestValue(5);
-        
-        assertEquals("1 2 3 4 5 ", roll.toString());
-    }
 }
