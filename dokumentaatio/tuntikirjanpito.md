@@ -23,5 +23,6 @@
 | 30.11.|  3  | Sekvenssikaavion luominen, testauksen kehittäminen, käyttöliittymäluonnoksen päivitys |
 | 30.11.| 0.5 | GitHub-releasen tekeminen |
 | 1.12. |  1  | Noppa-nappien toiminnallisuuden määrittelyn uudelleenkirjoitus toisteisuuden vähentämiseksi, jar-tiedoston päivitys releaseen |
+| 2.12. |  5  | Graafisen käyttöliittymän refaktorointi, pääpelinäkymän toteutus omassa luokassaan, muutamien sivunäkymien toteutus Alert-olioina |
 |       |     | |
-| YHT   | 49.5| |
+| YHT   | 54.5| |
