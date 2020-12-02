@@ -23,10 +23,10 @@ Sovellus simuloi viiden nopan heittämistä. Sovellus tarjoaa myös pöytäkirja
 * vapauttaa lukitun nopan (_tehty_)
 * laskea heiton pisteet jatsin pistesääntöjen mukaan (_tehty_)
 * merkitä heiton pisteet haluamaansa kohtaan pöytäkirjassa (_tehty_)
-* laskea yhteispisteet
+* laskea yhteispisteet (_tehty_)
 
-Tekstikäyttöliittymässä pelaaja voi heiton jälkeen aina tulostaa senhetkisen pöytäkirjan näkyviin ruudulle. Graafisessa käyttöliittymässä ajantasainen pöytäkirja on koko ajan näkyvissä.
+Pelinäkymässä on ajantasainen pöytäkirja. Pisteytysnäkymässä pelaaja näkee sellaiset pöytäkirjan kategoriat, joihin heitto on mahdollista pisteyttää (eli vielä käyttämättä olevat kategoriat). Pelilogiikka kontrolloi heittojen määrää jatsin sääntöjen mukaan.
 
 ## Mahdollinen laajennettu toiminnallisuus
 
-Perusversiossa sovellus ei kontrolloi heittojen määrää. Laajemmassa toteutuksessa voitaisiin jatsin sääntöjen mukaisesti rajoittaa uusintaheittojen määrää kahteen ja kierrosten määrää viiteentoista. Sovellukseen voisi myös liittää pistetietokannan, johon pelaaja voi halutessaan tallentaa yhteispisteensä. Tietokannasta voisi hakea Top 10 -listan sovelluksen lopetusnäkymään. Sovellus voisi myös tarjota mahdollisuuden moninpeliin.
+Sovellukseen voisi liittää pelaajatietokannan, johon tallennettaisiin pelaajanimi sekä joitakin tilastotietoja kyseisen pelaajan peleistä, esimerkiksi pelattujen pelien määrä, parhaat pisteet ja huonoimmat pisteet. Tietokannasta voisi lukea Top 10 -pelituloslistan.
