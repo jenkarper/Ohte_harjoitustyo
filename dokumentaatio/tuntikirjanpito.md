@@ -24,5 +24,6 @@
 | 30.11.| 0.5 | GitHub-releasen tekeminen |
 | 1.12. |  1  | Noppa-nappien toiminnallisuuden määrittelyn uudelleenkirjoitus toisteisuuden vähentämiseksi, jar-tiedoston päivitys releaseen |
 | 2.12. |  5  | Graafisen käyttöliittymän refaktorointi, pääpelinäkymän toteutus omassa luokassaan, muutamien sivunäkymien toteutus Alert-olioina |
+| 2.12. |  1  | Uusien yksikkötestien kirjoittaminen |
 |       |     | |
 | YHT   | 54.5| |
