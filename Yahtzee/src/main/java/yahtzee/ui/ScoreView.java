@@ -21,10 +21,14 @@ public class ScoreView {
 
     private Game game;
     private Label[] sc;
+    private GameAlert alert;
+    private VBox playerInfo;
 
-    public ScoreView(Game game, Label[] scorecard) {
+    public ScoreView(Game game, Label[] scorecard, GameAlert alert, VBox playerInfo) {
         this.game = game;
         this.sc = scorecard;
+        this.alert = alert;
+        this.playerInfo = playerInfo;
     }
 
     public Stage getScoreView() {
@@ -63,21 +67,31 @@ public class ScoreView {
 
         // Define button actions
         ok.setOnAction(value -> {
-            RadioButton selected = (RadioButton) tg.getSelectedToggle();
-            int[] dice = game.getRoll().getValues();
-            String[] categories = game.getScorecard().getCategories();
-            int points = 0;
+            if (tg.getSelectedToggle() == null) {
+                alert.getAlert(3, 0);
+            } else {
+                RadioButton selected = (RadioButton) tg.getSelectedToggle();
+                int[] dice = game.getRoll().getValues();
+                String[] categories = game.getScorecard().getCategories();
+                int points = 0;
 
-            for (int i = 1; i < sc.length; i++) {
-                if (selected.equals(options[i])) {
-                    game.scoreRoll(i, dice);
-                    points = game.checkScore(i, dice);
-                    sc[i].setText(categories[i] + ": " + points);
+                for (int i = 1; i < sc.length; i++) {
+                    if (selected.equals(options[i])) {
+                        game.scoreRoll(i, dice);
+                        points = game.checkScore(i, dice);
+                        sc[i].setText(categories[i] + ": " + points);
+                    }
                 }
+                game.resetRollCounter();
+
+                if (game.getRoundCounter() == 0) {
+                    markFinalScore();
+                    alert.getAlert(4, game.getGrandTotal());
+                }
+                stage.close();
             }
-            stage.close();
         });
-        
+
         cancel.setOnAction(value -> {
             stage.close();
         });
@@ -130,5 +144,16 @@ public class ScoreView {
 
     private void styleButton(Button b) {
         b.setStyle("-fx-background-color: #e9f7ef; -fx-font-size: 1em; -fx-border-color:  #48c9b0; -fx-border-width: 1px;");
+    }
+    
+    private void markFinalScore() {
+        Label upper = (Label) playerInfo.getChildren().get(2);
+        upper.setText("Välisumma: " + game.getUpperTotal());
+        
+        Label bonus = (Label) playerInfo.getChildren().get(3);
+        bonus.setText("Bonus: " + game.getBonus());
+        
+        Label total = (Label) playerInfo.getChildren().get(4);
+        total.setText("Yhteensä: " + game.getGrandTotal());
     }
 }
