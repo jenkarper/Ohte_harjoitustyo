@@ -1,6 +1,7 @@
 package yahtzee.domain;
 
 /**
+ * Represents the scorecard in a Yahtzee game.
  *
  * @author pertjenn
  */
@@ -23,6 +24,13 @@ public class Scorecard {
         return this.points[i] == -1;
     }
 
+    /**
+     * Marks the given points for the given category in the points array.
+     *
+     * @param i The index of the category.
+     * @param points The points returned by the checker method.
+     * @return True if the category was available, false otherwise.
+     */
     public boolean markScore(int i, int points) {
         if (!slotAvailable(i)) {
             return false;
@@ -30,19 +38,13 @@ public class Scorecard {
         this.points[i] = points;
         return true;
     }
-    
-    public int[] getPoints() {
-        return this.points;
-    }
-    
-    public String[] getCategories() {
-        return this.categories;
-    }
-    
-    public int getScore(int i) {
-        return this.points[i];
-    }
-    
+
+    /**
+     * Calculates the total of categories 1 through 6 and marks the result in
+     * the points array.
+     *
+     * @return The upper section total.
+     */
     public int getUpperTotal() {
         int total = 0;
         for (int i = 1; i < 7; i++) {
@@ -51,7 +53,13 @@ public class Scorecard {
         markScore(16, total);
         return total;
     }
-    
+
+    /**
+     * Checks the upper section total (categories 1 through 6) and awards bonus
+     * points accordingly.
+     *
+     * @return The bonus points (50 or 0).
+     */
     public int getBonus() {
         int bonus = 0;
         if (points[16] >= 63) {
@@ -62,23 +70,44 @@ public class Scorecard {
         points[17] = bonus;
         return bonus;
     }
-    
+
+    /**
+     * Calculates the lower section total (categories 7 through 15), adds upper
+     * section total and bonus and marks the result in the points array.
+     *
+     * @return The grand total.
+     */
     public int getGrandTotal() {
         int total = getUpperTotal();
         total += getBonus();
-        
+
         for (int i = 7; i < 16; i++) {
             total += points[i];
         }
-        
+
         points[18] = total;
         return total;
     }
-    
+
+    /**
+     * Resets the points array to -1.
+     */
     public void reset() {
         for (int i = 1; i <= 18; i++) {
             this.points[i] = -1;
         }
+    }
+
+    public int[] getPoints() {
+        return this.points;
+    }
+
+    public String[] getCategories() {
+        return this.categories;
+    }
+
+    public int getScore(int i) {
+        return this.points[i];
     }
 
     private void initialiseSlotNames() {
@@ -101,8 +130,11 @@ public class Scorecard {
         this.categories[17] = "Bonus";
         this.categories[18] = "Yhteensä";
     }
-    
-    // TEST METHOD
+
+    /**
+     * Sets points from 1 to 18 in the points array (this method is only called
+     * in the ScorecardTest class).
+     */
     public void setTestValues() {
         for (int i = 1; i < this.points.length; i++) {
             this.points[i] = i;

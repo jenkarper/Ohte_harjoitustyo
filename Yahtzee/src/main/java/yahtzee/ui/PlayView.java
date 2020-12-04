@@ -26,8 +26,8 @@ public class PlayView {
     private final Insets insets;
     private final GameAlert alert;
     
-    public PlayView(String player) {
-        this.game = new Game(player);
+    public PlayView(Game game) throws Exception {
+        this.game = game;
         this.dieRow = createDice();
         this.scorecard = createScorecard();
         this.playerInfo = createPlayerInfo();
@@ -131,7 +131,7 @@ public class PlayView {
         info[0] = new Label("PELITILANNE");
         info[0].setFont(new Font("Arial", 18));
         
-        info[1] = new Label("Pelaaja: " + game.getPlayer());
+        info[1] = new Label("Pelaaja: <nimi>");
         info[1].setFont(new Font("Arial", 15));
         
         info[2] = new Label("Välisumma");

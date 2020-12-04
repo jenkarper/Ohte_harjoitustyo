@@ -12,8 +12,8 @@ import yahtzee.domain.Game;
 public class GameTest {
     private final Game game;
     
-    public GameTest() {
-        this.game = new Game("Pelaaja");
+    public GameTest() throws Exception {
+        this.game = new Game();
     }
     
     @Test

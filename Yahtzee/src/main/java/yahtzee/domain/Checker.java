@@ -3,11 +3,17 @@ package yahtzee.domain;
 import java.util.Arrays;
 
 /**
- *
+ * Handles the score checking for rolls.
  * @author pertjenn
  */
 public class Checker {
     
+    /**
+     * Takes the type and the dice and calculates the resulting points.
+     * @param type Index number representing a category in the scorecard.
+     * @param dice The dice values as an array.
+     * @return The points.
+     */
     public int check(int type, int[] dice) {
         switch (type) {
             case 1:

@@ -18,6 +18,11 @@
             <artifactId>javafx-controls</artifactId>
             <version>15.0.1</version>
         </dependency>
+        <dependency>
+            <groupId>org.xerial</groupId>
+            <artifactId>sqlite-jdbc</artifactId>
+            <version>3.32.3.2</version>
+        </dependency>
     </dependencies>
     
     <build>
@@ -79,6 +84,14 @@
                 <version>0.0.3</version>
                 <configuration>
                     <mainClass>org.openjfx.App</mainClass>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-javadoc-plugin</artifactId>
+                <version>2.10.3</version>
+                <configuration>
+                    <javadocExecutable>${java.home}/bin/javadoc</javadocExecutable>
                 </configuration>
             </plugin>
         </plugins>
