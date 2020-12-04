@@ -25,5 +25,7 @@
 | 1.12. |  1  | Noppa-nappien toiminnallisuuden määrittelyn uudelleenkirjoitus toisteisuuden vähentämiseksi, jar-tiedoston päivitys releaseen |
 | 2.12. |  5  | Graafisen käyttöliittymän refaktorointi, pääpelinäkymän toteutus omassa luokassaan, muutamien sivunäkymien toteutus Alert-olioina |
 | 2.12. |  1  | Uusien yksikkötestien kirjoittaminen |
+| 3.12. |  2  | Javadocin käyttöönotto, ensimmäisten kommenttien kirjoittaminen |
+| 4.12. |  3  | Tietokannan suunnittelua, näkymän vaihdon kanssa tappelua |
 |       |     | |
-| YHT   | 54.5| |
+| YHT   | 59.5| |
