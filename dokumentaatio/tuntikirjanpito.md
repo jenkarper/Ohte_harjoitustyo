@@ -27,5 +27,6 @@
 | 2.12. |  1  | Uusien yksikkötestien kirjoittaminen |
 | 3.12. |  2  | Javadocin käyttöönotto, ensimmäisten kommenttien kirjoittaminen |
 | 4.12. |  3  | Tietokannan suunnittelua, näkymän vaihdon kanssa tappelua |
+| 5.12. | 2.5 | Tietokannan ensimmäisen version toteutus |
 |       |     | |
-| YHT   | 59.5| |
+| YHT   | 62  | |
