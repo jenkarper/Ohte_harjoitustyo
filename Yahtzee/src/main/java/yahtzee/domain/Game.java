@@ -1,7 +1,7 @@
 package yahtzee.domain;
 
-import yahtzee.dao.UserDao;
-import yahtzee.dao.UserDaoDb;
+import java.util.List;
+import yahtzee.dao.Database;
 
 /**
  * Represents the Yahtzee game as a whole, connecting the other domain classes
@@ -16,8 +16,9 @@ public class Game {
     private final Checker checker;
     private int rollCounter;
     private int roundCounter;
+    
     private User user;
-    private UserDao db;
+    private final Database db;
 
     public Game() throws Exception {
         this.roll = new Roll();
@@ -26,8 +27,7 @@ public class Game {
         this.rollCounter = 3;
         this.roundCounter = 15;
 
-        this.db = new UserDaoDb();
-        createTables();
+        this.db = new Database();
     }
 
     /**
@@ -172,7 +172,51 @@ public class Game {
     }
 
     // USER AND DATABASE METHODS
-    public void createTables() throws Exception {
-        db.createTable();
+//    public void setPlayer(String player) {
+//        this.player = player;
+//    }
+    public String getPlayer() {
+        return this.user.getUsername();
+    }
+    
+    public User getUser() {
+        return this.user;
+    }
+
+    public boolean validateUsername(String username) throws Exception {
+        return db.findUser(username).getUsername().equals("");
+    }
+
+    public void insertUser(User user) throws Exception {
+        db.addUser(user);
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
+    public User findUser(String username) throws Exception {
+        return db.findUser(username);
+    }
+    
+    public void updateUser() throws Exception {
+        
+        User current = findUser(user.getUsername());
+        int points = getGrandTotal();
+        
+        if (current.getHighScore() < points) {
+            user.setHighScore(points);
+        }
+        
+        if (current.getLowScore() > points) {
+            user.setLowScore(points);
+        }
+        user.play();
+        db.updateUser(user);
+        db.addHighscore(user);
+    }
+    
+    public List<String> getTopTen() {
+        return db.getTopTen();
     }
 }

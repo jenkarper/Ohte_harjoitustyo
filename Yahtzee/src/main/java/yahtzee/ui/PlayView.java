@@ -131,7 +131,7 @@ public class PlayView {
         info[0] = new Label("PELITILANNE");
         info[0].setFont(new Font("Arial", 18));
         
-        info[1] = new Label("Pelaaja: <nimi>");
+        info[1] = new Label();
         info[1].setFont(new Font("Arial", 15));
         
         info[2] = new Label("Välisumma");
@@ -145,6 +145,10 @@ public class PlayView {
         info[4].setStyle("-fx-font-weight: bold");
         
         return info;
+    }
+    
+    public void setPlayer() {
+        this.playerInfo[1].setText("Pelaaja: " + game.getPlayer());
     }
     
     private void resetPlayerInfo() {

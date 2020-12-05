@@ -23,12 +23,14 @@ public class ScoreView {
     private Label[] sc;
     private GameAlert alert;
     private VBox playerInfo;
+    private GameOverView gov;
 
     public ScoreView(Game game, Label[] scorecard, GameAlert alert, VBox playerInfo) {
         this.game = game;
         this.sc = scorecard;
         this.alert = alert;
         this.playerInfo = playerInfo;
+        this.gov = new GameOverView(game);
     }
 
     public Stage getScoreView() {
@@ -86,7 +88,11 @@ public class ScoreView {
 
                 if (game.getRoundCounter() == 0) {
                     markFinalScore();
-                    alert.getAlert(4, game.getGrandTotal());
+//                    alert.getAlert(4, game.getGrandTotal());
+                    Scene govScene = gov.getScene();
+                    Stage govStage = new Stage();
+                    govStage.setScene(govScene);
+                    govStage.show();
                 }
                 stage.close();
             }
