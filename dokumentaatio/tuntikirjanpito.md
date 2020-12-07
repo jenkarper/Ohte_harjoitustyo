@@ -28,5 +28,6 @@
 | 3.12. |  2  | Javadocin käyttöönotto, ensimmäisten kommenttien kirjoittaminen |
 | 4.12. |  3  | Tietokannan suunnittelua, näkymän vaihdon kanssa tappelua |
 | 5.12. | 2.5 | Tietokannan ensimmäisen version toteutus |
+| 7.12. |  4  | Arkkitehtuurikuvauksen päivitys ja täydennys, puuttuvien Javadoc-kommenttien kirjoittaminen, käyttöliittymäkoodin refaktorointi |
 |       |     | |
-| YHT   | 62  | |
+| YHT   | 66  | |
