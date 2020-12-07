@@ -125,7 +125,7 @@ public class Database implements UserDao, HighscoreDao {
     }
 
     /**
-     * Updates User table.
+     * Matches given user stats to database and updates if necessary.
      * @param user Instance of User class with values to be updated.
      * @throws Exception 
      */
@@ -138,17 +138,6 @@ public class Database implements UserDao, HighscoreDao {
             
             int highPoints = max(current.getHighScore(), user.getHighScore());
             int lowPoints = min(current.getLowScore(), user.getLowScore());
-//            if (current.getHighScore() < user.getHighScore()) {
-//                pstmt.setInt(1, user.getHighScore());
-//            } else {
-//                pstmt.setInt(1, current.getHighScore());
-//            }
-//
-//            if (current.getLowScore() > user.getLowScore()) {
-//                pstmt.setInt(2, user.getLowScore());
-//            } else {
-//                pstmt.setInt(2, current.getLowScore());
-//            }
 
             pstmt.setInt(1, highPoints);
             pstmt.setInt(2, lowPoints);
@@ -209,7 +198,7 @@ public class Database implements UserDao, HighscoreDao {
     }
 
     /**
-     * Reads the highscore table and orders the result set by the points.
+     * Reads the Highscore table and orders the result set by the points.
      * @return A list of the highscores in descending order.
      */
     @Override
@@ -231,11 +220,5 @@ public class Database implements UserDao, HighscoreDao {
         }
         
         return list;
-    }
-    
-    // HELPER METHODS
-    
-    private int updateHighscore(User oldUser, User newUser) {
-        return max(oldUser.getHighScore(), newUser.getHighScore());
     }
 }
