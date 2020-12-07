@@ -172,9 +172,7 @@ public class Game {
     }
 
     // USER AND DATABASE METHODS
-//    public void setPlayer(String player) {
-//        this.player = player;
-//    }
+
     public String getPlayer() {
         return this.user.getUsername();
     }

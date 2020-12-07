@@ -79,7 +79,8 @@ public class PlayView {
         
         rightNode.getChildren().addAll(Arrays.asList(playerInfo));
 
-        // 2 CREATE PLAYVIEW LAYOUT
+        // 2 CREATE LAYOUT
+        
         BorderPane layout = new BorderPane();
         layout.setTop(topNode);
         layout.setCenter(centerNode);
@@ -92,7 +93,7 @@ public class PlayView {
         centerNode.setAlignment(Pos.TOP_CENTER);
         bottomNode.setAlignment(Pos.BOTTOM_RIGHT);
         
-        // 3 DEFINE BUTTON PLAYVIEW EVENTS
+        // 3 DEFINE BUTTON ACTION
         
         defineButtonEvents(rollButton, scoreButton, instructionButton, newGameButton, rightNode);
         

@@ -1,5 +1,7 @@
 package yahtzee.dao;
 
+import static java.lang.Integer.max;
+import static java.lang.Integer.min;
 import java.sql.Connection;
 import java.sql.DatabaseMetaData;
 import java.sql.DriverManager;
@@ -122,25 +124,34 @@ public class Database implements UserDao, HighscoreDao {
         return u;
     }
 
+    /**
+     * Updates User table.
+     * @param user Instance of User class with values to be updated.
+     * @throws Exception 
+     */
     @Override
     public void updateUser(User user) throws Exception {
         String updateUser = "UPDATE User SET highscore=?, lowscore=?, gamesPlayed=? WHERE username=?;";
         User current = findUser(user.getUsername());
 
         try (PreparedStatement pstmt = connection.prepareStatement(updateUser)) {
+            
+            int highPoints = max(current.getHighScore(), user.getHighScore());
+            int lowPoints = min(current.getLowScore(), user.getLowScore());
+//            if (current.getHighScore() < user.getHighScore()) {
+//                pstmt.setInt(1, user.getHighScore());
+//            } else {
+//                pstmt.setInt(1, current.getHighScore());
+//            }
+//
+//            if (current.getLowScore() > user.getLowScore()) {
+//                pstmt.setInt(2, user.getLowScore());
+//            } else {
+//                pstmt.setInt(2, current.getLowScore());
+//            }
 
-            if (current.getHighScore() < user.getHighScore()) {
-                pstmt.setInt(1, user.getHighScore());
-            } else {
-                pstmt.setInt(1, current.getHighScore());
-            }
-
-            if (current.getLowScore() > user.getLowScore()) {
-                pstmt.setInt(2, user.getLowScore());
-            } else {
-                pstmt.setInt(2, current.getLowScore());
-            }
-
+            pstmt.setInt(1, highPoints);
+            pstmt.setInt(2, lowPoints);
             pstmt.setInt(3, current.getGamesPlayed() + 1);
             pstmt.setString(4, user.getUsername());
             pstmt.executeUpdate();

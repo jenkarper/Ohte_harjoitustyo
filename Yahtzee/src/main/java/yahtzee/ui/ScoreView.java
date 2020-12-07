@@ -14,16 +14,16 @@ import javafx.stage.Stage;
 import yahtzee.domain.Game;
 
 /**
- *
+ * Creates the score view of the game.
  * @author pertjenn
  */
 public class ScoreView {
 
-    private Game game;
-    private Label[] sc;
-    private GameAlert alert;
-    private VBox playerInfo;
-    private GameOverView gov;
+    private final Game game;
+    private final Label[] sc;
+    private final GameAlert alert;
+    private final VBox playerInfo;
+    private final GameOverView gov;
 
     public ScoreView(Game game, Label[] scorecard, GameAlert alert, VBox playerInfo) {
         this.game = game;

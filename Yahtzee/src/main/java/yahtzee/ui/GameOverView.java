@@ -39,33 +39,17 @@ public class GameOverView {
         
         populateList(centerNode);
         
-//        Label instruction = new Label("Syötä nimesi highscore-listausta varten:");
-//        
-//        HBox input = new HBox();
-//        input.setPadding(new Insets(20, 20, 20, 20));
-//        input.setSpacing(20);
-//        
-//        TextField nameField = new TextField();
-//        Button save = new Button("Tallenna");
-//        input.getChildren().addAll(nameField, save);
-//        
-//        centerNode.getChildren().addAll(instruction, input);
-//        
-//        VBox highscoreList = new VBox(new Label("TOP TEN"));
-//        highscoreList.setPadding(new Insets(20, 20, 20, 20));
-//        highscoreList.setSpacing(10);
+        // Create layout
         
         BorderPane layout = new BorderPane();
         layout.setPadding(new Insets(20, 20, 20, 20));
         layout.setTop(topNode);
         layout.setCenter(centerNode);
         
-//        save.setOnAction(value -> {
-//            highscoreList.getChildren().add(new Label(nameField.getText() + ": " + game.getGrandTotal() + " pistettä"));
-//            layout.setCenter(highscoreList);
-//        });
+        // Create scene
         
         Scene scene = new Scene(layout);
+        
         return scene;
     }
     
@@ -74,6 +58,9 @@ public class GameOverView {
         
         for (int i = 0; i < list.size(); i++) {
             centerNode.getChildren().add(new Label(i+1 + ". " + list.get(i)));
+            if (i == 9) {
+                break;
+            }
         }
     }
 }
