@@ -18,13 +18,13 @@ Graafinen käyttöliittymä koostuu neljästä näkymästä: Avausnäkymässä k
 
 Sovellus simuloi viiden nopan heittämistä. Sovellus tarjoaa myös pöytäkirjan, johon heittojen tulokset merkitään, sekä pistelaskutoiminnallisuuden. Käyttäjä voi
 
-* heittää viittä d6-noppaa (_tehty_)
-* merkitä nopan lukituksi, jolloin sen silmäluku säilyy heitosta toiseen (_tehty_)
-* vapauttaa lukitun nopan (_tehty_)
-* laskea heiton pisteet jatsin pistesääntöjen mukaan (_tehty_)
-* merkitä heiton pisteet haluamaansa kohtaan pöytäkirjassa (_tehty_)
-* laskea yhteispisteet (_tehty_)
-* tarkastella kymmenen parhaan tuloksen listaa
+* heittää viittä d6-noppaa
+* merkitä nopan lukituksi, jolloin sen silmäluku säilyy heitosta toiseen
+* vapauttaa lukitun nopan
+* laskea heiton pisteet jatsin pistesääntöjen mukaan
+* merkitä heiton pisteet haluamaansa kohtaan pöytäkirjassa
+* laskea yhteispisteet
+* tarkastella kymmenen parhaan tuloksen listaa (_tehty_)
 * tarkastella omaa tilastoaan (paras tulos, huonoin tulos ja pelattujen pelien määrä)
 
 Pelinäkymässä on ajantasainen pöytäkirja. Pisteytysnäkymässä pelaaja näkee sellaiset pöytäkirjan kategoriat, joihin heitto on mahdollista pisteyttää (eli vielä käyttämättä olevat kategoriat). Pelilogiikka kontrolloi heittojen määrää jatsin sääntöjen mukaan.
