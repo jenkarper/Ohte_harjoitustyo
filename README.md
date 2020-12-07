@@ -30,5 +30,9 @@ Testit suoritetaan komennolla `mvn test`. Testikattavuusraportti luodaan komenno
 #### Checkstyle
 Projektissa on käytössä koodin laatua valvova työkalu Checkstyle. Checkstyle-tarkastus suoritetaan komentoriviltä komennolla `mvn jxr:jxr checkstyle:checkstyle`, ja sen generoimaa raporttia voi tarkastella selaimessa komennolla `chromium-browser target/site/checkstyle.html`. Käyttöliittymän rakentava koodi (pakkaus _yahtzee.ui_) on jätetty Checkstylen ulkopuolelle.
 
+#### JavaDoc
+Sovelluksen lähdekoodi on dokumentoitu JavaDoc-työkalun avulla. JavaDoc-raportin voi generoida komennolla `mvn javadoc:javadoc`, ja se ilmestyy hakemistoon _target/site/apidocs_ nimellä _index.html_.
+
 #### Suoritettavan jarin generointi
 Komennolla `mvn package` voi luoda suoritettavan jar-tiedoston. Se ilmestyy hakemistoon _target_ nimellä _Yahtzee-1.0-SNAPSHOT.jar_.
+
