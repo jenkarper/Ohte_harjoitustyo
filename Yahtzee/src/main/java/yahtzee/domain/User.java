@@ -1,7 +1,7 @@
 package yahtzee.domain;
 
 /**
- *
+ * Corresponds with a row in User table.
  * @author pertjenn
  */
 public class User {
@@ -10,11 +10,21 @@ public class User {
     private int lowScore;
     private int gamesPlayed;
     
-    
+    /**
+     * Creates a new user with zero values.
+     * @param username Input by user.
+     */
     public User(String username) {
         this(username, 0, 0, 0);
     }
     
+    /**
+     * Creates a new instance of an existing user.
+     * @param username Input by user.
+     * @param hs Highscore associated with existing user.
+     * @param ls Lowscore associated with existing user.
+     * @param gp Number of games played by existing user.
+     */
     public User(String username, int hs, int ls, int gp) {
         this.username = username;
         this.highScore = hs;
@@ -46,10 +56,17 @@ public class User {
         return gamesPlayed;
     }
 
+    /**
+     * Updates the number of games played by the current user.
+     */
     public void play() {
         this.gamesPlayed++;
     }
     
+    /**
+     * Creates a string representation of the user stats.
+     * @return 
+     */
     @Override
     public String toString() {
         StringBuilder u = new StringBuilder();

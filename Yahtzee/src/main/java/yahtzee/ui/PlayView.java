@@ -15,7 +15,7 @@ import javafx.stage.Stage;
 import yahtzee.domain.Game;
 
 /**
- *
+ * Creates the main view of the game.
  * @author pertjenn
  */
 public class PlayView {
@@ -61,6 +61,7 @@ public class PlayView {
         VBox centerNode = new VBox();
         centerNode.setPadding(insets);
         centerNode.setSpacing(20);
+        centerNode.setMinWidth(50);
         centerNode.getChildren().addAll(rollButton, scoreButton);
 
         // 1.4 Bottom: the instruction and new game buttons

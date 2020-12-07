@@ -1,31 +1,27 @@
 package yahtzee.ui;
 
-import java.util.ArrayList;
 import java.util.List;
 import javafx.geometry.Insets;
-import javafx.scene.Node;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
 import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import yahtzee.domain.Game;
-import yahtzee.domain.User;
 
 /**
- *
+ * Creates the game over view of the game and updates database.
  * @author pertjenn
  */
 public class GameOverView {
-    private Game game;
+    private final Game game;
     
     public GameOverView(Game game) {
         this.game = game;
     }
     
     public Scene getScene() {
+        
+        // Update database
         
         try {
             game.updateUser();

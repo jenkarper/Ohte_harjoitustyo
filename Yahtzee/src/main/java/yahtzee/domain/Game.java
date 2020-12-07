@@ -183,10 +183,21 @@ public class Game {
         return this.user;
     }
 
+    /**
+     * Calls database method for checking whether a user already exists.
+     * @param username Input by user.
+     * @return False if username already exists in database, true otherwise.
+     * @throws Exception 
+     */
     public boolean validateUsername(String username) throws Exception {
         return db.findUser(username).getUsername().equals("");
     }
 
+    /**
+     * Calls database method for adding a new user.
+     * @param user
+     * @throws Exception 
+     */
     public void insertUser(User user) throws Exception {
         db.addUser(user);
     }
@@ -195,10 +206,20 @@ public class Game {
         this.user = user;
     }
 
+    /**
+     * Calls database method for finding user by username
+     * @param username
+     * @return
+     * @throws Exception 
+     */
     public User findUser(String username) throws Exception {
         return db.findUser(username);
     }
     
+    /**
+     * Updates current user stats and calls database method to update database
+     * @throws Exception 
+     */
     public void updateUser() throws Exception {
         
         User current = findUser(user.getUsername());
@@ -216,6 +237,10 @@ public class Game {
         db.addHighscore(user);
     }
     
+    /**
+     * Calls database method to get the top ten scores
+     * @return 
+     */
     public List<String> getTopTen() {
         return db.getTopTen();
     }

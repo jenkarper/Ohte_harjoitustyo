@@ -12,7 +12,7 @@ import java.util.List;
 import yahtzee.domain.User;
 
 /**
- *
+ * Offers methods for setting up, reading from, and writing to a database.
  * @author pertjenn
  */
 public class Database implements UserDao, HighscoreDao {
@@ -25,12 +25,21 @@ public class Database implements UserDao, HighscoreDao {
 
     // SETTING UP DATABASE
     
+    /**
+     * Intitialises the database.
+     * @throws Exception 
+     */
     private void initialise() throws Exception {
 
         this.connection = connect();
         createTables();
     }
 
+    /**
+     * Connects to existing database via JDBC driver (or creates a new database).
+     * @return The connection.
+     * @throws Exception 
+     */
     private Connection connect() throws Exception {
         String url = "jdbc:sqlite:yahtzee.db";
         Connection c = null;
@@ -45,6 +54,10 @@ public class Database implements UserDao, HighscoreDao {
         return c;
     }
 
+    /**
+     * Creates tables User and Highscore (if they do not yet exist).
+     * @throws Exception 
+     */
     private void createTables() throws Exception {
         String url = "jdbc:sqlite:yahtzee.db";
         String createUser = "CREATE TABLE IF NOT EXISTS User (id INTEGER PRIMARY KEY, username TEXT, highscore INTEGER, lowscore INTEGER, gamesPlayed INTEGER);";
@@ -60,6 +73,11 @@ public class Database implements UserDao, HighscoreDao {
 
     // USER METHODS
     
+    /**
+     * Adds a new row to User table.
+     * @param user Instance of class User.
+     * @throws Exception 
+     */
     @Override
     public void addUser(User user) throws Exception {
         String addUser = "INSERT INTO User (username, highscore) VALUES (?, ?);";
@@ -73,6 +91,12 @@ public class Database implements UserDao, HighscoreDao {
         }
     }
 
+    /**
+     * Matches given username to database rows and reads the associated values.
+     * @param username Input by user.
+     * @return Instance of User (values from database or default).
+     * @throws Exception 
+     */
     @Override
     public User findUser(String username) throws Exception {
         User u = new User("");
@@ -126,6 +150,12 @@ public class Database implements UserDao, HighscoreDao {
         }
     }
 
+    /**
+     * 
+     * @param user Instance of User class.
+     * @return The primary key associated with the username.
+     * @throws Exception 
+     */
     public int getUserPK(User user) throws Exception {
         String getPK = "SELECT id FROM User WHERE (username==?);";
         int pk = -1;
@@ -147,6 +177,11 @@ public class Database implements UserDao, HighscoreDao {
 
     // HIGHSCORE METHODS
     
+    /**
+     * Adds a new row to Highscore table.
+     * @param user Instance of User class.
+     * @throws Exception 
+     */
     @Override
     public void addHighscore(User user) throws Exception {
         String addHighscore = "INSERT INTO Highscore (score, player) VALUES (?, ?);";
@@ -162,6 +197,10 @@ public class Database implements UserDao, HighscoreDao {
         }
     }
 
+    /**
+     * Reads the highscore table and orders the result set by the points.
+     * @return A list of the highscores in descending order.
+     */
     @Override
     public List<String> getTopTen() {
         List<String> list = new ArrayList<>();
@@ -181,5 +220,11 @@ public class Database implements UserDao, HighscoreDao {
         }
         
         return list;
+    }
+    
+    // HELPER METHODS
+    
+    private int updateHighscore(User oldUser, User newUser) {
+        return max(oldUser.getHighScore(), newUser.getHighScore());
     }
 }

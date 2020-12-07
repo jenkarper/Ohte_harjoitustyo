@@ -1,12 +1,10 @@
 package yahtzee.dao;
 
-import java.sql.Connection;
 import java.util.List;
 import yahtzee.domain.User;
-import yahtzee.domain.Highscore;
 
 /**
- *
+ * Defines database methods for Highscore table.
  * @author pertjenn
  */
 public interface HighscoreDao {

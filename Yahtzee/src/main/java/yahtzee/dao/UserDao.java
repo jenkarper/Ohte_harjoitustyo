@@ -3,14 +3,10 @@ package yahtzee.dao;
 import yahtzee.domain.User;
 
 /**
- *
+ * Defines database methods for User table
  * @author pertjenn
  */
 public interface UserDao {
-    
-    //Connection connect() throws Exception;
-    
-    //void createTables() throws Exception;
     
     void addUser(User user) throws Exception;
     
