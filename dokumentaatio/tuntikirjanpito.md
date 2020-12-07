@@ -29,5 +29,6 @@
 | 4.12. |  3  | Tietokannan suunnittelua, näkymän vaihdon kanssa tappelua |
 | 5.12. | 2.5 | Tietokannan ensimmäisen version toteutus |
 | 7.12. |  4  | Arkkitehtuurikuvauksen päivitys ja täydennys, puuttuvien Javadoc-kommenttien kirjoittaminen, käyttöliittymäkoodin refaktorointi |
+| 7.12. |  1  | Alustava käyttöohje, yksikkötestit User-luokalla |
 |       |     | |
-| YHT   | 66  | |
+| YHT   | 68  | |
