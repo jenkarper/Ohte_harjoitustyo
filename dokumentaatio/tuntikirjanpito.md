@@ -30,5 +30,6 @@
 | 5.12. | 2.5 | Tietokannan ensimmäisen version toteutus |
 | 7.12. |  4  | Arkkitehtuurikuvauksen päivitys ja täydennys, puuttuvien Javadoc-kommenttien kirjoittaminen, käyttöliittymäkoodin refaktorointi |
 | 7.12. |  1  | Alustava käyttöohje, yksikkötestit User-luokalla |
+| 8.12. |  5  | Uusi näkymä pelaajaan liittyvien tilastojen tarkasteluun, ensimmäiset yksikkötestit tietokantaluokalle, tietokantaluokan koodin refaktorointi testauksen helpottamiseksi |
 |       |     | |
-| YHT   | 68  | |
+| YHT   | 73  | |
