@@ -25,7 +25,7 @@ Sovellus simuloi viiden nopan heittämistä. Sovellus tarjoaa myös pöytäkirja
 * merkitä heiton pisteet haluamaansa kohtaan pöytäkirjassa
 * laskea yhteispisteet
 * tarkastella kymmenen parhaan tuloksen listaa (_tehty_)
-* tarkastella omaa tilastoaan (paras tulos, huonoin tulos ja pelattujen pelien määrä)
+* tarkastella omaa tilastoaan (paras tulos, huonoin tulos ja pelattujen pelien määrä) (_tehty_)
 
 Pelinäkymässä on ajantasainen pöytäkirja. Pisteytysnäkymässä pelaaja näkee sellaiset pöytäkirjan kategoriat, joihin heitto on mahdollista pisteyttää (eli vielä käyttämättä olevat kategoriat). Pelilogiikka kontrolloi heittojen määrää jatsin sääntöjen mukaan.
 
