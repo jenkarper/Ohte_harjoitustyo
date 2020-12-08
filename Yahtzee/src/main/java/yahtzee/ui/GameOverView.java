@@ -22,6 +22,7 @@ public class GameOverView {
     public Scene getScene() {
         
         // Update database
+        game.updateUserStats(game.getGrandTotal());
         
         try {
             game.updateUser();
@@ -57,7 +58,11 @@ public class GameOverView {
         List<String> list = game.getTopTen();
         
         for (int i = 0; i < list.size(); i++) {
-            centerNode.getChildren().add(new Label(i+1 + ". " + list.get(i)));
+            Label l = new Label(i+1 + ". " + list.get(i));
+            if (list.get(i).equals(game.getPlayer() + "\t" + game.getGrandTotal())) {
+                l.setStyle("-fx-font-weight: bold");
+            }
+            centerNode.getChildren().add(l);
             if (i == 9) {
                 break;
             }

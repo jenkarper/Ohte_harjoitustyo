@@ -69,18 +69,19 @@ public class PlayView {
         styleButton(instructionButton);
         Button newGameButton = new Button("Aloita uusi peli");
         styleButton(newGameButton);
-        HBox bottomNode = new HBox(instructionButton, newGameButton);
+        Button playerStatsButton = new Button("Omat tiedot");
+        styleButton(playerStatsButton);
+        HBox bottomNode = new HBox(instructionButton, newGameButton, playerStatsButton);
         bottomNode.setSpacing(20);
 
         // 1.5 Right: player info
         VBox rightNode = new VBox();
         rightNode.setPadding(insets);
         rightNode.setSpacing(10);
-        
+
         rightNode.getChildren().addAll(Arrays.asList(playerInfo));
 
         // 2 CREATE LAYOUT
-        
         BorderPane layout = new BorderPane();
         layout.setTop(topNode);
         layout.setCenter(centerNode);

@@ -11,5 +11,6 @@
     <suppress files="yahtzee.ui.PlayView.java" checks="[a-zA-Z0-9]*"/>
     <suppress files="yahtzee.ui.StartView.java" checks="[a-zA-Z0-9]*"/>
     <suppress files="yahtzee.ui.GameOverView.java" checks="[a-zA-Z0-9]*"/>
+    <suppress files="yahtzee.ui.PlayerStatsView.java" checks="[a-zA-Z0-9]*"/>
     <suppress files="yahtzee.ui.GameAlert.java" checks="[a-zA-Z0-9]*"/>
 </suppressions>
