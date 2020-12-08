@@ -5,7 +5,7 @@ import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Label;
 
 /**
- *
+ * Generates information alerts for the graphic interface.
  * @author pertjenn
  */
 public class GameAlert {
@@ -33,6 +33,8 @@ public class GameAlert {
             alert.setContentText("Yksi kategoria on valittava!");
         } else if (type == 4) {
             alert.setContentText("Peli ohi! Keräsit " + points + " pistettä.");
+        } else if (type == 5) {
+            alert.setContentText("Heitä vähintään kerran!");
         }
         alert.show();
         
