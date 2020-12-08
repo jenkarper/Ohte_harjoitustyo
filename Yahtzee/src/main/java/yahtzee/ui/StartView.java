@@ -54,12 +54,13 @@ public class StartView {
             
             try {
                 String input = field.getText();
-                if (game.validateUsername(input)) {
+                if (game.validateUsername(input)) { // Username does not exist
                     loggingIn = new User(input);
+                    game.insertUser(loggingIn);
                 } else {
-                    loggingIn = game.findUser(input);
+                    loggingIn = game.findUser(input); // Username already exists
                 }
-                game.insertUser(loggingIn);
+                
                 game.setUser(loggingIn);
                 playView.setPlayer();
                 

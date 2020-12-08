@@ -123,7 +123,7 @@ public class Database implements UserDao, HighscoreDao {
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
-
+        
         return u;
     }
 
@@ -148,6 +148,18 @@ public class Database implements UserDao, HighscoreDao {
             pstmt.setString(4, user.getUsername());
             pstmt.executeUpdate();
 
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+    
+    @Override
+    public void deleteUser(User user) throws Exception {
+        String deleteUser = "DELETE FROM User WHERE username==?;";
+        
+        try (PreparedStatement pstmt = connection.prepareStatement(deleteUser)) {
+            pstmt.setString(1, user.getUsername());
+            pstmt.executeUpdate();
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }

@@ -226,14 +226,24 @@ public class PlayView {
             reset();
             markDiceReleased();
         });
+        
+        playerStatsButton.setOnAction((ActionEvent event) -> {
+            PlayerStatsView playerStatsView = new PlayerStatsView(game.getUser());
+            Stage playerStatsWindow = playerStatsView.getPlayerStatsView();
+            playerStatsWindow.show();
+        });
 
         // 4.5 Score button
         scoreButton.setOnAction((ActionEvent event) -> {
-            markDiceReleased();
-            game.releaseAll();
-            ScoreView scoreView = new ScoreView(game, scorecard, alert, rightNode);
-            Stage scoreWindow = scoreView.getScoreView();
-            scoreWindow.show();
+            if (game.getRollCounter() == 3) {
+                alert.getAlert(5, 0);
+            } else {
+                markDiceReleased();
+                game.releaseAll();
+                ScoreView scoreView = new ScoreView(game, scorecard, alert, rightNode);
+                Stage scoreWindow = scoreView.getScoreView();
+                scoreWindow.show();
+            }
         });
     }
 }
