@@ -15,7 +15,7 @@ public class User {
      * @param username Input by user.
      */
     public User(String username) {
-        this(username, 0, 0, 0);
+        this(username, 0, 421, 0); // 421 = max possible score + 1
     }
     
     /**

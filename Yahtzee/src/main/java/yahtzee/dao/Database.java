@@ -18,11 +18,13 @@ import yahtzee.domain.User;
  * @author pertjenn
  */
 public class Database implements UserDao, HighscoreDao {
-
+    
+    private final String databaseName;
     private Connection connection;
 
-    public Database() throws Exception {
-        initialise();
+    public Database(String databaseName) throws Exception {
+        this.databaseName = databaseName;
+        initialise(databaseName);
     }
 
     // SETTING UP DATABASE
@@ -31,9 +33,9 @@ public class Database implements UserDao, HighscoreDao {
      * Intitialises the database.
      * @throws Exception 
      */
-    private void initialise() throws Exception {
+    private void initialise(String databaseName) throws Exception {
 
-        this.connection = connect();
+        this.connection = connect(databaseName);
         createTables();
     }
 
@@ -42,12 +44,11 @@ public class Database implements UserDao, HighscoreDao {
      * @return The connection.
      * @throws Exception 
      */
-    private Connection connect() throws Exception {
-        String url = "jdbc:sqlite:yahtzee.db";
+    private Connection connect(String databaseName) throws Exception {
         Connection c = null;
 
         try {
-            c = DriverManager.getConnection(url);
+            c = DriverManager.getConnection(databaseName);
             DatabaseMetaData meta = c.getMetaData();
         } catch (SQLException e) {
             System.out.println(e.getMessage());
@@ -61,7 +62,7 @@ public class Database implements UserDao, HighscoreDao {
      * @throws Exception 
      */
     private void createTables() throws Exception {
-        String url = "jdbc:sqlite:yahtzee.db";
+        
         String createUser = "CREATE TABLE IF NOT EXISTS User (id INTEGER PRIMARY KEY, username TEXT, highscore INTEGER, lowscore INTEGER, gamesPlayed INTEGER);";
         String createHighscore = "CREATE TABLE IF NOT EXISTS Highscore (id INTEGER PRIMARY KEY, score INTEGER, player INTEGER, FOREIGN KEY(player) REFERENCES User(id));";
 
@@ -82,11 +83,13 @@ public class Database implements UserDao, HighscoreDao {
      */
     @Override
     public void addUser(User user) throws Exception {
-        String addUser = "INSERT INTO User (username, highscore) VALUES (?, ?);";
+        String addUser = "INSERT INTO User (username, highscore, lowscore, gamesPlayed) VALUES (?, ?, ?, ?);";
 
         try (PreparedStatement pstmt = connection.prepareStatement(addUser)) {
             pstmt.setString(1, user.getUsername());
             pstmt.setInt(2, user.getHighScore());
+            pstmt.setInt(3, user.getLowScore());
+            pstmt.setInt(4, user.getGamesPlayed());
             pstmt.executeUpdate();
         } catch (SQLException e) {
             System.out.println(e.getMessage());
@@ -173,6 +176,19 @@ public class Database implements UserDao, HighscoreDao {
         }
 
         return pk;
+    }
+    
+    public void getAll() throws Exception {
+        String findAll = "SELECT * FROM User;";
+        
+        try (PreparedStatement pstmt = connection.prepareStatement(findAll)) {
+            ResultSet rs = pstmt.executeQuery();
+            
+            while (rs.next()) {
+                User u = new User(rs.getString("username"), rs.getInt("highscore"), rs.getInt("lowscore"), rs.getInt("gamesPlayed"));
+                System.out.println(u.toString());
+            }
+        }
     }
 
     // HIGHSCORE METHODS

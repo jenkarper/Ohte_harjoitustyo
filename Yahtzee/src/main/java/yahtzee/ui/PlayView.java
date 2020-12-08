@@ -16,16 +16,18 @@ import yahtzee.domain.Game;
 
 /**
  * Creates the main view of the game.
+ *
  * @author pertjenn
  */
 public class PlayView {
+
     private final Game game;
     private final Button[] dieRow;
     private final Label[] scorecard;
     private final Label[] playerInfo;
     private final Insets insets;
     private final GameAlert alert;
-    
+
     public PlayView(Game game) throws Exception {
         this.game = game;
         this.dieRow = createDice();
@@ -34,9 +36,9 @@ public class PlayView {
         this.insets = new Insets(20, 20, 20, 20);
         this.alert = new GameAlert();
     }
-    
+
     public Scene getScene() {
-        
+
         // 1 CREATE LAYOUT COMPONENTS
         // 1.1 Top: the dice
         HBox topNode = new HBox();
@@ -93,14 +95,13 @@ public class PlayView {
         topNode.setAlignment(Pos.CENTER);
         centerNode.setAlignment(Pos.TOP_CENTER);
         bottomNode.setAlignment(Pos.BOTTOM_RIGHT);
-        
+
         // 3 DEFINE BUTTON ACTION
-        
-        defineButtonEvents(rollButton, scoreButton, instructionButton, newGameButton, rightNode);
-        
+        defineButtonEvents(rollButton, scoreButton, instructionButton, newGameButton, playerStatsButton, rightNode);
+
         return new Scene(layout);
     }
-    
+
     private Button[] createDice() {
         Button[] dicePane = new Button[5];
         dicePane[0] = new Button("J");
@@ -127,33 +128,33 @@ public class PlayView {
         }
         return sc;
     }
-    
+
     private Label[] createPlayerInfo() {
         Label[] info = new Label[5];
-        
+
         info[0] = new Label("PELITILANNE");
         info[0].setFont(new Font("Arial", 18));
-        
+
         info[1] = new Label();
         info[1].setFont(new Font("Arial", 15));
-        
+
         info[2] = new Label("Välisumma");
         info[2].setFont(new Font("Arial", 15));
-        
+
         info[3] = new Label("Bonus");
         info[3].setFont(new Font("Arial", 15));
-        
+
         info[4] = new Label("Yhteensä");
         info[4].setFont(new Font("Arial", 15));
         info[4].setStyle("-fx-font-weight: bold");
-        
+
         return info;
     }
-    
+
     public void setPlayer() {
         this.playerInfo[1].setText("Pelaaja: " + game.getPlayer());
     }
-    
+
     private void resetPlayerInfo() {
         playerInfo[2].setText("Välisumma");
         playerInfo[3].setText("Bonus");
@@ -163,29 +164,29 @@ public class PlayView {
     private void styleButton(Button b) {
         b.setStyle("-fx-background-color: #e9f7ef; -fx-font-size: 1em; -fx-border-color:  #48c9b0; -fx-border-width: 1px;");
     }
-    
+
     private void reset() {
         dieRow[0].setText("J");
         dieRow[1].setText("A");
         dieRow[2].setText("T");
         dieRow[3].setText("S");
         dieRow[4].setText("I");
-        
+
         markDiceReleased();
         resetPlayerInfo();
-        
+
         for (int i = 1; i < scorecard.length; i++) {
             scorecard[i].setText(game.getScorecard().getCategories()[i]);
         }
     }
-    
+
     private void markDiceReleased() {
         for (Button b : dieRow) {
             b.setStyle("-fx-background-color: #48c9b0; -fx-font-size: 2em;");
         }
     }
-    
-    private void defineButtonEvents(Button rollButton, Button scoreButton, Button instructionButton, Button newGameButton, VBox rightNode) {
+
+    private void defineButtonEvents(Button rollButton, Button scoreButton, Button instructionButton, Button newGameButton, Button playerStatsButton, VBox rightNode) {
         for (int i = 0; i < dieRow.length; i++) {
             int die = i;
             dieRow[die].setOnAction(value -> {
@@ -211,6 +212,7 @@ public class PlayView {
                 markDiceReleased();
                 alert.getAlert(2, 0);
             }
+
         });
 
         // 4.3 Instruction button

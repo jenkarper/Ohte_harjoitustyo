@@ -13,4 +13,6 @@ public interface UserDao {
     User findUser(String username) throws Exception;
     
     void updateUser(User user) throws Exception;
+    
+    void deleteUser(User user) throws Exception;
 }

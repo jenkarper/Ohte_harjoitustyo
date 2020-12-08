@@ -16,18 +16,24 @@ public class Game {
     private final Checker checker;
     private int rollCounter;
     private int roundCounter;
-    
+
     private User user;
     private final Database db;
+    private final String databaseName;
 
     public Game() throws Exception {
+        this("jdbc:sqlite:yahtzee.db");
+    }
+
+    public Game(String databaseName) throws Exception {
         this.roll = new Roll();
         this.scorecard = new Scorecard();
         this.checker = new Checker();
         this.rollCounter = 3;
         this.roundCounter = 15;
 
-        this.db = new Database();
+        this.databaseName = databaseName;
+        this.db = new Database(databaseName);
     }
 
     /**
@@ -172,20 +178,24 @@ public class Game {
     }
 
     // USER AND DATABASE METHODS
-
     public String getPlayer() {
         return this.user.getUsername();
     }
-    
+
     public User getUser() {
         return this.user;
     }
 
+    public Database getDatabase() {
+        return this.db;
+    }
+
     /**
      * Calls database method for checking whether a user already exists.
+     *
      * @param username Input by user.
      * @return False if username already exists in database, true otherwise.
-     * @throws Exception 
+     * @throws Exception
      */
     public boolean validateUsername(String username) throws Exception {
         return db.findUser(username).getUsername().equals("");
@@ -193,8 +203,9 @@ public class Game {
 
     /**
      * Calls database method for adding a new user.
+     *
      * @param user
-     * @throws Exception 
+     * @throws Exception
      */
     public void insertUser(User user) throws Exception {
         db.addUser(user);
@@ -206,38 +217,54 @@ public class Game {
 
     /**
      * Calls database method for finding user by username
+     *
      * @param username
      * @return
-     * @throws Exception 
+     * @throws Exception
      */
     public User findUser(String username) throws Exception {
         return db.findUser(username);
     }
-    
+
     /**
-     * Updates current user stats and calls database method to update database
-     * @throws Exception 
+     * Calls database method to update User table
+     *
+     * @throws Exception
      */
     public void updateUser() throws Exception {
-        
-        User current = findUser(user.getUsername());
-        int points = getGrandTotal();
-        
-        if (current.getHighScore() < points) {
-            user.setHighScore(points);
-        }
-        
-        if (current.getLowScore() > points) {
-            user.setLowScore(points);
-        }
-        user.play();
         db.updateUser(user);
         db.addHighscore(user);
     }
-    
+
+    /**
+     * Updates current user stats
+     * 
+     * @param points The grand total of the last game.
+     */
+    public void updateUserStats(int points) {
+
+        user.play();
+
+        if (user.getGamesPlayed() == 1) {
+            user.setHighScore(points);
+            user.setLowScore(points);
+        } else {
+            if (user.getHighScore() < points) {
+                user.setHighScore(points);
+            } else if (user.getLowScore() > points) {
+                user.setLowScore(points);
+            }
+        }
+    }
+
+    public void deleteUser(User user) throws Exception {
+        db.deleteUser(user);
+    }
+
     /**
      * Calls database method to get the top ten scores
-     * @return 
+     *
+     * @return
      */
     public List<String> getTopTen() {
         return db.getTopTen();

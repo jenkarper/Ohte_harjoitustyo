@@ -22,7 +22,7 @@ public class UserTest {
     public void newUserWithOneParameterInitialisesCorrectly() {
         String result = userOneParam.getUsername() + userOneParam.getHighScore() + userOneParam.getLowScore() + userOneParam.getGamesPlayed();
         
-        assertEquals("username000", result);
+        assertEquals("username04210", result);
     }
     
     @Test
@@ -40,7 +40,7 @@ public class UserTest {
     
     @Test
     public void stringRepresentationIsCorrect() {
-        String expected = "username, 0, 0, 0";
+        String expected = "username, 0, 421, 0";
         
         assertEquals(expected, userOneParam.toString());
     }
