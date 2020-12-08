@@ -2,11 +2,7 @@
 
 ## Rakenne
 
-Ohjelman pakkausrakenne on kolmitasoinen:
-
-<img src="https://github.com/jenkarper/YahtzeeDesktop/blob/master/dokumentaatio/kuvat/pakkauskaavio.png" width="300">
-
-Pakkaus _yahtzee.ui_ sisältää graafisen käyttöliittymän rakentavan koodin, pakkaus _yahtzee.dao_ sisältää tietokannan käsittelyyn liittyvän koodin, ja varsinainen sovelluslogiikka on pakkauksessa _yahtzee.domain_. Sekä pelilogiikka että tiedon pysyväistallennukseen liittyvä toiminnallisuus tapahtuu _domain_-pakkauksessa olevan [Game](https://github.com/jenkarper/YahtzeeDesktop/blob/master/Yahtzee/src/main/java/yahtzee/domain/Game.java)-luokan kautta. Tarkempi pakkaus- ja luokkakaavio on seuraavanlainen:
+Ohjelman pakkausrakenne on kolmitasoinen. Pakkaus _yahtzee.ui_ sisältää graafisen käyttöliittymän rakentavan koodin, pakkaus _yahtzee.dao_ sisältää tietokannan käsittelyyn liittyvän koodin, ja varsinainen sovelluslogiikka on pakkauksessa _yahtzee.domain_. Sekä pelilogiikka että tiedon pysyväistallennukseen liittyvä toiminnallisuus tapahtuu _domain_-pakkauksessa olevan [Game](https://github.com/jenkarper/YahtzeeDesktop/blob/master/Yahtzee/src/main/java/yahtzee/domain/Game.java)-luokan kautta. Pakkausten ja niiden sisältämien luokkien keskinäisiä suhteita on havainnollistettu pakkaus- ja luokkakaaviossa:
 
 <img src="https://github.com/jenkarper/YahtzeeDesktop/blob/master/dokumentaatio/kuvat/luokka-pakkauskaavio.png" width="600">
 
@@ -35,7 +31,7 @@ Tietokannan käsittelystä vastaava koodi sijaitsee pakkauksessa _yahtzee.dao_. 
 
 Taulut ovat rakenteeltaan seuraavanlaisia:
 
-<img src="https://github.com/jenkarper/YahtzeeDesktop/blob/master/dokumentaatio/kuvat/tietokantataulut.png" width="300">
+<img src="https://github.com/jenkarper/YahtzeeDesktop/blob/master/dokumentaatio/kuvat/tietokantataulut.png" width="600">
 
 Tietokantaan tallennetaan pelaajan avausnäkymässä syöttämä pelaajanimi, ja pelin päätyttyä tallennetaan tähän pelaajanimeen liittyvät yhteispisteet siten, että tietokannassa ovat aina korkeimmat ja matalimmat yhteispisteet. Lisäksi tallennetaan pelattujen pelien määrä. Pelin päättyessä tietokannasta luetaan kymmenen parhaan pistemäärän lista.
 

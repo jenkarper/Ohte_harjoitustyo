@@ -10,6 +10,8 @@ YahtzeeDesktop on paikallisella koneella pelattava jatsi-noppapeli.
 
 ### Dokumentaatio
 
+[Käyttöohje](dokumentaatio/kayttoohje.md)
+
 [Vaatimusmäärittely](dokumentaatio/vaatimusmaarittely.md)
 
 [Arkkitehtuurikuvaus](dokumentaatio/arkkitehtuuri.md)
@@ -17,7 +19,10 @@ YahtzeeDesktop on paikallisella koneella pelattava jatsi-noppapeli.
 [Tuntikirjanpito](dokumentaatio/tuntikirjanpito.md)
 
 ### Releaset
+
 [Viikko 5](https://github.com/jenkarper/YahtzeeDesktop/releases/tag/viikko5)
+
+[Viikko 6](https://github.com/jenkarper/YahtzeeDesktop/releases/tag/viikko6)
 
 ### Komentorivitoiminnot
 
@@ -27,5 +32,9 @@ Testit suoritetaan komennolla `mvn test`. Testikattavuusraportti luodaan komenno
 #### Checkstyle
 Projektissa on käytössä koodin laatua valvova työkalu Checkstyle. Checkstyle-tarkastus suoritetaan komentoriviltä komennolla `mvn jxr:jxr checkstyle:checkstyle`, ja sen generoimaa raporttia voi tarkastella selaimessa komennolla `chromium-browser target/site/checkstyle.html`. Käyttöliittymän rakentava koodi (pakkaus _yahtzee.ui_) on jätetty Checkstylen ulkopuolelle.
 
+#### JavaDoc
+Sovelluksen lähdekoodi on dokumentoitu JavaDoc-työkalun avulla. JavaDoc-raportin voi generoida komennolla `mvn javadoc:javadoc`, ja se ilmestyy hakemistoon _target/site/apidocs_ nimellä _index.html_.
+
 #### Suoritettavan jarin generointi
 Komennolla `mvn package` voi luoda suoritettavan jar-tiedoston. Se ilmestyy hakemistoon _target_ nimellä _Yahtzee-1.0-SNAPSHOT.jar_.
+
