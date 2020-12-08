@@ -22,6 +22,8 @@ YahtzeeDesktop on paikallisella koneella pelattava jatsi-noppapeli.
 
 [Viikko 5](https://github.com/jenkarper/YahtzeeDesktop/releases/tag/viikko5)
 
+[Viikko 6](https://github.com/jenkarper/YahtzeeDesktop/releases/tag/viikko6)
+
 ### Komentorivitoiminnot
 
 #### Testaus
