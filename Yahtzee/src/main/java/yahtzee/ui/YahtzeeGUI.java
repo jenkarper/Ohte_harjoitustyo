@@ -26,14 +26,12 @@ public class YahtzeeGUI extends Application {
         stage.setTitle("Jatsi");
 
         // CREATE SCENES
-        
         this.playView = new PlayView(game);
         Scene playScene = playView.getScene();
         this.startView = new StartView(game, playScene, playView, stage);
         Scene startScene = startView.getScene();
 
         // SET THE STAGE
-        
         stage.setScene(startScene);
         stage.show();
 

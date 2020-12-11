@@ -4,6 +4,7 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 
 import yahtzee.domain.Game;
+import yahtzee.domain.User;
 
 /**
  *
@@ -144,5 +145,37 @@ public class GameTest {
         game.scoreRoll(1, dice);
         game.reset();
         assertTrue((game.getRollCounter()==3) && (game.getRoundCounter()==15) && !game.checkHoldStatus(0) && (game.getScorecard().getPoints()[1]==-1));
+    }
+    
+    @Test
+    public void userStatsUpdateCorrectlyAfterOneGame() {
+        User u = new User("testUser");
+        game.setUser(u);
+        game.updateUserStats(50);
+        
+        String expected = "testUser, 50, 50, 1";
+        assertEquals(expected, u.toString());
+    }
+    
+    @Test
+    public void newHighScoreDoesNotUpdateLowScore() {
+        User u = new User("testUser");
+        game.setUser(u);
+        game.updateUserStats(50);
+        game.updateUserStats(100);
+        
+        String expected = "testUser, 100, 50, 2";
+        assertEquals(expected, u.toString());
+    }
+    
+    @Test
+    public void newLowScoreDoesNotUpdateHighScore() {
+        User u = new User("testUser");
+        game.setUser(u);
+        game.updateUserStats(50);
+        game.updateUserStats(25);
+        
+        String expected = "testUser, 50, 25, 2";
+        assertEquals(expected, u.toString());
     }
 }

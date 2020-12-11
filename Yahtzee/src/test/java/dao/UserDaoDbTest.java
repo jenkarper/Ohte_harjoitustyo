@@ -1,12 +1,10 @@
 package dao;
 
 import org.junit.After;
-import org.junit.AfterClass;
 import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
-import yahtzee.dao.Database;
+import yahtzee.dao.UserDao;
 import yahtzee.domain.Game;
 import yahtzee.domain.User;
 
@@ -14,12 +12,12 @@ import yahtzee.domain.User;
  *
  * @author pertjenn
  */
-public class DatabaseTest {
+public class UserDaoDbTest {
     private Game game;
     private User user;
-    private Database db;
+    private UserDao db;
     
-    public DatabaseTest() throws Exception {
+    public UserDaoDbTest() throws Exception {
     }
     
     @Before
@@ -29,7 +27,7 @@ public class DatabaseTest {
         game.setUser(user);
         game.insertUser(user);
         
-        this.db = game.getDatabase();
+        this.db = game.getUserDatabase();
     }
     
     @After

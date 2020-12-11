@@ -88,7 +88,6 @@ public class ScoreView {
 
                 if (game.getRoundCounter() == 0) {
                     markFinalScore();
-//                    alert.getAlert(4, game.getGrandTotal());
                     Scene govScene = gov.getScene();
                     Stage govStage = new Stage();
                     govStage.setScene(govScene);

@@ -15,4 +15,6 @@ public interface UserDao {
     void updateUser(User user) throws Exception;
     
     void deleteUser(User user) throws Exception;
+    
+    int getUserPK(User user) throws Exception;
 }

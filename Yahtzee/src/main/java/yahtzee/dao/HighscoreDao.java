@@ -9,8 +9,6 @@ import yahtzee.domain.User;
  */
 public interface HighscoreDao {
     
-    //Connection connect() throws Exception;
-    
     void addHighscore(User user) throws Exception;
     
     List<String> getTopTen() throws Exception;

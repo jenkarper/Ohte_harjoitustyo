@@ -1,7 +1,14 @@
 package yahtzee.domain;
 
+import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
-import yahtzee.dao.Database;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import yahtzee.dao.HighscoreDao;
+import yahtzee.dao.HighscoreDaoDb;
+import yahtzee.dao.UserDao;
+import yahtzee.dao.UserDaoDb;
 
 /**
  * Represents the Yahtzee game as a whole, connecting the other domain classes
@@ -18,13 +25,25 @@ public class Game {
     private int roundCounter;
 
     private User user;
-    private final Database db;
+    private final UserDao userDb;
+    private final HighscoreDao highscoreDb;
     private final String databaseName;
 
+    /**
+     * Constructor without parameter creates the database in the default location.
+     * 
+     * @throws Exception 
+     */
     public Game() throws Exception {
         this("jdbc:sqlite:yahtzee.db");
     }
 
+    /**
+     * Creates database in the specified location.
+     * 
+     * @param databaseName
+     * @throws Exception 
+     */
     public Game(String databaseName) throws Exception {
         this.roll = new Roll();
         this.scorecard = new Scorecard();
@@ -33,7 +52,8 @@ public class Game {
         this.roundCounter = 15;
 
         this.databaseName = databaseName;
-        this.db = new Database(databaseName);
+        this.userDb = new UserDaoDb(databaseName);
+        this.highscoreDb = new HighscoreDaoDb(databaseName, userDb);
     }
 
     /**
@@ -178,6 +198,8 @@ public class Game {
     }
 
     // USER AND DATABASE METHODS
+    
+    
     public String getPlayer() {
         return this.user.getUsername();
     }
@@ -186,9 +208,13 @@ public class Game {
         return this.user;
     }
 
-    public Database getDatabase() {
-        return this.db;
+    public HighscoreDao getHighscoreDatabase() {
+        return this.highscoreDb;
     }
+    
+    public UserDao getUserDatabase() {
+    return this.userDb;
+}
 
     /**
      * Calls database method for checking whether a user already exists.
@@ -198,7 +224,7 @@ public class Game {
      * @throws Exception
      */
     public boolean validateUsername(String username) throws Exception {
-        return db.findUser(username).getUsername().equals("");
+        return userDb.findUser(username).getUsername().equals("");
     }
 
     /**
@@ -208,7 +234,7 @@ public class Game {
      * @throws Exception
      */
     public void insertUser(User user) throws Exception {
-        db.addUser(user);
+        userDb.addUser(user);
     }
 
     public void setUser(User user) {
@@ -223,7 +249,7 @@ public class Game {
      * @throws Exception
      */
     public User findUser(String username) throws Exception {
-        return db.findUser(username);
+        return userDb.findUser(username);
     }
 
     /**
@@ -232,8 +258,8 @@ public class Game {
      * @throws Exception
      */
     public void updateUser() throws Exception {
-        db.updateUser(user);
-        db.addHighscore(user);
+        userDb.updateUser(user);
+        highscoreDb.addHighscore(user);
     }
 
     /**
@@ -258,7 +284,7 @@ public class Game {
     }
 
     public void deleteUser(User user) throws Exception {
-        db.deleteUser(user);
+        userDb.deleteUser(user);
     }
 
     /**
@@ -267,6 +293,15 @@ public class Game {
      * @return
      */
     public List<String> getTopTen() {
-        return db.getTopTen();
+        try {
+            List<String> list = new ArrayList<>();
+            
+            list = highscoreDb.getTopTen();
+            
+            return list;
+        } catch (Exception ex) {
+            Logger.getLogger(Game.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
     }
 }

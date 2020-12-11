@@ -7,6 +7,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import yahtzee.domain.Game;
 import yahtzee.domain.User;
@@ -37,9 +38,10 @@ public class StartView {
         field.setMaxWidth(300);
         Button ok = new Button("Aloita uusi peli!");
         ok.setStyle("-fx-background-color: #e9f7ef; -fx-font-size: 1em; -fx-border-color:  #48c9b0; -fx-border-width: 1px;");
+        Label warning = new Label("");
 
         // Create layout
-        VBox layout = new VBox(label, field, ok);
+        VBox layout = new VBox(label, field, ok, warning);
         layout.setPadding(new Insets(20, 20, 20, 20));
         layout.setSpacing(10);
         layout.setAlignment(Pos.CENTER);
@@ -54,6 +56,12 @@ public class StartView {
             
             try {
                 String input = field.getText();
+                if (input.length()>15) {
+                    warning.setText("Syöttämäsi nimi on liian pitkä!\nMaksimipituus on 15 merkkiä.");
+                    warning.setTextFill(Color.RED);
+                    field.clear();
+                    return;
+                }
                 if (game.validateUsername(input)) { // Username does not exist
                     loggingIn = new User(input);
                     game.insertUser(loggingIn);
