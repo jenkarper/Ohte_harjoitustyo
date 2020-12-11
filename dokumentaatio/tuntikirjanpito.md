@@ -31,5 +31,7 @@
 | 7.12. |  4  | Arkkitehtuurikuvauksen päivitys ja täydennys, puuttuvien Javadoc-kommenttien kirjoittaminen, käyttöliittymäkoodin refaktorointi |
 | 7.12. |  1  | Alustava käyttöohje, yksikkötestit User-luokalla |
 | 8.12. |  5  | Uusi näkymä pelaajaan liittyvien tilastojen tarkasteluun, ensimmäiset yksikkötestit tietokantaluokalle, tietokantaluokan koodin refaktorointi testauksen helpottamiseksi, uuden releasen luonti |
+| 11.12.| 1.5 | Tietokantatoiminnallisuuden toteuttavan luokan jakaminen kahdeksi luokaksi ohjaajan palautteen mukaan, muutoksen vaatima koodin refaktorointi |
+| 11.12.| 1.5 | Määrittelydokumentin päivitys, arkkitehtuurikuvauksen päivityksen aloitus, README-dokumentin päivitys |
 |       |     | |
-| YHT   | 73  | |
+| YHT   | 76  | |
