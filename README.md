@@ -4,9 +4,7 @@ Tämä repositorio on luotu Helsingin yliopiston Ohjelmistotekniikan kurssille h
 
 ## Harjoitustyö: YahtzeeDesktop
 
-YahtzeeDesktop on paikallisella koneella pelattava jatsi-noppapeli.
-
-(Viikottaista tarkistusta varten: pääohjelman sisältävän luokan täydellinen nimi on yahtzee.ui.Main.)
+YahtzeeDesktop on paikallisella koneella pelattava jatsi-noppapeli. Ohjelma simuloi viiden nopan heittämistä, tarjoaa automaattisen pistelaskun ja pöytäkirjanpidon ja tallentaa pelaajakohtaisia pelituloksia tietokantaan.
 
 ### Dokumentaatio
 
@@ -24,13 +22,15 @@ YahtzeeDesktop on paikallisella koneella pelattava jatsi-noppapeli.
 
 [Viikko 6](https://github.com/jenkarper/YahtzeeDesktop/releases/tag/viikko6)
 
+[Lopullinen palautus](https://github.com/jenkarper/YahtzeeDesktop/releases/tag/viikko7)
+
 ### Komentorivitoiminnot
 
 #### Testaus
-Testit suoritetaan komennolla `mvn test`. Testikattavuusraportti luodaan komennolla `mvn jacoco:report`, ja se muodostuu tiedostoon _target/site/jacoco/index.html_. Raportin voi avata selaimessa esimerkiksi komennolla `chromium-browser target/site/jacoco/index.html`.
+Yksikkötestit on kirjoitettu sovelluslogiikasta ja tietojen pysyväistallennuksesta huolehtivien pakkausten luokille, ja ne suoritetaan komennolla `mvn test`. Testikattavuusraportti luodaan komennolla `mvn jacoco:report`. Raportti muodostuu tiedostoon _target/site/jacoco/index.html_, ja sen voi avata selaimessa esimerkiksi komennolla `chromium-browser target/site/jacoco/index.html`. Käyttöliittymän rakentavaa koodia (pakkaus _yahtzee.ui_) on testattu lähinnä koekäyttämällä sovellusta.
 
 #### Checkstyle
-Projektissa on käytössä koodin laatua valvova työkalu Checkstyle. Checkstyle-tarkastus suoritetaan komentoriviltä komennolla `mvn jxr:jxr checkstyle:checkstyle`, ja sen generoimaa raporttia voi tarkastella selaimessa komennolla `chromium-browser target/site/checkstyle.html`. Käyttöliittymän rakentava koodi (pakkaus _yahtzee.ui_) on jätetty Checkstylen ulkopuolelle.
+Projektissa on käytössä koodin laatua valvova työkalu Checkstyle. Checkstyle-tarkastus suoritetaan komentoriviltä komennolla `mvn jxr:jxr checkstyle:checkstyle`, ja sen generoimaa raporttia voi tarkastella selaimessa komennolla `chromium-browser target/site/checkstyle.html`. Käyttöliittymän rakentava koodi on jätetty Checkstylen ulkopuolelle.
 
 #### JavaDoc
 Sovelluksen lähdekoodi on dokumentoitu JavaDoc-työkalun avulla. JavaDoc-raportin voi generoida komennolla `mvn javadoc:javadoc`, ja se ilmestyy hakemistoon _target/site/apidocs_ nimellä _index.html_.
