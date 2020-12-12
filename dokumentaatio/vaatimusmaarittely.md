@@ -8,11 +8,11 @@ YahtzeeDesktop-sovelluksella voi pelata noppapeli Jatsia yksinpelinä.
 
 Sovelluksella on vain yksi käyttäjärooli, *peruskäyttäjä*.
 
-## Käyttöliittymäluonnos
+## Käyttöliittymä
 
-Graafinen käyttöliittymä koostuu neljästä näkymästä: Avausnäkymässä käyttäjä pääsee syöttämään pelaajanimensä ja aloittamaan uuden pelin, jonka jälkeen aukeaa varsinainen pelinäkymä, jossa pääasiallisesti pysytään. Heiton pisteyttäminen avaa uuden ikkunan, jossa pelaaja pääsee valitsemaan, mihin pöytäkirjan kategoriaan haluaa pisteyttää heiton. Pelin päättyessä (eli viidennentoista kierroksen pisteytyksen jälkeen) avautuu loppunäkymä, jossa näkyvät pelaajan saamat kokonaispisteet sekä kymmenen parasta tulosta niihin liittyvine pelaajanimineen.
+Graafinen käyttöliittymä koostuu neljästä näkymästä: Avausnäkymässä (1) käyttäjä pääsee syöttämään pelaajanimensä ja aloittamaan uuden pelin, jonka jälkeen aukeaa varsinainen pelinäkymä (2). Pelin ajan pysytään pääasiallisesti tässä pelinäkymässä. Heiton pisteyttäminen avaa uuden ikkunan (3), jossa pelaaja pääsee valitsemaan, mihin pöytäkirjan kategoriaan haluaa pisteyttää heiton. Pelin päättyessä (eli viidennentoista kierroksen pisteytyksen jälkeen) avautuu loppunäkymä (4), jossa näkyvät pelaajan saamat kokonaispisteet sekä kymmenen parasta tulosta niihin liittyvine pelaajanimineen.
 
-<img src="https://github.com/jenkarper/YahtzeeDesktop/blob/master/dokumentaatio/kuvat/gui_luonnos.png" wifth="800">
+<img src="https://github.com/jenkarper/YahtzeeDesktop/blob/master/dokumentaatio/kuvat/kayttoliittyma.png" wifth="800">
 
 ## Perusversion tarjoama toiminnallisuus
 
@@ -23,12 +23,12 @@ Sovellus simuloi viiden nopan heittämistä. Sovellus tarjoaa myös pöytäkirja
 * vapauttaa lukitun nopan
 * laskea heiton pisteet jatsin pistesääntöjen mukaan
 * merkitä heiton pisteet haluamaansa kohtaan pöytäkirjassa
-* laskea yhteispisteet
-* tarkastella kymmenen parhaan tuloksen listaa (_tehty_)
-* tarkastella omaa tilastoaan (paras tulos, huonoin tulos ja pelattujen pelien määrä) (_tehty_)
+* tarkastella omaa tilastoaan (paras tulos, huonoin tulos ja pelattujen pelien määrä)
 
-Pelinäkymässä on ajantasainen pöytäkirja. Pisteytysnäkymässä pelaaja näkee sellaiset pöytäkirjan kategoriat, joihin heitto on mahdollista pisteyttää (eli vielä käyttämättä olevat kategoriat). Pelilogiikka kontrolloi heittojen määrää jatsin sääntöjen mukaan.
+Sovellus laskee pelaajan yhteispisteet automaattisesti pelin päätyttyä ja lisää ne tietokantaan. Lopetusnäkymässä pelaaja näkee kymmenen parhaan tuloksen listan. Pelinäkymässä on ajantasainen pöytäkirja. Pisteytysnäkymässä pelaaja näkee sellaiset pöytäkirjan kategoriat, joihin heitto on mahdollista pisteyttää (eli vielä käyttämättä olevat kategoriat). Pelilogiikka kontrolloi heittojen määrää jatsin sääntöjen mukaan.
 
 ## Mahdollinen laajennettu toiminnallisuus
 
-Sovellukseen voisi lisätä mahdollisuuden moninpeliin. Tietokantaan tallennettavaa tietoa voisi jalostaa niin, että pelkkien pisteiden sijasta tallennettaisiin koko pöytäkirja omaan tietokantatauluunsa. Pöytäkirjataulusta voisi sitten laskea erilaisia tilastoja, kuten keskimääräisen tuloksen, miten jatsi-heitot jakaantuvat nopan silmälukujen kesken ja kuinka suuressa osassa peleistä välisumma on tuonut bonuksen.
+* Sovellukseen voisi lisätä mahdollisuuden moninpeliin.
+* Tietokantaan tallennettavaa tietoa voisi jalostaa niin, että pelkkien pisteiden sijasta tallennettaisiin koko pöytäkirja omaan tietokantatauluunsa. Pöytäkirjataulusta voisi sitten laskea erilaisia tilastoja, kuten keskimääräisen tuloksen, miten jatsi-heitot jakaantuvat nopan silmälukujen kesken ja kuinka suuressa osassa peleistä välisumma on tuonut bonuksen.
+* Jatsin säännöistä on olemassa erilaisia versioita, esimerkiksi niin kutsutussa "pakko-jatsissa" pöytäkirjan kategoriat on täytettävä järjestyksessä ykkösistä alkaen. Peliä voisi laajentaa niin, että pelaaja voi avausnäkymässä valita, millä säännöillä haluaa pelata.
