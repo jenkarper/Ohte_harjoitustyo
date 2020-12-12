@@ -6,17 +6,19 @@ import javafx.scene.control.Label;
 
 /**
  * Generates information alerts for the graphic interface.
+ *
  * @author pertjenn
  */
 public class GameAlert {
+
     private Alert alert;
-    
+
     public GameAlert() {
         alert = new Alert(AlertType.INFORMATION);
         alert.setHeaderText(null);
         alert.setTitle(null);
     }
-    
+
     public Alert getAlert(int type, int points) {
         if (type == 1) {
             Label instructions = new Label("Heitä noppia klikkaamalla 'Heitä'. Voit lukita ja vapauttaa noppia klikkaamalla itse noppia. "
@@ -37,7 +39,7 @@ public class GameAlert {
             alert.setContentText("Heitä vähintään kerran!");
         }
         alert.show();
-        
+
         return alert;
     }
 }

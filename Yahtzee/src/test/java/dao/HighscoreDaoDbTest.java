@@ -42,8 +42,8 @@ public class HighscoreDaoDbTest {
         game.setUser(user);
         game.insertUser(user);
         
-        this.db = game.getHighscoreDatabase();
-        this.userDb = game.getUserDatabase();
+        this.db = game.getHighscoreDb();
+        this.userDb = game.getUserDb();
     }
     
     @After

@@ -2,6 +2,7 @@ package yahtzee.domain;
 
 /**
  * Represents the group of five dice used in a Yahtzee game.
+ *
  * @author pertjenn
  */
 public class Roll {
@@ -28,21 +29,21 @@ public class Roll {
             }
         }
     }
-    
+
     /**
      * @return The array of dice.
      */
     public Die[] getDice() {
         return this.dice;
     }
-    
+
     /**
      * @return The array of dice values.
      */
     public int[] getValues() {
         return this.values;
     }
-    
+
     /**
      * Sets the hold status of all five dice to false.
      */

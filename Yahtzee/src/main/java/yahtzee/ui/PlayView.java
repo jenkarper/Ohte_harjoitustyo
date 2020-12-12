@@ -12,6 +12,7 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
+
 import yahtzee.domain.Game;
 
 /**
@@ -28,7 +29,7 @@ public class PlayView {
     private final Insets insets;
     private final GameAlert alert;
 
-    public PlayView(Game game) throws Exception {
+    public PlayView(Game game) {
         this.game = game;
         this.dieRow = createDice();
         this.scorecard = createScorecard();

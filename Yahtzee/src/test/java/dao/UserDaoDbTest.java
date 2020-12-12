@@ -27,7 +27,7 @@ public class UserDaoDbTest {
         game.setUser(user);
         game.insertUser(user);
         
-        this.db = game.getUserDatabase();
+        this.db = game.getUserDb();
     }
     
     @After

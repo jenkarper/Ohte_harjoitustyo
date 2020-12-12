@@ -13,38 +13,40 @@ import yahtzee.domain.User;
 
 /**
  * Offers methods for setting up, reading from, and writing to a database.
+ *
  * @author pertjenn
  */
 public class HighscoreDaoDb implements HighscoreDao {
-    
+
     private final String databaseName;
     private Connection connection;
     private final UserDao userDb;
 
-    public HighscoreDaoDb(String databaseName, UserDao userDb) throws Exception {
+    public HighscoreDaoDb(String databaseName, UserDao userDb) {
         this.databaseName = databaseName;
-        initialise(databaseName);
+        initialise();
         this.userDb = userDb;
     }
 
-    // SETTING UP DATABASE
-    
     /**
      * Intitialises the database.
-     * @throws Exception 
+     *
+     * @throws Exception
      */
-    private void initialise(String databaseName) throws Exception {
+    private void initialise() {
 
-        this.connection = connect(databaseName);
+        this.connection = connect();
         createTable();
     }
 
     /**
-     * Connects to existing database via JDBC driver (or creates a new database).
+     * Connects to existing database via JDBC driver (or creates a new
+     * database).
+     *
      * @return The connection.
-     * @throws Exception 
+     * @throws Exception
      */
-    private Connection connect(String databaseName) throws Exception {
+    private Connection connect() {
         Connection c = null;
 
         try {
@@ -59,11 +61,13 @@ public class HighscoreDaoDb implements HighscoreDao {
 
     /**
      * Creates table Highscore (if it does not yet exist).
-     * @throws Exception 
+     *
+     * @throws Exception
      */
-    private void createTable() throws Exception {
-        
-        String createHighscore = "CREATE TABLE IF NOT EXISTS Highscore (id INTEGER PRIMARY KEY, score INTEGER, player INTEGER, FOREIGN KEY(player) REFERENCES User(id));";
+    private void createTable() {
+
+        String createHighscore = "CREATE TABLE IF NOT EXISTS Highscore (id INTEGER PRIMARY KEY, score INTEGER, player INTEGER, FOREIGN KEY(player)"
+                + "REFERENCES User(id));";
 
         try (Statement stmt = connection.createStatement()) {
             stmt.execute(createHighscore);
@@ -71,14 +75,15 @@ public class HighscoreDaoDb implements HighscoreDao {
             System.out.println(e.getMessage());
         }
     }
-    
+
     /**
      * Adds a new row to Highscore table.
+     *
      * @param user Instance of User class.
-     * @throws Exception 
      */
     @Override
-    public void addHighscore(User user) throws Exception {
+    public void addHighscore(User user) {
+
         String addHighscore = "INSERT INTO Highscore (score, player) VALUES (?, ?);";
         User u = userDb.findUser(user.getUsername());
         int key = userDb.getUserPK(u);
@@ -94,13 +99,15 @@ public class HighscoreDaoDb implements HighscoreDao {
 
     /**
      * Reads the Highscore table and orders the result set by the points.
+     *
      * @return A list of the highscores in descending order.
      */
     @Override
     public List<String> getTopTen() {
+
         List<String> list = new ArrayList<>();
         String getTopTen = "SELECT username, score FROM Highscore JOIN User ON User.id = Highscore.player ORDER BY score DESC;";
-        
+
         try (PreparedStatement pstmt = connection.prepareStatement(getTopTen)) {
             ResultSet rs = pstmt.executeQuery();
 
@@ -113,7 +120,7 @@ public class HighscoreDaoDb implements HighscoreDao {
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
-        
+
         return list;
     }
 }

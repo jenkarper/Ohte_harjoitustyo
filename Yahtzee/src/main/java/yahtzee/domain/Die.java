@@ -2,6 +2,7 @@ package yahtzee.domain;
 
 /**
  * Represents a 6-sided die.
+ *
  * @author pertjenn
  */
 public class Die {
@@ -36,19 +37,11 @@ public class Die {
     public void setHold(boolean hold) {
         this.hold = hold;
     }
-    
+
     /**
      * @return The current value of the die.
      */
     public int getValue() {
         return this.value;
-    }
-
-    // TEST METHODS
-    /**
-     * @param value Specific (as opposed to random) value to set for testing purposes.
-     */
-    public void setTestValue(int value) {
-        this.value = value;
     }
 }

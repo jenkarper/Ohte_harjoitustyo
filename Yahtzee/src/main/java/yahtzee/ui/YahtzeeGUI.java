@@ -6,7 +6,8 @@ import javafx.stage.Stage;
 import yahtzee.domain.Game;
 
 /**
- *
+ * Builds the graphic user interface.
+ * 
  * @author pertjenn
  */
 public class YahtzeeGUI extends Application {
@@ -16,12 +17,12 @@ public class YahtzeeGUI extends Application {
     private StartView startView;
 
     @Override
-    public void init() throws Exception {
+    public void init() {
         this.game = new Game();
     }
 
     @Override
-    public void start(Stage stage) throws Exception {
+    public void start(Stage stage)  {
 
         stage.setTitle("Jatsi");
 

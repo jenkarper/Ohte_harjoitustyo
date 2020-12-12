@@ -15,6 +15,7 @@ import yahtzee.domain.Game;
 
 /**
  * Creates the score view of the game.
+ * 
  * @author pertjenn
  */
 public class ScoreView {

@@ -14,6 +14,7 @@ import yahtzee.domain.User;
 
 /**
  * Creates the start view of the game.
+ * 
  * @author pertjenn
  */
 public class StartView {
@@ -43,7 +44,7 @@ public class StartView {
         // Create layout
         VBox layout = new VBox(label, field, ok, warning);
         layout.setPadding(new Insets(20, 20, 20, 20));
-        layout.setSpacing(10);
+        layout.setSpacing(20);
         layout.setAlignment(Pos.CENTER);
 
         // Set scene

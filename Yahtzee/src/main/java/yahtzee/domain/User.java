@@ -2,6 +2,7 @@ package yahtzee.domain;
 
 /**
  * Corresponds with a row in User table.
+ * 
  * @author pertjenn
  */
 public class User {
@@ -12,6 +13,7 @@ public class User {
     
     /**
      * Creates a new user with zero values.
+     * 
      * @param username Input by user.
      */
     public User(String username) {
@@ -20,6 +22,7 @@ public class User {
     
     /**
      * Creates a new instance of an existing user.
+     * 
      * @param username Input by user.
      * @param hs Highscore associated with existing user.
      * @param ls Lowscore associated with existing user.
@@ -64,13 +67,12 @@ public class User {
     }
     
     /**
-     * Creates a string representation of the user stats.
+     * Used in unit testing.
+     * 
      * @return 
      */
     @Override
     public String toString() {
-        StringBuilder u = new StringBuilder();
-        u.append(this.username).append(", ").append(this.highScore).append(", ").append(this.lowScore).append(", ").append(this.gamesPlayed);
-        return u.toString();
+        return username + ", " + highScore + ", " + lowScore + ", " + gamesPlayed;
     }
 }

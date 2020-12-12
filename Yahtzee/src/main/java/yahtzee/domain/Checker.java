@@ -4,18 +4,20 @@ import java.util.Arrays;
 
 /**
  * Handles the score checking for rolls.
+ *
  * @author pertjenn
  */
 public class Checker {
-    
+
     /**
-     * Takes the type and the dice and calculates the resulting points.
-     * @param type Index number representing a category in the scorecard.
+     * Takes the category and the dice and calculates the resulting points.
+     *
+     * @param category Index number representing a category in the scorecard.
      * @param dice The dice values as an array.
      * @return The points.
      */
-    public int check(int type, int[] dice) {
-        switch (type) {
+    public int check(int category, int[] dice) {
+        switch (category) {
             case 1:
                 return duplicates(dice, 1);
             case 2:
@@ -143,7 +145,7 @@ public class Checker {
         }
         return 0;
     }
-    
+
     private int yahtzee(int[] dice) {
         Arrays.sort(dice);
         int bonus = 50;
@@ -152,8 +154,6 @@ public class Checker {
         }
         return 0;
     }
-    
-    // HELPER METHODS
 
     private boolean straight(int[] dice) {
         Arrays.sort(dice);

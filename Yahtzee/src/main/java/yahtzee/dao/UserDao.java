@@ -8,13 +8,13 @@ import yahtzee.domain.User;
  */
 public interface UserDao {
     
-    void addUser(User user) throws Exception;
+    void addUser(User user);
     
-    User findUser(String username) throws Exception;
+    User findUser(String username);
     
-    void updateUser(User user) throws Exception;
+    void updateUser(User user);
     
-    void deleteUser(User user) throws Exception;
+    void deleteUser(User user);
     
-    int getUserPK(User user) throws Exception;
+    int getUserPK(User user);
 }

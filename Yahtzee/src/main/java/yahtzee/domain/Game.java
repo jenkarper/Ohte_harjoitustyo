@@ -1,18 +1,14 @@
 package yahtzee.domain;
 
-import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+
 import yahtzee.dao.HighscoreDao;
 import yahtzee.dao.HighscoreDaoDb;
 import yahtzee.dao.UserDao;
 import yahtzee.dao.UserDaoDb;
 
 /**
- * Represents the Yahtzee game as a whole, connecting the other domain classes
- * (the GUI accesses game logic through this class).
+ * Represents the Yahtzee game as a whole, connecting the other domain classes.
  *
  * @author pertjenn
  */
@@ -21,6 +17,7 @@ public class Game {
     private final Roll roll;
     private final Scorecard scorecard;
     private final Checker checker;
+
     private int rollCounter;
     private int roundCounter;
 
@@ -30,21 +27,19 @@ public class Game {
     private final String databaseName;
 
     /**
-     * Constructor without parameter creates the database in the default location.
-     * 
-     * @throws Exception 
+     * Constructor without parameter creates the database in the default
+     * location.
      */
-    public Game() throws Exception {
+    public Game() {
         this("jdbc:sqlite:yahtzee.db");
     }
 
     /**
      * Creates database in the specified location.
-     * 
+     *
      * @param databaseName
-     * @throws Exception 
      */
-    public Game(String databaseName) throws Exception {
+    public Game(String databaseName) {
         this.roll = new Roll();
         this.scorecard = new Scorecard();
         this.checker = new Checker();
@@ -79,7 +74,7 @@ public class Game {
         int points = this.checker.check(category, dice);
         this.scorecard.markScore(category, points);
         roundCounter--;
-        
+
         return points;
     }
 
@@ -132,13 +127,13 @@ public class Game {
      * Calls the Checker to calculate how many points a roll would score in a
      * particular category.
      *
-     * @param type The type of the check required (corresponds to the category
-     * index).
+     * @param category The type of the check required (corresponds to the
+     * category index).
      * @param dice The dice values as an array.
      * @return The actual points.
      */
-    public int checkScore(int type, int[] dice) {
-        return this.checker.check(type, dice);
+    public int checkScore(int category, int[] dice) {
+        return this.checker.check(category, dice);
     }
 
     /**
@@ -171,7 +166,7 @@ public class Game {
     }
 
     /**
-     * Calls the getGrandTotal() in Scorecard.
+     * Calls getGrandTotal() in Scorecard.
      *
      * @return The grand total.
      */
@@ -187,10 +182,6 @@ public class Game {
         return scorecard;
     }
 
-    public Checker getChecker() {
-        return checker;
-    }
-
     public int getRollCounter() {
         return rollCounter;
     }
@@ -200,8 +191,6 @@ public class Game {
     }
 
     // USER AND DATABASE METHODS
-    
-    
     public String getPlayer() {
         return this.user.getUsername();
     }
@@ -210,22 +199,25 @@ public class Game {
         return this.user;
     }
 
-    public HighscoreDao getHighscoreDatabase() {
+    public void setUser(User user) {
+        this.user = user;
+    }
+
+    public HighscoreDao getHighscoreDb() {
         return this.highscoreDb;
     }
-    
-    public UserDao getUserDatabase() {
-    return this.userDb;
-}
+
+    public UserDao getUserDb() {
+        return this.userDb;
+    }
 
     /**
      * Calls database method for checking whether a user already exists.
      *
      * @param username Input by user.
      * @return False if username already exists in database, true otherwise.
-     * @throws Exception
      */
-    public boolean validateUsername(String username) throws Exception {
+    public boolean validateUsername(String username) {
         return userDb.findUser(username).getUsername().equals("");
     }
 
@@ -233,40 +225,32 @@ public class Game {
      * Calls database method for adding a new user.
      *
      * @param user
-     * @throws Exception
      */
-    public void insertUser(User user) throws Exception {
+    public void insertUser(User user) {
         userDb.addUser(user);
     }
 
-    public void setUser(User user) {
-        this.user = user;
-    }
-
     /**
-     * Calls database method for finding user by username
+     * Calls database method for finding user by username.
      *
      * @param username
      * @return
-     * @throws Exception
      */
-    public User findUser(String username) throws Exception {
+    public User findUser(String username) {
         return userDb.findUser(username);
     }
 
     /**
-     * Calls database method to update User table
-     *
-     * @throws Exception
+     * Calls database method to update User table.
      */
-    public void updateUser() throws Exception {
+    public void updateUser() {
         userDb.updateUser(user);
         highscoreDb.addHighscore(user);
     }
 
     /**
-     * Updates current user stats
-     * 
+     * Updates current user stats.
+     *
      * @param points The grand total of the last game.
      */
     public void updateUserStats(int points) {
@@ -285,25 +269,21 @@ public class Game {
         }
     }
 
-    public void deleteUser(User user) throws Exception {
+    /**
+     * Calls database method for deleting a row from User table.
+     *
+     * @param user
+     */
+    public void deleteUser(User user) {
         userDb.deleteUser(user);
     }
 
     /**
-     * Calls database method to get the top ten scores
+     * Calls database method to get the top ten scores.
      *
-     * @return
+     * @return An ordered list of the rows in Highscore table.
      */
     public List<String> getTopTen() {
-        try {
-            List<String> list = new ArrayList<>();
-            
-            list = highscoreDb.getTopTen();
-            
-            return list;
-        } catch (Exception ex) {
-            Logger.getLogger(Game.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        return null;
+        return highscoreDb.getTopTen();
     }
 }

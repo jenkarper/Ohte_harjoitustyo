@@ -1,7 +1,5 @@
 package yahtzee.dao;
 
-import static java.lang.Integer.max;
-import static java.lang.Integer.min;
 import java.sql.Connection;
 import java.sql.DatabaseMetaData;
 import java.sql.DriverManager;
@@ -9,6 +7,10 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+
+import static java.lang.Integer.max;
+import static java.lang.Integer.min;
+
 import yahtzee.domain.User;
 
 /**
@@ -19,20 +21,20 @@ public class UserDaoDb implements UserDao {
 
     private String databaseName;
     private Connection connection;
-    
-    public UserDaoDb(String databaseName) throws Exception {
+
+    public UserDaoDb(String databaseName) {
         this.databaseName = databaseName;
         initialise(databaseName);
     }
 
-    private void initialise(String databaseName) throws Exception {
+    private void initialise(String databaseName) {
 
         this.databaseName = databaseName;
         this.connection = connect(databaseName);
         createTable();
     }
 
-    private Connection connect(String databaseName) throws Exception {
+    private Connection connect(String databaseName) {
         Connection c = null;
 
         try {
@@ -45,9 +47,9 @@ public class UserDaoDb implements UserDao {
         return c;
     }
 
-    private void createTable() throws Exception {
+    private void createTable() {
         String createUser = "CREATE TABLE IF NOT EXISTS User (id INTEGER PRIMARY KEY, username TEXT, highscore INTEGER, lowscore INTEGER, gamesPlayed INTEGER);";
-        
+
         try (Statement stmt = connection.createStatement()) {
             stmt.execute(createUser);
         } catch (SQLException e) {
@@ -57,11 +59,11 @@ public class UserDaoDb implements UserDao {
 
     /**
      * Adds a new row to User table.
+     *
      * @param user Instance of class User.
-     * @throws Exception 
      */
     @Override
-    public void addUser(User user) throws Exception {
+    public void addUser(User user) {
         String addUser = "INSERT INTO User (username, highscore, lowscore, gamesPlayed) VALUES (?, ?, ?, ?);";
 
         try (PreparedStatement pstmt = connection.prepareStatement(addUser)) {
@@ -77,12 +79,12 @@ public class UserDaoDb implements UserDao {
 
     /**
      * Matches given username to database rows and reads the associated values.
+     *
      * @param username Input by user.
      * @return Instance of User (values from database or default).
-     * @throws Exception 
      */
     @Override
-    public User findUser(String username) throws Exception {
+    public User findUser(String username) {
         User u = new User("");
 
         String findUser = "SELECT * FROM User WHERE (username==?);";
@@ -102,22 +104,22 @@ public class UserDaoDb implements UserDao {
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
-        
+
         return u;
     }
 
     /**
      * Uodates the User table with current user's stats.
+     *
      * @param user
-     * @throws Exception 
      */
     @Override
-    public void updateUser(User user) throws Exception {
+    public void updateUser(User user) {
         String updateUser = "UPDATE User SET highscore=?, lowscore=?, gamesPlayed=? WHERE username=?;";
         User current = findUser(user.getUsername());
 
         try (PreparedStatement pstmt = connection.prepareStatement(updateUser)) {
-            
+
             int highPoints = max(current.getHighScore(), user.getHighScore());
             int lowPoints = min(current.getLowScore(), user.getLowScore());
 
@@ -134,13 +136,13 @@ public class UserDaoDb implements UserDao {
 
     /**
      * Deletes the row corresponding to current user's userame.
+     *
      * @param user
-     * @throws Exception 
      */
     @Override
-    public void deleteUser(User user) throws Exception {
+    public void deleteUser(User user) {
         String deleteUser = "DELETE FROM User WHERE username==?;";
-        
+
         try (PreparedStatement pstmt = connection.prepareStatement(deleteUser)) {
             pstmt.setString(1, user.getUsername());
             pstmt.executeUpdate();
@@ -148,15 +150,14 @@ public class UserDaoDb implements UserDao {
             System.out.println(e.getMessage());
         }
     }
-    
-     /**
-     * 
+
+    /**
+     *
      * @param user Instance of User class.
      * @return The primary key associated with the username.
-     * @throws Exception 
      */
     @Override
-    public int getUserPK(User user) throws Exception {
+    public int getUserPK(User user) {
         String getPK = "SELECT id FROM User WHERE (username==?);";
         int pk = -1;
 
