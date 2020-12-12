@@ -79,8 +79,7 @@ public class ScoreView {
 
                 for (int i = 1; i < sc.length; i++) {
                     if (selected.equals(options[i])) {
-                        game.scoreRoll(i, dice);
-                        points = game.checkScore(i, dice);
+                        points = game.scoreRoll(i, dice);
                         sc[i].setText(categories[i] + ": " + points);
                     }
                 }

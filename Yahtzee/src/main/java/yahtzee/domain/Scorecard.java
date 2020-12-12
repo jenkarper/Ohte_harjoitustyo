@@ -29,14 +29,11 @@ public class Scorecard {
      *
      * @param i The index of the category.
      * @param points The points returned by the checker method.
-     * @return True if the category was available, false otherwise.
      */
-    public boolean markScore(int i, int points) {
-        if (!slotAvailable(i)) {
-            return false;
+    public void markScore(int i, int points) {
+        if (slotAvailable(i)) {
+            this.points[i] = points;
         }
-        this.points[i] = points;
-        return true;
     }
 
     /**

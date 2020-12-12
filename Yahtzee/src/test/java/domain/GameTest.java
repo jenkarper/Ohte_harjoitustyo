@@ -45,7 +45,8 @@ public class GameTest {
     @Test
     public void availableSlotScoredCorrectly() {
         int[] dice = new int[]{4, 4, 4, 5, 5};
-        assertTrue(game.scoreRoll(4, dice));
+        game.scoreRoll(4, dice);
+        assertTrue(game.getScorecard().getScore(4)==12);
     }
     
     @Test
@@ -53,16 +54,8 @@ public class GameTest {
         int[] dice = new int[]{4, 4, 4, 5, 5};
         game.scoreRoll(4, dice);
         int[] newDice = new int[]{4, 4, 4, 4, 4};
-        assertTrue(!game.scoreRoll(4, dice));
-    }
-    
-    @Test
-    public void failedScoringDoesNotChangePoints() {
-        int[] dice = new int[]{5, 3, 6, 5, 1};
-        game.scoreRoll(5, dice);
-        int[] newDice = new int[]{5, 5, 5, 5, 2};
-        game.scoreRoll(5, newDice);
-        assertTrue(game.getScorecard().getPoints()[5] == 10);
+        game.scoreRoll(4, newDice);
+        assertTrue(game.getScorecard().getScore(4)==12);
     }
     
     @Test

@@ -24,8 +24,7 @@ public class Roll {
         for (int i = 0; i < 5; i++) {
             Die d = this.dice[i];
             if (!d.isHold()) {
-                d.roll();
-                this.values[i] = d.getValue();
+                this.values[i] = d.roll();
             }
         }
     }

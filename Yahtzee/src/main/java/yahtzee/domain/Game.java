@@ -73,12 +73,14 @@ public class Game {
      *
      * @param category One of the 15 categories in a Yahtzee scorecard.
      * @param dice The dice values as an array.
-     * @return Returns true if the desired slot was available, false otherwise.
+     * @return The points scored.
      */
-    public boolean scoreRoll(int category, int[] dice) {
+    public int scoreRoll(int category, int[] dice) {
         int points = this.checker.check(category, dice);
+        this.scorecard.markScore(category, points);
         roundCounter--;
-        return this.scorecard.markScore(category, points);
+        
+        return points;
     }
 
     /**
