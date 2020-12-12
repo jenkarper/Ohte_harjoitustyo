@@ -33,5 +33,6 @@
 | 8.12. |  5  | Uusi näkymä pelaajaan liittyvien tilastojen tarkasteluun, ensimmäiset yksikkötestit tietokantaluokalle, tietokantaluokan koodin refaktorointi testauksen helpottamiseksi, uuden releasen luonti |
 | 11.12.| 1.5 | Tietokantatoiminnallisuuden toteuttavan luokan jakaminen kahdeksi luokaksi ohjaajan palautteen mukaan, muutoksen vaatima koodin refaktorointi |
 | 11.12.| 1.5 | Määrittelydokumentin päivitys, arkkitehtuurikuvauksen päivityksen aloitus, README-dokumentin päivitys |
+| 12.12.|  2  | Arkkitehtuurikuvauksen päivitys: uudet sekvenssikaaviot, kaavioiden rakennuksen aikana hyväksi havaittu koodin refaktorointi, sanallinen kuvaus kontrollin etenemisestä kaavioiden kuvaamissa skenaarioissa |
 |       |     | |
-| YHT   | 76  | |
+| YHT   | 78  | |
