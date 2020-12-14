@@ -34,5 +34,6 @@
 | 11.12.| 1.5 | Tietokantatoiminnallisuuden toteuttavan luokan jakaminen kahdeksi luokaksi ohjaajan palautteen mukaan, muutoksen vaatima koodin refaktorointi |
 | 11.12.| 1.5 | Määrittelydokumentin päivitys, arkkitehtuurikuvauksen päivityksen aloitus, README-dokumentin päivitys |
 | 12.12.|  2  | Arkkitehtuurikuvauksen päivitys: uudet sekvenssikaaviot, kaavioiden rakennuksen aikana hyväksi havaittu koodin refaktorointi, sanallinen kuvaus kontrollin etenemisestä kaavioiden kuvaamissa skenaarioissa |
+| 12.12.|  1  | Virheiden käsittelyn yhtenäistys, koodin siistiminen, puuttuvien JavaDocien kirjoittaminen |
 |       |     | |
 | YHT   | 78  | |
