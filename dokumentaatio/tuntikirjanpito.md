@@ -35,5 +35,6 @@
 | 11.12.| 1.5 | Määrittelydokumentin päivitys, arkkitehtuurikuvauksen päivityksen aloitus, README-dokumentin päivitys |
 | 12.12.|  2  | Arkkitehtuurikuvauksen päivitys: uudet sekvenssikaaviot, kaavioiden rakennuksen aikana hyväksi havaittu koodin refaktorointi, sanallinen kuvaus kontrollin etenemisestä kaavioiden kuvaamissa skenaarioissa |
 | 12.12.|  1  | Virheiden käsittelyn yhtenäistys, koodin siistiminen, puuttuvien JavaDocien kirjoittaminen |
+| 14.12.| 3.5 | Testiluokkien koodin siistiminen, delete-metodin lisääminen HighscoreDaoDb-luokkaan, testausdokumentin kirjoittaminen, kuvien lisääminen käyttöohjeeseen |
 |       |     | |
-| YHT   | 78  | |
+| YHT   |82.5 | |
