@@ -10,7 +10,7 @@ import yahtzee.domain.Die;
  */
 public class DieTest {
     
-    private Die die;
+    private final Die die;
     
     public DieTest() {
         this.die = new Die();

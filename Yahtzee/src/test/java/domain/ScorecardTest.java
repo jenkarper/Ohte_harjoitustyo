@@ -10,7 +10,7 @@ import yahtzee.domain.Scorecard;
  */
 public class ScorecardTest {
 
-    private Scorecard sc;
+    private final Scorecard sc;
 
     public ScorecardTest() {
         this.sc = new Scorecard();

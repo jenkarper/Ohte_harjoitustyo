@@ -10,7 +10,7 @@ import yahtzee.domain.Roll;
  * @author pertjenn
  */
 public class RollTest {
-    private Roll roll;
+    private final Roll roll;
     
     public RollTest() {
         this.roll = new Roll();

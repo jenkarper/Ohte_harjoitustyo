@@ -9,7 +9,7 @@ import yahtzee.domain.Checker;
  * @author pertjenn
  */
 public class CheckerTest {
-    private Checker c;
+    private final Checker c;
     
     public CheckerTest() {
         this.c = new Checker();
