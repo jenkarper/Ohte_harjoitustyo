@@ -13,21 +13,20 @@ import yahtzee.domain.User;
  * @author pertjenn
  */
 public class UserDaoDbTest {
-    private Game game;
+    private final Game game;
+    private final UserDao db;
     private User user;
-    private UserDao db;
     
     public UserDaoDbTest() throws Exception {
+        this.game = new Game("jdbc:sqlite:yahtzeeTest.db");
+        this.db = game.getUserDb();
     }
     
     @Before
     public void setUp() throws Exception {
-        this.game = new Game("jdbc:sqlite:yahtzeeTest.db");
         this.user = new User("testUser", 200, 100, 2);
         game.setUser(user);
         game.insertUser(user);
-        
-        this.db = game.getUserDb();
     }
     
     @After

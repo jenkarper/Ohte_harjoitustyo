@@ -1,10 +1,6 @@
 package dao;
 
 import java.util.List;
-import org.junit.After;
-import org.junit.AfterClass;
-import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
 import yahtzee.dao.HighscoreDao;
@@ -18,45 +14,50 @@ import yahtzee.domain.User;
  */
 public class HighscoreDaoDbTest {
     
-    private Game game;
-    private User user;
-    private HighscoreDao db;
-    private UserDao userDb;
+    private final Game game;
+    private final HighscoreDao db;
+    private final UserDao userDb;
+    private final User fixedUser;
     
     public HighscoreDaoDbTest() {
-    }
-    
-    @BeforeClass
-    public static void setUpClass() {
-    }
-    
-    @AfterClass
-    public static void tearDownClass() {
-    }
-    
-    @Before
-    public void setUp() throws Exception {
-        
         this.game = new Game("jdbc:sqlite:yahtzeeTest.db");
-        this.user = new User("testUser", 200, 100, 2);
-        game.setUser(user);
-        game.insertUser(user);
-        
         this.db = game.getHighscoreDb();
         this.userDb = game.getUserDb();
+        this.fixedUser = new User("fixedUser", 200, 100, 2);
+        
+        userDb.addUser(fixedUser);
+        db.addHighscore(fixedUser);
     }
     
-    @After
-    public void tearDown() throws Exception {
-        userDb.deleteUser(user);
-    }
-
     @Test
-    public void highscoreAddedCorrectly() throws Exception {
-        db.addHighscore(user);
+    public void highscoreAddedCorrectly() {
         List<String> list = db.getTopTen();
-        String expected = "testUser\t200";
+        String expected = "fixedUser\t200";
+        assertEquals(expected, list.get(0));
+    }
+    
+    @Test
+    public void listOrderedCorrectly() {
+        User u = new User("newTopScore", 400, 300, 4);
+        userDb.addUser(u);
+        db.addHighscore(u);
+        List<String> list = db.getTopTen();
         
+        String expected = "newTopScore\t400";
+        assertEquals(expected, list.get(0));
+        db.deleteHighscore(u);
+    }
+    
+    @Test
+    public void highscoreDeletedCorrectly() {
+        User u = new User("toBeDeleted", 500, 300, 4);
+        userDb.addUser(u);
+        db.addHighscore(u);
+        System.out.println(userDb.getUserPK(u));
+        db.deleteHighscore(u);
+        List<String> list = db.getTopTen();
+        
+        String expected = "fixedUser\t200";
         assertEquals(expected, list.get(0));
     }
 }

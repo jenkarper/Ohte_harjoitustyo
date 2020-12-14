@@ -96,6 +96,26 @@ public class HighscoreDaoDb implements HighscoreDao {
             System.out.println(e.getMessage());
         }
     }
+    
+    /**
+     * Deletes the row corresponding to the user's primary key in User table.
+     * 
+     * @param user 
+     */
+    @Override
+    public void deleteHighscore(User user) {
+        
+        String deleteHighscore = "DELETE FROM Highscore WHERE (player==? AND score==?);";
+        int key = userDb.getUserPK(user);
+        
+        try (PreparedStatement pstmt = connection.prepareStatement(deleteHighscore)) {
+            pstmt.setInt(1, key);
+            pstmt.setInt(2, user.getHighScore());
+            pstmt.executeUpdate();
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+    }
 
     /**
      * Reads the Highscore table and orders the result set by the points.

@@ -11,6 +11,8 @@ public interface HighscoreDao {
     
     void addHighscore(User user);
     
+    void deleteHighscore(User user);
+    
     List<String> getTopTen();
     
 }
