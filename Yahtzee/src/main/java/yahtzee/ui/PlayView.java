@@ -58,8 +58,10 @@ public class PlayView {
         // 1.3 Center: the action buttons
         Button rollButton = new Button("Heitä");
         styleButton(rollButton);
+        rollButton.setMinWidth(100);
         Button scoreButton = new Button("Pisteytä");
         styleButton(scoreButton);
+        scoreButton.setMinWidth(100);
 
         VBox centerNode = new VBox();
         centerNode.setPadding(insets);
