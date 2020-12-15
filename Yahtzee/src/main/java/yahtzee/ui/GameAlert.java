@@ -11,15 +11,15 @@ import javafx.scene.control.Label;
  */
 public class GameAlert {
 
-    private Alert alert;
-
     public GameAlert() {
-        alert = new Alert(AlertType.INFORMATION);
-        alert.setHeaderText(null);
-        alert.setTitle(null);
     }
 
     public Alert getAlert(int type, int points) {
+
+        Alert alert = new Alert(AlertType.INFORMATION);
+        alert.setHeaderText(null);
+        alert.setTitle(null);
+
         switch (type) {
             case 1:
                 Label instructions = new Label("Heitä noppia klikkaamalla 'Heitä'. Voit lukita ja vapauttaa noppia klikkaamalla itse noppia. "

@@ -23,7 +23,7 @@ public class HighscoreDaoDb implements HighscoreDao {
     private final UserDao userDb;
 
     /**
-     * Creates a new instance with given database location.
+     * Creates a new instance with given database location, creates Highscore table in database.
      * 
      * @param databaseName The location of the database.
      * @param userDb The class used to access User table in database.
