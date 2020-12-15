@@ -29,7 +29,7 @@ Käyttöliittymän rakentava koodi on rajattu kokonaan automatisoidun testauksen
 
 ## Järjestelmätestaus
 
-Järjestelmätasolla sovellusta on testattu manuaalisesti koko kehitystyön ajan niin paikallisesti (Linux-ympäristössä) kuin yliopiston tarjoamalla etätyöpöydällä. Molemmissa ympäristöissä testaus on suoritettu hakemalla projekti [käyttöohjeen](kayttoohje.md) kuvaamalla tavalla GitHubista ja ajamalla se komentoriviltä. Myös _jar_-tiedoston muodostus ja suoritus sekä releasessa olevan _jar_-tiedoston lataus ja suoritus on testattu käyttöohjeen mukaisesti. Paikallisesti sovellusta on testattu myös NetBeansissa.
+Järjestelmätasolla sovellusta on testattu manuaalisesti koko kehitystyön ajan niin paikallisesti (Linux-ympäristössä) kuin yliopiston tarjoamalla etätyöpöydällä. Molemmissa ympäristöissä testaus on suoritettu hakemalla projekti [käyttöohjeen](kayttoohje.md#sovelluksen-suorittaminen) kuvaamalla tavalla GitHubista ja ajamalla se komentoriviltä. Myös _jar_-tiedoston muodostus ja suoritus sekä releasessa olevan _jar_-tiedoston lataus ja suoritus on testattu käyttöohjeen mukaisesti. Paikallisesti sovellusta on testattu myös NetBeansissa.
 
 Sovellusta on testattu sekä uudella että tietokannassa jo olevalla pelaajanimellä. Tietokannan päivittymistä on testattu pelaamalla useita pelejä samalla pelaajanimellä. Kaikki [määrittelydokumentissa](vaatimusmaarittely.md) kuvatut toiminnallisuudet on testattu.
 

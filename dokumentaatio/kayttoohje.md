@@ -40,7 +40,7 @@ Pääset heittämään noppia klikkaamalla __Heitä__. Vuorossa voi heittää en
 
 Kun haluat pisteyttää heiton, klikkaa __Pisteytä__. Aukeavassa ikkunassa näet ne kategoriat, joihin heiton voi pisteyttää, eli kaikki sellaiset kohdat pöytäkirjassa, joita ei vielä ole täytetty.
 
-<img src="https://github.com/jenkarper/YahtzeeDesktop/blob/master/dokumentaatio/kuvat/gui_pisteytys.png" width=800>
+<img src="https://github.com/jenkarper/YahtzeeDesktop/blob/master/dokumentaatio/kuvat/gui_pisteytys.png" width=700>
 
 Pääset vielä takaisin pelinäkymään klikkaamalla __Peruuta__, mutta kun kierroksen kaikki kolme heittoa on käytetty, et voi heittää uudelleen ennen kuin edellinen kierros on pisteytetty.
 
@@ -48,7 +48,7 @@ Pääset vielä takaisin pelinäkymään klikkaamalla __Peruuta__, mutta kun kie
 
 Kun koko pöytäkirja on täysi, ohjelma laskee yhteispisteet. Jos pääset kymmenen parhaan joukkoon, pelaajanimesi ja pistemääräsi lisätään lopetusnäkymässä olevaan Parhaat tulokset -listaukseen.
 
-<img src="https://github.com/jenkarper/YahtzeeDesktop/blob/master/dokumentaatio/kuvat/gui_loppu.png" width=600>
+<img src="https://github.com/jenkarper/YahtzeeDesktop/blob/master/dokumentaatio/kuvat/gui_loppu.png" width=550>
 
 #### Uuden pelin aloitus
 
