@@ -37,4 +37,4 @@ Testauksella on pyritty varmistamaan, ettei ohjelma kaadu missään tilanteessa.
 
 ## Sovellukseen jääneet laadulliset puutteet
 
-Yhdessä testaustapauksessa ohjelma näytti virheellisen _Alert_-viestin, kun yritettiin heittää neljännen kerran saman kierroksen aikana: uudessa ikkunassa näkyi halutun viestin sijaan peliohjeet näyttävä viesti. Myös virheellinen viesti esti laittoman heiton, mutta käytettävyyden kannalta se voi aiheuttaa sekaannusta. Toistaiseksi kyseinen virhe ei ole esiintynyt uudelleen, eikä sille ole löytynyt syytä.
+Joinakin testikertoina lukituksi merkityn nopan silmäluku on muuttunut jollakin yksittäisellä heitolla. Vika on harvinainen ja liittyy todennäköisesti käyttöliittymään, koska lukitusta testaavat yksikkötestit menevät aina läpi, mutta toistaiseksi sille ei ole löytynyt selitystä.
