@@ -23,19 +23,19 @@ Yllä esiteltyjen luokkien lisäksi käyttöliittymässä on kokoava luokka [Yah
 
 Pelilogiikasta vastaava koodi sijaitsee luokassa _yahtzee.domain_. Uuden pelin alkaessa pääohjelma luo uuden _Game_-olion, joka puolestaan luo uudet _Roll_-, _Checker_- ja _Scorecard_-oliot. _Roll_-olio luo viisi uutta _Die_-oliota. Nämä luokat yhdessä toteuttavat pelilogiikan.
 
-_Game_-oliolla on oliomuuttujina heittojen ja kierrosten laskennasta huolehtivat _rollCounter_ ja _roundCounter_, joiden arvoja _Game_-olion metodit päivittävät tarpeen mukaan. Metodi [_reset()_](https://github.com/jenkarper/YahtzeeDesktop/blob/master/Yahtzee/src/main/java/yahtzee/domain/Game.java#L120) alustaa nämä laskurit sekä pöytäkirjan uutta peliä varten.
+_Game_-oliolla on oliomuuttujina heittojen ja kierrosten laskennasta huolehtivat _rollCounter_ ja _roundCounter_, joiden arvoja _Game_-olion metodit päivittävät tarpeen mukaan. Metodi [reset()](https://github.com/jenkarper/YahtzeeDesktop/blob/master/Yahtzee/src/main/java/yahtzee/domain/Game.java#L143) alustaa nämä laskurit sekä pöytäkirjan uutta peliä varten.
 
 Pelin kuluessa _Game_-olion metodit huolehtivat heitoista ja pisteytysestä. Tärkeimmät toiminnallisuutta toteuttavat metodit ovat
 
-* [roll()](https://github.com/jenkarper/YahtzeeDesktop/blob/master/Yahtzee/src/main/java/yahtzee/domain/Game.java#L65)
-* [checkScore(int type, int[] dice)](https://github.com/jenkarper/YahtzeeDesktop/blob/master/Yahtzee/src/main/java/yahtzee/domain/Game.java#L138)
-* [scoreRoll(int category, int[] dice)](https://github.com/jenkarper/YahtzeeDesktop/blob/master/Yahtzee/src/main/java/yahtzee/domain/Game.java#L78)
+* [roll()](https://github.com/jenkarper/YahtzeeDesktop/blob/master/Yahtzee/src/main/java/yahtzee/domain/Game.java#L60)
+* [checkScore(int type, int[] dice)](https://github.com/jenkarper/YahtzeeDesktop/blob/master/Yahtzee/src/main/java/yahtzee/domain/Game.java#L135)
+* [scoreRoll(int category, int[] dice)](https://github.com/jenkarper/YahtzeeDesktop/blob/master/Yahtzee/src/main/java/yahtzee/domain/Game.java#L73)
 
 Ne kutsuvat muita _domain_-pakkauksen luokkien metodeita ja välittävät lopuksi tarpeelliset tiedot käyttöliittymälle ja tietokannalle.
 
 ## Tietokanta
 
-Tietokannan käsittelystä vastaava koodi sijaitsee pakkauksessa _yahtzee.dao_. Pakkauksessa on kaksi rajapintaa, _UserDao_ ja _HighscoreDao_, jotka vastaavat tietokannan kahta taulua. Rajapintojen määrittelemien metodien toteutus tehdään luokissa _UserDaoDb_ ja _HighscoreDaoDb_, jotka implementoivat rajapinnat. _Db_-luokkien metodit huolehtivat myös tietokantataulujen luomisesta. Ne käyttävät _domain_-pakkauksen luokkaa _User_ apuna tietokannan lukemisessa ja sinne kirjoittamisessa. Sovelluksessa _Db_-luokkien instanssit ovat _Game_-olion oliomuuttujia, joten _Game_-olio kokoaa pelilogiikan ja tiedon pysyväistallennuksen, ja käyttöliittymä pääsee näihin käsiksi _Game_-luokan metodien kautta. _Game_-olio luo tietokannan oletusarvoisesti projektin juureen nimellä _yahtzee.db_, mutta testejä varten luodaan erillinen testitietokanta nimellä _yahtzeeTest.db_, samoin projektin juureen.
+Tietokannan käsittelystä vastaava koodi sijaitsee pakkauksessa _yahtzee.dao_. Pakkauksessa on kaksi rajapintaa, _UserDao_ ja _HighscoreDao_, jotka vastaavat tietokannan kahta taulua. Rajapintojen määrittelemien metodien toteutus tehdään implementoivissa luokissa _UserDaoDb_ ja _HighscoreDaoDb_. _Db_-luokkien metodit huolehtivat myös tietokantataulujen luomisesta. Ne käyttävät _domain_-pakkauksen luokkaa _User_ apuna tietokannan lukemisessa ja sinne kirjoittamisessa. Sovelluksessa _Db_-luokkien instanssit ovat _Game_-olion oliomuuttujia, joten _Game_-olio kokoaa pelilogiikan ja tiedon pysyväistallennuksen, ja käyttöliittymä pääsee näihin käsiksi _Game_-luokan metodien kautta. _Game_-olio luo tietokannan oletusarvoisesti projektin juureen nimellä _yahtzee.db_, mutta testejä varten luodaan erillinen testitietokanta nimellä _yahtzeeTest.db_, samoin projektin juureen.
 
 Taulut ovat rakenteeltaan seuraavanlaisia:
 
@@ -49,32 +49,32 @@ Tietokanta on toteutettu [SQLite](https://www.sqlitetutorial.net/what-is-sqlite/
 
 Pelaajan käytettävissä olevat toiminnallisuudet ovat nopan lukitseminen ja vapauttaminen, noppien heittäminen ja heiton pisteytys. Nämä toiminnallisuudet on kuvattu tarkemmin oheisissa sekvenssikaavioissa.
 
-#### Nopan lukitseminen ja vapauttaminen
+### Nopan lukitseminen ja vapauttaminen
 
 Käyttäjä voi lukita tai vapauttaa nopan klikkaamalla sitä kuvaavaa nappia graafisessa käyttöliittymässä. Kun noppa lukitaan, napin ympärille ilmestyy kapea reunus. Sekvenssikaaviossa kaikkia viittä noppaa kuvaa selvyyden vuoksi yksi olio, Dice. Skenaariossa käyttäjä on klikannut kolmosnoppaa, joka on ollut vapaana ja jonka hän haluaa lukita. Kun sitä vastoin lukittuna ollutta noppaa klikataan, kontrolli etenee samoin, mutta lukitusta ilmaisevat boolean-arvot ovat päinvastaiset.
 
-Ensin [tapahtumankäsittelijä](https://github.com/jenkarper/YahtzeeDesktop/blob/master/Yahtzee/src/main/java/yahtzee/ui/PlayView.java#L192) tarkistaa _Game_-oliolta, onko kolmosnoppa nyt lukittuna vai ei. _Game_-olio tekee tarkistuksen ja palauttaa kyseisen nopan _hold_-arvon. Sitten tapahtumankäsittelijä pyytää _Game_-oliota muuttamaan lukitusarvon ja päivittää lopuksi noppaa kuvaavan napin ulkoasua.
+Ensin [tapahtumankäsittelijä](https://github.com/jenkarper/YahtzeeDesktop/blob/master/Yahtzee/src/main/java/yahtzee/ui/PlayView.java#L195) tarkistaa _Game_-oliolta, onko kolmosnoppa nyt lukittuna vai ei. _Game_-olio tekee tarkistuksen ja palauttaa kyseisen nopan _hold_-arvon. Sitten tapahtumankäsittelijä pyytää _Game_-oliota muuttamaan lukitusarvon ja päivittää lopuksi noppaa kuvaavan napin ulkoasua.
 
 <img src="https://github.com/jenkarper/YahtzeeDesktop/blob/master/dokumentaatio/kuvat/sekvenssikaavio_noppa.png" width="700">
 
-#### Heitto
+### Heitto
 
-Käyttäjä heittää kaikkia vapaita noppia klikkaamalla nappia 'Heitä'. [Tapahtumankäsittelijä](https://github.com/jenkarper/YahtzeeDesktop/blob/master/Yahtzee/src/main/java/yahtzee/ui/PlayView.java#L204) tarkistaa ensin _Game_-luokan heittojen lukumäärästä kirjaa pitävän _rollCounter_-muuttujan arvon, ja jos uusi heitto sallitaan, kutsutaan _Game_-luokan metodia _roll()_. _Game_-olio kutsuu oman oliomuuttujansa _Roll_-olion metodia _roll()_. _Roll_-olio tarkistaa vuorollaan jokaisen viiden nopan _hold_-arvon, ja jos arvo on _false_, pyytää nopalta uutta arvoa. _Roll_-olio päivittää uudet arvot _values_-taulukkoon ja palauttaa taulukon _Game_-oliolle. _Game_-olio välittää saman taulukon käyttöliittymälle, joka päivittää käyttäjälle näkyvät noppien silmäluvut.
+Käyttäjä heittää kaikkia vapaita noppia klikkaamalla nappia 'Heitä'. [Tapahtumankäsittelijä](https://github.com/jenkarper/YahtzeeDesktop/blob/master/Yahtzee/src/main/java/yahtzee/ui/PlayView.java#L207) tarkistaa ensin _Game_-luokan heittojen lukumäärästä kirjaa pitävän _rollCounter_-muuttujan arvon, ja jos uusi heitto sallitaan, kutsutaan _Game_-luokan metodia roll(). _Game_-olio kutsuu oman oliomuuttujansa _Roll_-olion metodia roll(). _Roll_-olio tarkistaa vuorollaan jokaisen viiden nopan _hold_-arvon, ja jos arvo on _false_, pyytää nopalta uutta arvoa. _Roll_-olio päivittää uudet arvot _values_-taulukkoon ja palauttaa taulukon _Game_-oliolle. _Game_-olio välittää saman taulukon käyttöliittymälle, joka päivittää käyttäjälle näkyvät noppien silmäluvut.
 
 <img src="https://github.com/jenkarper/YahtzeeDesktop/blob/master/dokumentaatio/kuvat/sekvenssikaavio_heitto.png" width="700">
 
-#### Pisteytys
+### Pisteytys
 
-Kun käyttäjä haluaa pisteyttää heiton, hän klikkaa päänäkymässä nappia 'Pisteytä'. Tämä avaa uuden ikkunan, jossa käyttäjä näkee ne kategoriat, joihin heitto on mahdollista pisteyttää. Kun hän on valinnut haluamansa kategorian ja klikkaa nappia 'OK', tähän klikkaukseen reagoiva [tapahtumankäsittelijä](https://github.com/jenkarper/YahtzeeDesktop/blob/master/Yahtzee/src/main/java/yahtzee/ui/ScoreView.java#L71) käynnistää pisteytysprosessin. Sekvenssikaavion kuvaamassa skenaariossa käyttäjä on heittänyt arvot 3, 6, 6, 2 ja 6 ja valinnut kategoriaksi 'Kuutoset'.
+Kun käyttäjä haluaa pisteyttää heiton, hän klikkaa päänäkymässä nappia 'Pisteytä'. Tämä avaa uuden ikkunan, jossa käyttäjä näkee ne kategoriat, joihin heitto on mahdollista pisteyttää. Kun hän on valinnut haluamansa kategorian ja klikkaa nappia 'OK', tähän klikkaukseen reagoiva [tapahtumankäsittelijä](https://github.com/jenkarper/YahtzeeDesktop/blob/master/Yahtzee/src/main/java/yahtzee/ui/ScoreView.java#L73) käynnistää pisteytysprosessin. Sekvenssikaavion kuvaamassa skenaariossa käyttäjä on heittänyt arvot 3, 6, 6, 2 ja 6 ja valinnut kategoriaksi 'Kuutoset'.
 
-Kun tapahtumankäsitelijä on varmistanut, että käyttäjä on todella valinnut jonkun kategorian, se pyytää _Game_-oliolta noppien silmäluvut ja pöytäkirjan kategorian näkymän päivitystä varten. Sitten se kutsuu _Game_-luokan _scoreRoll()_-metodia ja antaa parametreina käyttäjän valitseman kategorian numeron sekä silmäluvut taulukkona. _Game_-olio kutsuu ensin tarkistajaluokka _Checkerin_ metodia _check(category, dice)_ ja saa paluuarvona heiton tuoman pistemäärän valitussa kategoriassa (tässä tapauksessa 18). Sitten _Game_-olio kutsuu _Scorecard_-olion metodia _markRoll(category, points)_, joka päivittää pöytäkirjaan kategoriaa (tässä 6) vastaavaan kohtaan parametrina saadun pistemäärän (eli 18). Lopuksi _Game_-olio päivittää kierrosten lukumäärästä kirjaa pitävää _roundCounter_-muuttujaa ja palauttaa merkityt pisteet käyttöliittymälle. Käyttöliittymä päivittää oman pöytäkirjanäkymänsä ja pyytää sitten _Game_-oliota resetoimaan _rollCounter_-muuttujan kierroksen päättymisen merkiksi. Lopuksi se tarkistaa _Game_-olion _roundCounter_-muuttujan arvon. Jos muuttuja on 0, se tarkoittaa, että viimeinenkin kierros on ohi ja peli on päättynyt. Tässä skenaariossa ollaan kierroksella kuusi, eli jäljellä on vielä yhdeksän kierrosta. Tapahtumankäsittelijä sulkee ikkunan, ja peli jatkuu pelinäkymässä.
+Kun tapahtumankäsitelijä on varmistanut, että käyttäjä on todella valinnut jonkun kategorian, se pyytää _Game_-oliolta noppien silmäluvut ja pöytäkirjan kategorian näkymän päivitystä varten. Sitten se kutsuu _Game_-luokan scoreRoll()-metodia ja antaa parametreina käyttäjän valitseman kategorian numeron sekä silmäluvut taulukkona. _Game_-olio kutsuu ensin tarkistajaluokka _Checkerin_ metodia check(category, dice) ja saa paluuarvona heiton tuoman pistemäärän valitussa kategoriassa (tässä tapauksessa 18). Sitten _Game_-olio kutsuu _Scorecard_-olion metodia markRoll(category, points), joka päivittää pöytäkirjaan kategoriaa (tässä 6) vastaavaan kohtaan parametrina saadun pistemäärän (eli 18). Lopuksi _Game_-olio päivittää kierrosten lukumäärästä kirjaa pitävää _roundCounter_-muuttujaa ja palauttaa merkityt pisteet käyttöliittymälle. Käyttöliittymä päivittää oman pöytäkirjanäkymänsä ja pyytää sitten _Game_-oliota resetoimaan _rollCounter_-muuttujan kierroksen päättymisen merkiksi. Lopuksi se tarkistaa _Game_-olion _roundCounter_-muuttujan arvon. Jos muuttuja on 0, se tarkoittaa, että viimeinenkin kierros on ohi ja peli on päättynyt. Tässä skenaariossa ollaan kierroksella kuusi, eli jäljellä on vielä yhdeksän kierrosta. Tapahtumankäsittelijä sulkee ikkunan, ja peli jatkuu pelinäkymässä.
 
 <img src="https://github.com/jenkarper/YahtzeeDesktop/blob/master/dokumentaatio/kuvat/sekvenssikaavio_pisteytys.png" width="700">
 
 ## Ohjelman rakenteeseen jääneitä heikkouksia
 
-Ohjelman _dao_- ja _domain_-pakkauksissa on tällä hetkellä jonkin verran kovakoodausta: esimerkiksi tietokannan sijainti määritellään koodissa, samoin noppien, heittojen ja kierrosten määrä. Ohjelmasta voisi tehdä näiltä osin konfiguroitavan, niin että käyttäjä voisi halutessaan muuttaa tietokannan oletussijaintia ja valita käyttöliittymässä haluamansa sääntömuunnelman pelin alussa. Tämä helpottaisi ohjelman laajennettavuutta.
+Ohjelman _dao_- ja _domain_-pakkauksissa on tällä hetkellä jonkin verran kovakoodausta: esimerkiksi tietokannan sijainti määritellään koodissa, samoin noppien, heittojen ja kierrosten määrä. Ohjelmasta voisi tehdä näiltä osin konfiguroitavan, niin että käyttäjä voisi halutessaan muuttaa tietokannan oletussijaintia ja valita käyttöliittymässä haluamansa sääntömuunnelman pelin alussa. Tämä parantaisi ohjelman laajennettavuutta.
 
 Käyttäjän syötettä (pelaajanimen syöttäminen pelin alussa) validoidaan hyvin kevyesti: tietokannasta tarkistetaan, onko kyseinen käyttäjänimi jo tietokannassa, ja jos on, oletetaan, että kyseessä on sama pelaaja. Jos käyttäjänimeä ei löydy tietokannasta, tauluun luodaan uusi rivi. Tämä mahdollistaa esimerkiksi lyöntivirheen takia muodostuvan uuden käyttäjän. Lisäksi itse syötettyä merkkijonoa tarkastellaan vain pituuden osalta, eikä mitään muita rajoituksia aseteta. Käyttäjänimeksi kelpaavat esimerkiksi tyhjä merkkijono tai kolme kysymysmerkkiä. Mielekkään top ten -listauksen nimissä käyttäjänimeltä voisi vaatia esimerkiksi vähimmäismerkkimäärää.
 
-Pelaajan vaihtaminen kahden pelin välillä ei nyt ole mahdollista, vaan ohjelman käynnistämisen jälkeen syötetty pelaajanimi on käytössä, kunnes ohjelma suljetaan, eikä sitä voi vaihtaa.
+Pelaajan vaihtaminen kahden pelin välillä ei nyt ole mahdollista, vaan ohjelman käynnistämisen jälkeen syötetty pelaajanimi on käytössä, kunnes ohjelma suljetaan.
