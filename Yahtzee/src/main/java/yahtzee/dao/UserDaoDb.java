@@ -14,7 +14,8 @@ import static java.lang.Integer.min;
 import yahtzee.domain.User;
 
 /**
- *
+ * Implements the methods defined in UserDao interface.
+ * 
  * @author pertjenn
  */
 public class UserDaoDb implements UserDao {
@@ -22,6 +23,11 @@ public class UserDaoDb implements UserDao {
     private String databaseName;
     private Connection connection;
 
+    /**
+     * Creates new instance with given database location, creates User table in database.
+     * 
+     * @param databaseName The location of the database.
+     */
     public UserDaoDb(String databaseName) {
         this.databaseName = databaseName;
         initialise(databaseName);
@@ -152,7 +158,8 @@ public class UserDaoDb implements UserDao {
     }
 
     /**
-     *
+     * Reads the database row with specified username, returns corresponding primary key.
+     * 
      * @param user Instance of User class.
      * @return The primary key associated with the username.
      */

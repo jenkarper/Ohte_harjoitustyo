@@ -12,7 +12,7 @@ import java.util.List;
 import yahtzee.domain.User;
 
 /**
- * Offers methods for setting up, reading from, and writing to a database.
+ * Implements the methods defined in HighscoreDao interface.
  *
  * @author pertjenn
  */
@@ -22,30 +22,24 @@ public class HighscoreDaoDb implements HighscoreDao {
     private Connection connection;
     private final UserDao userDb;
 
+    /**
+     * Creates a new instance with given database location.
+     * 
+     * @param databaseName The location of the database.
+     * @param userDb The class used to access User table in database.
+     */
     public HighscoreDaoDb(String databaseName, UserDao userDb) {
         this.databaseName = databaseName;
         initialise();
         this.userDb = userDb;
     }
 
-    /**
-     * Intitialises the database.
-     *
-     * @throws Exception
-     */
     private void initialise() {
 
         this.connection = connect();
         createTable();
     }
 
-    /**
-     * Connects to existing database via JDBC driver (or creates a new
-     * database).
-     *
-     * @return The connection.
-     * @throws Exception
-     */
     private Connection connect() {
         Connection c = null;
 
@@ -59,11 +53,6 @@ public class HighscoreDaoDb implements HighscoreDao {
         return c;
     }
 
-    /**
-     * Creates table Highscore (if it does not yet exist).
-     *
-     * @throws Exception
-     */
     private void createTable() {
 
         String createHighscore = "CREATE TABLE IF NOT EXISTS Highscore (id INTEGER PRIMARY KEY, score INTEGER, player INTEGER, FOREIGN KEY(player)"
