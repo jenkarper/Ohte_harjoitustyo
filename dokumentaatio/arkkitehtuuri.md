@@ -71,10 +71,12 @@ Kun tapahtumankäsitelijä on varmistanut, että käyttäjä on todella valinnut
 
 <img src="https://github.com/jenkarper/YahtzeeDesktop/blob/master/dokumentaatio/kuvat/sekvenssikaavio_pisteytys.png" width="700">
 
-## Ohjelman rakenteeseen jääneitä heikkouksia
+## Sovellukseen jääneet rakenteelliset puutteet
 
 Ohjelman _dao_- ja _domain_-pakkauksissa on tällä hetkellä jonkin verran kovakoodausta: esimerkiksi tietokannan sijainti määritellään koodissa, samoin noppien, heittojen ja kierrosten määrä. Ohjelmasta voisi tehdä näiltä osin konfiguroitavan, niin että käyttäjä voisi halutessaan muuttaa tietokannan oletussijaintia ja valita käyttöliittymässä haluamansa sääntömuunnelman pelin alussa. Tämä parantaisi ohjelman laajennettavuutta.
 
 Käyttäjän syötettä (pelaajanimen syöttäminen pelin alussa) validoidaan hyvin kevyesti: tietokannasta tarkistetaan, onko kyseinen käyttäjänimi jo tietokannassa, ja jos on, oletetaan, että kyseessä on sama pelaaja. Jos käyttäjänimeä ei löydy tietokannasta, tauluun luodaan uusi rivi. Tämä mahdollistaa esimerkiksi lyöntivirheen takia muodostuvan uuden käyttäjän. Lisäksi itse syötettyä merkkijonoa tarkastellaan vain pituuden osalta, eikä mitään muita rajoituksia aseteta. Käyttäjänimeksi kelpaavat esimerkiksi tyhjä merkkijono tai kolme kysymysmerkkiä. Mielekkään top ten -listauksen nimissä käyttäjänimeltä voisi vaatia esimerkiksi vähimmäismerkkimäärää.
 
 Pelaajan vaihtaminen kahden pelin välillä ei nyt ole mahdollista, vaan ohjelman käynnistämisen jälkeen syötetty pelaajanimi on käytössä, kunnes ohjelma suljetaan.
+
+Ohjelman rakenne on joiltakin osin turhan monimutkainen. Esimerkiksi heittotoiminto vaatii paljon edestakaista vuoropuhelua käyttöliittymän ja _domain_-luokan olioiden kanssa. Rakennetta voisi suoraviivaistaa ja selkiyttää.
