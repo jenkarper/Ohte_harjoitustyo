@@ -1,5 +1,6 @@
 package yahtzee.ui;
 
+import javafx.event.ActionEvent;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
@@ -69,7 +70,7 @@ public class ScoreView {
         stage.setScene(scene);
 
         // Define button actions
-        ok.setOnAction(value -> {
+        ok.setOnAction((ActionEvent value) -> {
             if (tg.getSelectedToggle() == null) {
                 alert.getAlert(3, 0);
             } else {

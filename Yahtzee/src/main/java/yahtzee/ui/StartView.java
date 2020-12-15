@@ -48,7 +48,7 @@ public class StartView {
         layout.setAlignment(Pos.CENTER);
 
         // Set scene
-        Scene scene = new Scene(layout, 500, 300);
+        Scene scene = new Scene(layout, 500, 200);
         
         // Define button action
         ok.setOnAction((event) -> {
