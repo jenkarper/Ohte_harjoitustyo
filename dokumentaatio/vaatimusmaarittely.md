@@ -2,7 +2,7 @@
 
 ## Sovelluksen tarkoitus
 
-YahtzeeDesktop-sovelluksella voi pelata noppapeli Jatsia yksinpelinä.
+YahtzeeDesktop-sovelluksella voi pelata noppapeli jatsia yksinpelinä.
 
 ## Käyttäjät
 
@@ -10,9 +10,7 @@ Sovelluksella on vain yksi käyttäjärooli, *peruskäyttäjä*.
 
 ## Käyttöliittymä
 
-Graafinen käyttöliittymä koostuu neljästä näkymästä: Avausnäkymässä (1) käyttäjä pääsee syöttämään pelaajanimensä ja aloittamaan uuden pelin, jonka jälkeen aukeaa varsinainen pelinäkymä (2). Pelin ajan pysytään pääasiallisesti tässä pelinäkymässä. Heiton pisteyttäminen avaa uuden ikkunan (3), jossa pelaaja pääsee valitsemaan, mihin pöytäkirjan kategoriaan haluaa pisteyttää heiton. Pelin päättyessä (eli viidennentoista kierroksen pisteytyksen jälkeen) avautuu loppunäkymä (4), jossa näkyvät pelaajan saamat kokonaispisteet sekä kymmenen parasta tulosta niihin liittyvine pelaajanimineen.
-
-<img src="https://github.com/jenkarper/YahtzeeDesktop/blob/master/dokumentaatio/kuvat/kayttoliittyma.png" wifth="800">
+Graafinen käyttöliittymä koostuu neljästä näkymästä: Avausnäkymässä käyttäjä pääsee syöttämään pelaajanimensä ja aloittamaan uuden pelin, jonka jälkeen aukeaa varsinainen pelinäkymä. Pelin ajan pysytään pääasiallisesti tässä pelinäkymässä. Heiton pisteyttäminen avaa uuden ikkunan, jossa pelaaja pääsee valitsemaan, mihin pöytäkirjan kategoriaan haluaa pisteyttää heiton. Pelin päättyessä (eli viidennentoista kierroksen pisteytyksen jälkeen) avautuu loppunäkymä, jossa näkyvät pelaajan saamat kokonaispisteet sekä kymmenen parasta tulosta niihin liittyvine pelaajanimineen. Käyttöliittymän visuaalinen esitys löytyy [käyttöohjeista](kayttoohje.md#uuden-pelin-aloittaminen).
 
 ## Perusversion tarjoama toiminnallisuus
 
@@ -30,5 +28,6 @@ Sovellus laskee pelaajan yhteispisteet automaattisesti pelin päätyttyä ja lis
 ## Mahdollinen laajennettu toiminnallisuus
 
 * Sovellukseen voisi lisätä mahdollisuuden moninpeliin.
-* Tietokantaan tallennettavaa tietoa voisi jalostaa niin, että pelkkien pisteiden sijasta tallennettaisiin koko pöytäkirja omaan tietokantatauluunsa. Pöytäkirjataulusta voisi sitten laskea erilaisia tilastoja, kuten keskimääräisen tuloksen, miten jatsi-heitot jakaantuvat nopan silmälukujen kesken ja kuinka suuressa osassa peleistä välisumma on tuonut bonuksen.
+* Tietokantaan tallennettavaa tietoa voisi laajentaa niin, että pelkkien pisteiden sijasta tallennettaisiin koko pöytäkirja omaan tietokantatauluunsa. Pöytäkirjataulusta voisi sitten laskea erilaisia tilastoja, kuten keskimääräisen tuloksen, miten jatsi-heitot jakaantuvat nopan silmälukujen kesken ja kuinka suuressa osassa peleistä välisumma on tuonut bonuksen.
 * Jatsin säännöistä on olemassa erilaisia versioita, esimerkiksi niin kutsutussa "pakko-jatsissa" pöytäkirjan kategoriat on täytettävä järjestyksessä ykkösistä alkaen. Peliä voisi laajentaa niin, että pelaaja voi avausnäkymässä valita, millä säännöillä haluaa pelata.
+* Perusversion käyttäjärooleja voisi lisätä siten, että anonyymi käyttäjä voi pelata peliä ja nähdä parhaiden tulosten listan, mutta omien pelitietojen tallennus ja niiden tarkastelu vaatisi käyttäjänimen ja salasanan.
