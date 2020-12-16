@@ -4,9 +4,9 @@
 
 Saat sovelluksen käyttöösi lataamalla uusimmasta releasesta tiedoston yahtzee.jar omalle koneellesi. Latauksen jälkeen navigoi tiedoston tallennushakemistoon komentorivillä ja aja komento `java -jar yahtzee.jar`.
 
-Vaihtoehtoisesti voit ladata projektin itsellesi zip-tiedostona tai kloonata koko repositorion, jolloin saat suoritettua ohjelman navigoimalla ensin juurihakemistoon _Yahtzee_ ja ajamalla komennon `mvn compile exec:java -Dexec.mainClass=yahtzee.ui.Main`.
+Vaihtoehtoisesti voit ladata projektin itsellesi zip-tiedostona tai kloonata koko repositorion, jolloin saat suoritettua ohjelman komentoriviltä navigoimalla ensin juurihakemistoon _Yahtzee_ ja ajamalla komennon `mvn compile exec:java -Dexec.mainClass=yahtzee.ui.Main`.
 
-Sovellusta voi käyttää myös NetBeans-ympäristössä, jolloin se käynnistetään työkalupalkin Run Project -nappulasta (vihreä kolmio) tai ylävalikosta Run > Run Project.
+Sovellusta voi käyttää myös NetBeans-ympäristössä, jolloin se käynnistetään työkalupalkin Run Project -napista (vihreä kolmio) tai ylävalikosta Run > Run Project.
 
 Tietokannan rakentamiseen käytetty SQLite-kirjasto luo uuden paikallisen tietokannan käyttöösi.
 
@@ -28,13 +28,13 @@ Peliä pelataan tutuilla [jatsin säännöillä](https://www.lautapeliopas.fi/sa
 * samoin viisi samaa silmälukua saa kirjata jatsiksi tai mökiksi
 * jatsi tuottaa paitsi noppien silmälukujen summan, myös 50 lisäpistettä: siten viisi kuutosta tuo jatsina 86 pistettä, viisi ykköstä 55 pistettä (kyllä, se on minustakin epäreilua, mutta tämä on meidän perheen house rule)
 
-Nopat näkyvät ikkunan yläreunassa, pöytäkirja vasemmassa laidassa, pelaajatiedot oikeassa laidassa ja pelaamiseen käytettävät napit keskellä. Ikkunan alalaidassa on lisäksi napit __Ohje__, __Aloita uusi peli__ ja __Omat tiedot__, joista pääset tarkastelemaan peliohjeita tai omia tietojasi sekä aloittamaan uuden pelin. Nopat ovat peliä aloitettaessa vapaina, ja silmäluvun paikalla ovat sanan JATSI-kirjaimet.
+Nopat näkyvät ikkunan yläreunassa, pöytäkirja vasemmassa laidassa, pelaajatiedot oikeassa laidassa ja pelaamiseen käytettävät napit keskellä. Ikkunan alalaidassa on lisäksi napit __Ohje__, __Aloita uusi peli__ ja __Omat tiedot__, joista pääset tarkastelemaan peliohjeita tai omia tietojasi sekä aloittamaan uuden pelin. Nopat ovat peliä aloitettaessa vapaina, ja silmälukujen paikalla ovat sanan JATSI-kirjaimet.
 
 <img src="https://github.com/jenkarper/YahtzeeDesktop/blob/master/dokumentaatio/kuvat/gui_peli.png" width=500>
 
 #### Heittäminen
 
-Pääset heittämään noppia klikkaamalla __Heitä__. Vuorossa voi heittää enintään kolme kertaa, ja osan nopista voi heittojen välillä lukita. Tämä tapahtuu klikkaamalla kyseistä noppaa: yllä olevassa kuvassa nopat 1, 2 ja 5 ovat lukittuina, muut vapaina. Saman nopan voi taas vapauttaa kesken kierroksen.
+Pääset heittämään noppia klikkaamalla __Heitä__. Vuorossa voi heittää enintään kolme kertaa, ja osan nopista voi heittojen välillä lukita. Tämä tapahtuu klikkaamalla kyseistä noppaa: yllä olevassa kuvassa nopat 1, 2 ja 5 (kaikissa silmäluku 5) ovat lukittuina, muut vapaina. Saman nopan voi taas vapauttaa kesken kierroksen.
 
 #### Pisteyttäminen
 
@@ -42,11 +42,11 @@ Kun haluat pisteyttää heiton, klikkaa __Pisteytä__. Aukeavassa ikkunassa näe
 
 <img src="https://github.com/jenkarper/YahtzeeDesktop/blob/master/dokumentaatio/kuvat/gui_pisteytys.png" width=700>
 
-Pääset vielä takaisin pelinäkymään klikkaamalla __Peruuta__, mutta kun kierroksen kaikki kolme heittoa on käytetty, et voi heittää uudelleen ennen kuin edellinen kierros on pisteytetty.
+Pääset vielä takaisin pelinäkymään ilman pisteytystä klikkaamalla __Peruuta__, mutta kun kierroksen kaikki kolme heittoa on käytetty, et voi heittää uudelleen ennen kuin edellinen kierros on pisteytetty.
 
 #### Pelin lopetus
 
-Kun koko pöytäkirja on täysi, ohjelma laskee yhteispisteet. Jos pääset kymmenen parhaan joukkoon, pelaajanimesi ja pistemääräsi lisätään lopetusnäkymässä olevaan Parhaat tulokset -listaukseen.
+Kun koko pöytäkirja on täysi, ohjelma laskee yhteispisteet. Jos pääset kymmenen parhaan joukkoon, pelaajanimesi ja pistemääräsi lisätään lopetusnäkymässä olevaan parhaat tulokset -listaukseen.
 
 <img src="https://github.com/jenkarper/YahtzeeDesktop/blob/master/dokumentaatio/kuvat/gui_loppu.png" width=550>
 
