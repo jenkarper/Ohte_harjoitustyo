@@ -37,5 +37,6 @@
 | 12.12.|  1  | Virheiden käsittelyn yhtenäistys, koodin siistiminen, puuttuvien JavaDocien kirjoittaminen |
 | 14.12.| 3.5 | Testiluokkien koodin siistiminen, delete-metodin lisääminen HighscoreDaoDb-luokkaan, testausdokumentin kirjoittaminen, kuvien lisääminen käyttöohjeeseen |
 | 15.12.| 2.5 | Dokumentaation täydennys, viitteiden tarkistus ja muu oikoluku, bugin korjaus koodista, vähäinen ulkoasun viilaus, viimeisen releasen luonti |
+| 16.12.|  1  | Viimeiset viilaukset ja testaus etätyöpöydällä |
 |       |     | |
-| YHT   |  85 | |
+| YHT   |  86 | |
