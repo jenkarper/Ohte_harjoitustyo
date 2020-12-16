@@ -14,6 +14,8 @@ YahtzeeDesktop on paikallisella koneella pelattava jatsi-noppapeli. Ohjelma simu
 
 [Arkkitehtuurikuvaus](dokumentaatio/arkkitehtuuri.md)
 
+[Testausdokumentti](dokumentaatio/testaus.md)
+
 [Tuntikirjanpito](dokumentaatio/tuntikirjanpito.md)
 
 ### Releaset
@@ -22,12 +24,12 @@ YahtzeeDesktop on paikallisella koneella pelattava jatsi-noppapeli. Ohjelma simu
 
 [Viikko 6](https://github.com/jenkarper/YahtzeeDesktop/releases/tag/viikko6)
 
-[Lopullinen palautus](https://github.com/jenkarper/YahtzeeDesktop/releases/tag/viikko7)
+[Loppupalautus](https://github.com/jenkarper/YahtzeeDesktop/releases/tag/viikko7)
 
 ### Komentorivitoiminnot
 
 #### Testaus
-Yksikkötestit on kirjoitettu sovelluslogiikasta ja tietojen pysyväistallennuksesta huolehtivien pakkausten luokille, ja ne suoritetaan komennolla `mvn test`. Testikattavuusraportti luodaan komennolla `mvn jacoco:report`. Raportti muodostuu tiedostoon _target/site/jacoco/index.html_, ja sen voi avata selaimessa esimerkiksi komennolla `chromium-browser target/site/jacoco/index.html`. Käyttöliittymän rakentavaa koodia (pakkaus _yahtzee.ui_) on testattu lähinnä koekäyttämällä sovellusta.
+Yksikkötestit on kirjoitettu sovelluslogiikasta ja tietojen pysyväistallennuksesta huolehtivien pakkausten luokille, ja ne suoritetaan komennolla `mvn test`. Testikattavuusraportti luodaan komennolla `mvn jacoco:report`. Raportti muodostuu tiedostoon _target/site/jacoco/index.html_, ja sen voi avata selaimessa esimerkiksi komennolla `chromium-browser target/site/jacoco/index.html`. Käyttöliittymän rakentavaa koodia (pakkaus _yahtzee.ui_) on testattu manuaalisesti koekäyttämällä sovellusta.
 
 #### Checkstyle
 Projektissa on käytössä koodin laatua valvova työkalu Checkstyle. Checkstyle-tarkastus suoritetaan komentoriviltä komennolla `mvn jxr:jxr checkstyle:checkstyle`, ja sen generoimaa raporttia voi tarkastella selaimessa komennolla `chromium-browser target/site/checkstyle.html`. Käyttöliittymän rakentava koodi on jätetty Checkstylen ulkopuolelle.
