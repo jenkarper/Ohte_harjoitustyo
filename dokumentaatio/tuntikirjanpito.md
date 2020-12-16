@@ -39,4 +39,4 @@
 | 15.12.| 2.5 | Dokumentaation täydennys, viitteiden tarkistus ja muu oikoluku, bugin korjaus koodista, vähäinen ulkoasun viilaus, viimeisen releasen luonti |
 | 16.12.|  1  | Viimeiset viilaukset ja testaus etätyöpöydällä |
 |       |     | |
-| YHT   |  86 | |
+| __YHT__   |  __86__ | |
