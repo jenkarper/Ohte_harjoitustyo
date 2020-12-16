@@ -28,6 +28,6 @@ Sovellus laskee pelaajan yhteispisteet automaattisesti pelin päätyttyä ja lis
 ## Mahdollinen laajennettu toiminnallisuus
 
 * Sovellukseen voisi lisätä mahdollisuuden moninpeliin.
-* Tietokantaan tallennettavaa tietoa voisi laajentaa niin, että pelkkien pisteiden sijasta tallennettaisiin koko pöytäkirja omaan tietokantatauluunsa. Pöytäkirjataulusta voisi sitten laskea erilaisia tilastoja, kuten keskimääräisen tuloksen, miten jatsi-heitot jakaantuvat nopan silmälukujen kesken ja kuinka suuressa osassa peleistä välisumma on tuonut bonuksen.
+* Tietokantaan tallennettavaa tietoa voisi laajentaa niin, että pelkkien pisteiden sijasta tallennettaisiin koko pöytäkirja omaan tietokantatauluunsa. Pöytäkirjataulusta voisi sitten laskea erilaisia tilastoja, kuten pisteiden keskiarvon, miten jatsi-heitot jakaantuvat nopan silmälukujen kesken ja kuinka suuressa osassa peleistä välisumma on tuonut bonuksen. Highscore-taululle ei tällöin olisi tarvetta, mutta pelaajatiedot tallentavan User-taulun ja pöytäkirjat tallentavat Scorecard-taulun väliin tarvittaisiin liitostaulu.
 * Jatsin säännöistä on olemassa erilaisia versioita, esimerkiksi niin kutsutussa "pakko-jatsissa" pöytäkirjan kategoriat on täytettävä järjestyksessä ykkösistä alkaen. Peliä voisi laajentaa niin, että pelaaja voi avausnäkymässä valita, millä säännöillä haluaa pelata.
 * Perusversion käyttäjärooleja voisi lisätä siten, että anonyymi käyttäjä voi pelata peliä ja nähdä parhaiden tulosten listan, mutta omien pelitietojen tallennus ja niiden tarkastelu vaatisi käyttäjänimen ja salasanan.
