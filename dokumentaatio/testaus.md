@@ -23,7 +23,7 @@ Testipakkauksessa _dao_ olevat testiluokat [_HighscoreDaoDbTest_](https://github
 
 ### Testikattavuus
 
-Käyttöliittymän rakentava koodi on rajattu kokonaan automatisoidun testauksen ulkopuolelle. Testatuista luokista yksinkertaiset _get_- ja _set_-metodit on jätetty testaamatta. Sellaisia _Game_-luokan metodeita, jotka ainoastaan kutsuvat jotakin _UserDaoDb_- tai _HighscoreDaoDb_-luokan metodia, ei myöskään ole testattu. Testauksen rivikattavuudeksi tulee näin 90 % ja haaraumakattavuudeksi 87 %:
+Käyttöliittymän rakentava koodi on rajattu kokonaan automatisoidun testauksen ulkopuolelle. Testatuista luokista yksinkertaiset _get_- ja _set_-metodit on jätetty testaamatta. Sellaisia _Game_-luokan metodeita, jotka ainoastaan kutsuvat jotakin _UserDaoDb_- tai _HighscoreDaoDb_-luokan metodia, ei myöskään ole testattu. Testauksen rivikattavuudeksi tulee näin 90 % ja haaraumakattavuudeksi 87 %.
 
 <img src="https://github.com/jenkarper/YahtzeeDesktop/blob/master/dokumentaatio/kuvat/testikattavuus.png" width="1000">
 
